@@ -1,0 +1,44 @@
+$line-height: 40px;
+$content-padding: 20px;
+.menu-wrapper {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+
+    .menu-drawer {
+        position: fixed;
+        padding: $content-padding 0;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: aliceblue;
+
+        ul {
+            list-style: none;
+
+            li {
+                background-color: azure;
+                justify-content: center;
+                padding-left: $content-padding;
+                box-sizing: border-box;
+                margin-top: 3px;
+                width: 100%;
+                min-height: $line-height;
+                line-height: $line-height;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: bisque;
+                }
+            }
+        }
+    }
+
+    .menu-content {
+        position: fixed;
+        box-sizing: border-box;
+        height: 100%;
+        padding: $content-padding;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
