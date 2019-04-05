@@ -1,0 +1,52 @@
+<table>
+    <thead>
+    <tr>
+        <th *ngIf="hasSelection"></th>
+        <th *ngFor="let column of tableConfig.columns"
+            [ngStyle]="{width: column.width, 'text-align': column.align}">
+            {{column.label}}
+        </th>
+    </tr>
+    <tr>
+        <th *ngIf="hasSelection">
+            <input #selectAll(change)="onSelectAll(selectAll.checked)"
+                   *ngIf="tableConfig.selectable === 'MULTI'"
+                   type="checkbox">
+        </th>
+        <th *ngFor="let column of tableConfig.columns" [ngStyle]="{width: column.width, 'text-align': column.align}">
+            <gt-core-table-filter [filterConfig]="column.filter"></gt-core-table-filter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr #actRow
+        (click)="onRowClick(row, rowIndex)"
+        *ngFor="let row of data; let rowIndex = index"
+        [attr.edited]="false"
+        [ngClass]="getRowClass(row, rowIndex)">
+        <td *ngIf="hasSelection">
+            <input #selectionCheckbox
+                   (change)="changeCheckbox(row, selectionCheckbox)"
+                   name="tableSelector"
+                   type="checkbox">
+        </td>
+        <td *ngFor="let column of tableConfig.columns; let columnIndex = index"
+            [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
+            [ngStyle]="{width: column.width, 'text-align': column.align}">
+            <gt-core-table-column [columnConfig]="column"
+                                  [columnIndex]="columnIndex"
+                                  [edited]="actRow.edited"
+                                  [rowIndex]="rowIndex"
+                                  [row]="row"></gt-core-table-column>
+        </td>
+        <td (click)="actRow.edited = true" *ngIf="!actRow.edited">
+            <span class="editButton">🖉</span>
+        </td>
+        <td *ngIf="actRow.edited">
+            <span>✔</span>
+            <span (click)="actRow.edited = false" class="editButton">⨯</span>
+        </td>
+        <!--❌✔-->
+    </tr>
+    </tbody>
+</table>

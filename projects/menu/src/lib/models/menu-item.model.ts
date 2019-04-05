@@ -6,7 +6,7 @@ export class MenuItem {
                        public action: any = null) {
     }
 
-    public static link(label: string, path = label, icon = ''): MenuItem {
+    public static create(label: string, path = label, icon = ''): MenuItem {
         return new MenuItem(label, path, icon);
     }
 }

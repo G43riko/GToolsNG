@@ -12,6 +12,14 @@
             "element",
             "gt",
             "kebab-case"
-        ]
+        ],
+        "paths": {
+            "@gt-common": [
+                "../../dist/gt-common"
+            ],
+            "@gt-common/*": [
+                "../../dist/gt-common/*"
+            ]
+        }
     }
 }

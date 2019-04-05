@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AboutComponent } from './pages/about/about.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 export const appRoutes: Routes = [
     {
@@ -9,11 +10,18 @@ export const appRoutes: Routes = [
     },
     {
         path: 'home',
-        component: AppComponent,
+        component: WelcomeComponent,
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+        path: 'table',
+        loadChildren: './examples/table-maker/table-maker-example.module#TableMakerExampleModule',
     },
     {
         path: '**',
         redirectTo: 'home',
     },
-
 ];

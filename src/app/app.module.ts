@@ -5,10 +5,14 @@ import { MenuModule } from '../../projects/menu/src/lib/menu.module';
 import { appRoutes } from './app-routing';
 
 import { AppComponent } from './app.component';
+import { AboutComponent } from './pages/about/about.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AboutComponent,
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,

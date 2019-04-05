@@ -1,0 +1,28 @@
+<ng-container *ngIf="filterConfig" [ngSwitch]="filterConfig.type">
+    <ng-template [ngSwitchCase]="'DATE_RANGE'">
+        <input [min]="filterConfig.min"
+               style="width: 45%"
+               type="date">
+        <input [max]="filterConfig.max"
+               style="width: 45%"
+               type="date">
+    </ng-template>
+    <ng-template [ngSwitchCase]="'NUMBER_RANGE'">
+        <input [min]="filterConfig.min"
+               style="width: 45%"
+               type="number">
+        <input [max]="filterConfig.max"
+               style="width: 45%"
+               type="number">
+    </ng-template>
+    <ng-template [ngSwitchCase]="'SELECT'">
+        <select>
+            <option *ngFor="let selectData of filterConfig.selectValues" [value]="selectData.value">
+                {{selectData.key}}
+            </option>
+        </select>
+    </ng-template>
+    <ng-template ngSwitchDefault>
+        <input [type]="filterConfig.type.toLowerCase()">
+    </ng-template>
+</ng-container>

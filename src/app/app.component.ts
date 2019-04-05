@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { menuItems } from './menu-items';
 
 @Component({
     selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    public readonly menuItems = menuItems;
     public title = 'GToolsNG';
+
+    public constructor() {
+    }
 }

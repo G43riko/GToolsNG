@@ -1,8 +1,8 @@
 <div class="menu-wrapper">
     <div [ngStyle]="{'width.px': menuWidth}" class="menu-drawer">
         <ul>
-            <li *ngFor="let menuItem of menuItems">
-                <span (click)="process(menuItem)">{{menuItem.label}}</span>
+            <li (click)="process(menuItem)" *ngFor="let menuItem of menuItems">
+                <span>{{getLabelFor(menuItem) | async}}</span>
 
             </li>
         </ul>
