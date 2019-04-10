@@ -10,7 +10,9 @@ export interface GTTranslation {
      */
     instant(key: string): string;
 
-    currentLang?(): string;
+    currentLang?: string;
+
+    use?(lang: string): void;
 
     exists?(key: string): boolean;
 }

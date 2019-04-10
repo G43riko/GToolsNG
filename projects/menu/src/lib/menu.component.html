@@ -1,9 +1,9 @@
 <div class="menu-wrapper">
     <div [ngStyle]="{'width.px': menuWidth}" class="menu-drawer">
+        <button (click)="switchLanguage()">{{currentLang}}</button>
         <ul>
-            <li (click)="process(menuItem)" *ngFor="let menuItem of menuItems">
-                <span>{{getLabelFor(menuItem) | async}}</span>
-
+            <li (click)="component.click()" *ngFor="let menuItem of menuItems">
+                <gt-menu-item #component [menuItem]="menuItem"></gt-menu-item>
             </li>
         </ul>
     </div>

@@ -1,7 +1,5 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
-import { Router } from '@angular/router';
 import { GT_TRANSLATE_TOKEN, GTTranslation } from '@gt-common';
-import { of } from 'rxjs';
 import { MenuItem } from './models/menu-item.model';
 
 @Component({
@@ -14,24 +12,18 @@ export class MenuComponent implements OnInit {
     @Input() public menuItems: MenuItem[] = [MenuItem.create('home'), MenuItem.create('about')];
     public menuWidth = 240;
 
-    public constructor(private readonly router: Router,
-                       @Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
+    public currentLang = 'sk';
+
+    public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
+    }
+
+    public switchLanguage(): void {
+        this.currentLang = this.currentLang === 'sk' ? 'en' : 'sk';
+        if (this.translationService && typeof this.translationService.use === 'function') {
+            this.translationService.use(this.currentLang);
+        }
     }
 
     public ngOnInit(): void {
     }
-
-    public getLabelFor(menuItem: MenuItem) {
-        if (this.translationService && this.translationService.exists(menuItem.label)) {
-            return this.translationService.get(menuItem.label);
-        }
-
-        return of(menuItem.label);
-    }
-
-
-    public process(menuItem: MenuItem): void {
-        this.router.navigate([menuItem.url]);
-    }
-
 }

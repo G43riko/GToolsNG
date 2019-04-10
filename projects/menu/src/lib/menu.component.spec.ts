@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestingModule } from '@gt-common';
 
 import { MenuComponent } from './menu.component';
 
@@ -8,9 +9,13 @@ describe('MenuComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MenuComponent]
-        })
-               .compileComponents();
+            imports: [
+                TestingModule,
+            ],
+            declarations: [
+                MenuComponent
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {

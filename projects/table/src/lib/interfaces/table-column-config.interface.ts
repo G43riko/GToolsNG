@@ -1,6 +1,13 @@
 import { TemplateRef } from '@angular/core';
 import { TableFilterConfigInterface } from './table-filter-config.interface';
 
+export enum FooterType {
+    SUM = 1 << 0,
+    AVG = 1 << 1,
+    MIN = 1 << 2,
+    MAX = 1 << 3,
+}
+
 export interface TableColumnConfigInterface {
     /**
      * Enable / Disable filtering
@@ -23,11 +30,12 @@ export interface TableColumnConfigInterface {
      * Column title printed into th element
      */
     label?: string;
+    labelKey?: string;
     /**
      * Function for cell styling and mapping
      */
     customValue?: (row: any) => string;
-    footer?: 'SUM' | 'AVG' | 'MIN' | 'MAX';
+    footer?: FooterType | FooterType[];
     customFooter?: (iterator: IterableIterator<any>) => string;
 
     selection?: 'none' | 'single' | 'multi';

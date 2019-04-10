@@ -17,6 +17,10 @@ export class CoreTableColumnComponent implements OnInit {
     }
 
     public get editable() {
+        if (!this.columnConfig) {
+            return false;
+        }
+
         if (this.columnConfig.customValue) {
             return false;
         }
@@ -29,6 +33,9 @@ export class CoreTableColumnComponent implements OnInit {
     }
 
     public get value() {
+        if (!this.columnConfig) {
+            return null;
+        }
         if (typeof this.columnConfig.customValue === 'function') {
             return this.columnConfig.customValue(this.row);
         }

@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TableMakerModule } from '@table';
+import { AppTestingModule } from '../../tests/app-testing.module';
+import { BasicTableComponent } from './basic-table/basic-table.component';
+import { HugeTableComponent } from './huge-table/huge-table.component';
 
 import { TableMakerExampleComponent } from './table-maker-example.component';
 
@@ -8,9 +12,16 @@ describe('TableMakerExampleComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [TableMakerExampleComponent]
-        })
-               .compileComponents();
+            imports: [
+                AppTestingModule,
+                TableMakerModule,
+            ],
+            declarations: [
+                BasicTableComponent,
+                HugeTableComponent,
+                TableMakerExampleComponent,
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {

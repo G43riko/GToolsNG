@@ -1,19 +1,21 @@
-<ng-template [ngIf]="edited && editable">
-    <input *ngIf="columnConfig.type === 'number'"
-           [value]="value"
-           type="number">
+<ng-template [ngIf]="columnConfig">
+    <ng-template [ngIf]="edited && editable && !columnConfig.tableCellTemplate">
+        <input *ngIf="columnConfig.type === 'number'"
+               [value]="value"
+               type="number">
 
-    <input *ngIf="!columnConfig.type || columnConfig.type === 'text'"
-           [value]="value"
-           type="text">
-</ng-template>
-<ng-template [ngIf]="!edited || !editable">
-    {{value}}
-</ng-template>
+        <input *ngIf="!columnConfig.type || columnConfig.type === 'text'"
+               [value]="value"
+               type="text">
+    </ng-template>
+    <ng-template [ngIf]="(!edited || !editable) && !columnConfig.tableCellTemplate">
+        {{value}}
+    </ng-template>
 
-<ng-container *ngIf="columnConfig.tableCellTemplate">
-    <ng-container *ngTemplateOutlet="columnConfig.tableCellTemplate; context: {
+    <ng-container *ngIf="columnConfig && columnConfig.tableCellTemplate">
+        <ng-container *ngTemplateOutlet="columnConfig.tableCellTemplate; context: {
                           row: row, columnConfig: columnConfig, value: value
                       }"
-    ></ng-container>
-</ng-container>
+        ></ng-container>
+    </ng-container>
+</ng-template>

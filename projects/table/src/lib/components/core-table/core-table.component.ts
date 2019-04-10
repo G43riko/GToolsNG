@@ -1,4 +1,6 @@
-import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from '@angular/core';
+import { GT_TRANSLATE_TOKEN, GTTranslation } from '@gt-common';
+import { Observable, of } from 'rxjs';
 import { TableColumnConfigInterface } from '../../interfaces/table-column-config.interface';
 import { TableConfigInterface } from '../../interfaces/table-config.interface';
 
@@ -12,14 +14,30 @@ export class CoreTableComponent implements OnInit {
     @Input() public data: any[];
     @ViewChildren('selectionCheckbox') public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
 
-    public constructor() {
+    public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
     }
 
-    public get hasSelection() {
+    public get hasSelection(): boolean {
+        if (!this.tableConfig) {
+            return false;
+        }
+
         return this.tableConfig.selectable === 'MULTI' || this.tableConfig.selectable === 'SINGLE';
     }
 
     public ngOnInit(): void {
+    }
+
+    public getLabel(columnConfig: TableColumnConfigInterface): Observable<string> {
+        if (columnConfig.labelKey) {
+            if (this.translationService) {
+                return this.translationService.get(columnConfig.labelKey);
+            }
+
+            return of(columnConfig.labelKey);
+        }
+
+        return of(columnConfig.label);
     }
 
     public onRowClick(row: any, rowIndex: number) {

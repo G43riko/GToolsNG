@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { GTCommonComponent } from './gtcommon.component';
 
 @NgModule({
-    declarations: [GTCommonComponent],
+    declarations: [],
     imports: [],
-    exports: [GTCommonComponent]
+    exports: []
 })
 export class GTCommonModule {
 }

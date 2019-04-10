@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CoreTableColumnComponent } from '@table/lib/components/core-table-column/core-table-column.component';
+import { CoreTableFilterComponent } from '@table/lib/components/core-table-filter/core-table-filter.component';
 
 import { CoreTableComponent } from './core-table.component';
 
@@ -8,9 +10,12 @@ describe('CoreTableComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CoreTableComponent]
-        })
-               .compileComponents();
+            declarations: [
+                CoreTableFilterComponent,
+                CoreTableColumnComponent,
+                CoreTableComponent
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {

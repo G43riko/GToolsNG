@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { GTCommonModule } from '@gt-common';
+import { TableMakerModule } from '@table';
+import { AppTestingModule } from '../../../tests/app-testing.module';
 
 import { BasicTableComponent } from './basic-table.component';
 
@@ -8,9 +11,15 @@ describe('BasicTableComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [BasicTableComponent]
-        })
-               .compileComponents();
+            imports: [
+                AppTestingModule,
+                TableMakerModule,
+                GTCommonModule,
+            ],
+            declarations: [
+                BasicTableComponent,
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {

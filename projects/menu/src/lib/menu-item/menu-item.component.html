@@ -1,1 +1,3 @@
-<span (click)="process(menuItem)">{{label}}</span>
+<span>
+    {{getLabelFor(menuItem) | async}}
+</span>

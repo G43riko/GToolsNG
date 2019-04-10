@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { menuItems } from './menu-items';
 
 @Component({
@@ -10,6 +11,9 @@ export class AppComponent {
     public readonly menuItems = menuItems;
     public title = 'GToolsNG';
 
-    public constructor() {
+    public constructor(translate: TranslateService) {
+        translate.setDefaultLang('sk');
+        translate.use('sk');
     }
 }
+

@@ -4,15 +4,14 @@ import { TableFilterConfigInterface } from '../../interfaces/table-filter-config
 @Component({
     selector: 'gt-core-table-filter',
     templateUrl: './core-table-filter.component.html',
-    styleUrls: ['./core-table-filter.component.css']
+    styleUrls: ['./core-table-filter.component.scss']
 })
 export class CoreTableFilterComponent implements OnInit {
     @Input() public filterConfig: TableFilterConfigInterface;
-
+    @Input() public width: string;
     public constructor() {
     }
 
     public ngOnInit(): void {
     }
-
 }

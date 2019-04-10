@@ -1,20 +1,23 @@
-<table>
+<table *ngIf="tableConfig" style="width: 100%;">
     <thead>
     <tr>
         <th *ngIf="hasSelection"></th>
         <th *ngFor="let column of tableConfig.columns"
-            [ngStyle]="{width: column.width, 'text-align': column.align}">
-            {{column.label}}
+            [ngStyle]="{'text-align': column.align}"
+            [width]="column.width">
+            {{getLabel(column) | async}}
         </th>
     </tr>
     <tr>
         <th *ngIf="hasSelection">
-            <input #selectAll(change)="onSelectAll(selectAll.checked)"
+            <input #selectAll (change)="onSelectAll(selectAll.checked)"
                    *ngIf="tableConfig.selectable === 'MULTI'"
                    type="checkbox">
         </th>
-        <th *ngFor="let column of tableConfig.columns" [ngStyle]="{width: column.width, 'text-align': column.align}">
-            <gt-core-table-filter [filterConfig]="column.filter"></gt-core-table-filter>
+        <th *ngFor="let column of tableConfig.columns"
+            [ngStyle]="{'text-align': column.align}"
+            [width]="column.width">
+            <gt-core-table-filter [filterConfig]="column.filter" [width]="column.width"></gt-core-table-filter>
         </th>
     </tr>
     </thead>
@@ -32,13 +35,15 @@
         </td>
         <td *ngFor="let column of tableConfig.columns; let columnIndex = index"
             [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
-            [ngStyle]="{width: column.width, 'text-align': column.align}">
+            [ngStyle]="{'text-align': column.align}"
+            [width]="column.width">
             <gt-core-table-column [columnConfig]="column"
                                   [columnIndex]="columnIndex"
                                   [edited]="actRow.edited"
                                   [rowIndex]="rowIndex"
                                   [row]="row"></gt-core-table-column>
         </td>
+        <!--
         <td (click)="actRow.edited = true" *ngIf="!actRow.edited">
             <span class="editButton">🖉</span>
         </td>
@@ -46,6 +51,7 @@
             <span>✔</span>
             <span (click)="actRow.edited = false" class="editButton">⨯</span>
         </td>
+        -->
         <!--❌✔-->
     </tr>
     </tbody>

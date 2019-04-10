@@ -1,6 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FooterType } from '../../../../../projects/table/src/lib/interfaces/table-column-config.interface';
 import { TableConfigInterface } from '../../../../../projects/table/src/lib/interfaces/table-config.interface';
-import { Employee, employees } from '../../../mock/employees.data';
+import { Employee } from '../../../mock/data/employees.data';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
     selector: 'basic-table',
@@ -10,10 +12,17 @@ import { Employee, employees } from '../../../mock/employees.data';
 export class BasicTableComponent implements OnInit {
     @ViewChild('customColumn') public customColumn: TemplateRef<any>;
     public tableConfig: TableConfigInterface;
-    public readonly data: Employee[] = employees;
+    public data: Employee[];
     public readonly title = 'TableMaker';
 
+    public constructor(private readonly employeeService: EmployeeService) {
+    }
+
     public ngOnInit(): void {
+        this.employeeService.getList().subscribe((data) => {
+            this.data = data;
+        });
+
         this.tableConfig = {
             // onRowClick: (row: any) => alert("Age: " + row.age),
             // selectable: 'SINGLE',
@@ -21,7 +30,7 @@ export class BasicTableComponent implements OnInit {
             rowClass: (row: any, rowIndex: number) => `table-row-${ rowIndex } hovered`,
             columns: [
                 {
-                    label: 'Meno',
+                    labelKey: 'employees.name',
                     columnDef: 'name',
                     sort: true,
                     customFooter: (iterator: IterableIterator<any>): string => {
@@ -34,17 +43,17 @@ export class BasicTableComponent implements OnInit {
                     },
                 },
                 {
-                    label: 'Priezvisko',
+                    labelKey: 'employees.surName',
                     columnDef: 'surName',
                     filter: {
                         type: 'STRING',
                     }
                 },
                 {
-                    label: 'Vek',
+                    labelKey: 'employees.age',
                     columnDef: 'age',
                     sort: true,
-                    footer: 'MAX',
+                    footer: FooterType.MAX,
                     width: '100px',
                     filter: {
                         type: 'NUMBER_RANGE',
@@ -53,7 +62,7 @@ export class BasicTableComponent implements OnInit {
                     }
                 },
                 {
-                    label: 'Súhrn',
+                    labelKey: 'employees.summary',
                     customValue: (row: any) => `${ row.name } ${ row.surName }(${ row.age })`,
                     columnDef: 'summary',
                     filter: {
@@ -61,7 +70,7 @@ export class BasicTableComponent implements OnInit {
                     }
                 },
                 {
-                    label: 'Dátum narodenia',
+                    labelKey: 'employees.birthday',
                     columnDef: 'date',
                     width: '330px',
                     filter: {
@@ -69,7 +78,7 @@ export class BasicTableComponent implements OnInit {
                     }
                 },
                 {
-                    label: 'Úroveň',
+                    labelKey: 'employees.level',
                     columnDef: 'level',
                     filter: {
                         type: 'SELECT',
@@ -94,7 +103,7 @@ export class BasicTableComponent implements OnInit {
                     }
                 },
                 {
-                    columnDef: 'nieco',
+                    columnDef: 'something',
                     tableCellTemplate: this.customColumn,
                 }
             ]

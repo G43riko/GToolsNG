@@ -23,6 +23,6 @@
         </select>
     </ng-template>
     <ng-template ngSwitchDefault>
-        <input [type]="filterConfig.type.toLowerCase()">
+        <input [ngStyle]="{width: width}" [type]="filterConfig.type.toLowerCase()">
     </ng-template>
 </ng-container>

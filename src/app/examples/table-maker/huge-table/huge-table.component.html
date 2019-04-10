@@ -1,0 +1,5 @@
+<gt-core-table [data]="data" [tableConfig]="tableConfig"></gt-core-table>
+<ng-template #budgetColumn let-actRow="row">{{actRow.budget + '€'}}</ng-template>
+<ng-template #grossColumn let-actRow="row">{{actRow.gross + '€'}}</ng-template>
+<ng-template #actorsColumn
+             let-actRow="row">{{actRow.actor_1_name + ', ' + actRow.actor_2_name + ', ' + actRow.actor_3_name}}</ng-template>
