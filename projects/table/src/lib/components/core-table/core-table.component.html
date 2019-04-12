@@ -1,7 +1,7 @@
 <table *ngIf="tableConfig" style="width: 100%;">
     <thead>
     <tr>
-        <th *ngIf="hasSelection"></th>
+        <th *ngIf="hasSelection" width="20px"></th>
         <th *ngFor="let column of tableConfig.columns"
             [ngStyle]="{'text-align': column.align}"
             [width]="column.width">
@@ -24,7 +24,7 @@
     <tbody>
     <tr #actRow
         (click)="onRowClick(row, rowIndex)"
-        *ngFor="let row of data; let rowIndex = index"
+        *ngFor="let row of data | async; let rowIndex = index"
         [attr.edited]="false"
         [ngClass]="getRowClass(row, rowIndex)">
         <td *ngIf="hasSelection">
@@ -37,7 +37,8 @@
             [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
             [ngStyle]="{'text-align': column.align}"
             [width]="column.width">
-            <gt-core-table-column [columnConfig]="column"
+            <gt-core-table-column *ngIf="column.visible !== false"
+                                  [columnConfig]="column"
                                   [columnIndex]="columnIndex"
                                   [edited]="actRow.edited"
                                   [rowIndex]="rowIndex"

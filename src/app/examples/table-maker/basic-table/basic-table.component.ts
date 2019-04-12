@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FooterType } from '../../../../../projects/table/src/lib/interfaces/table-column-config.interface';
-import { TableConfigInterface } from '../../../../../projects/table/src/lib/interfaces/table-config.interface';
+import { FooterType, TableConfigInterface } from '@table';
+import { Observable } from 'rxjs';
 import { Employee } from '../../../mock/data/employees.data';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -12,17 +12,14 @@ import { EmployeeService } from '../../services/employee.service';
 export class BasicTableComponent implements OnInit {
     @ViewChild('customColumn') public customColumn: TemplateRef<any>;
     public tableConfig: TableConfigInterface;
-    public data: Employee[];
+    public employees$: Observable<Employee[]>;
     public readonly title = 'TableMaker';
 
     public constructor(private readonly employeeService: EmployeeService) {
     }
 
     public ngOnInit(): void {
-        this.employeeService.getList().subscribe((data) => {
-            this.data = data;
-        });
-
+        this.employees$ = this.employeeService.getList();
         this.tableConfig = {
             // onRowClick: (row: any) => alert("Age: " + row.age),
             // selectable: 'SINGLE',
@@ -32,6 +29,7 @@ export class BasicTableComponent implements OnInit {
                 {
                     labelKey: 'employees.name',
                     columnDef: 'name',
+                    width: '100px',
                     sort: true,
                     customFooter: (iterator: IterableIterator<any>): string => {
                         const result = [];
@@ -45,6 +43,16 @@ export class BasicTableComponent implements OnInit {
                 {
                     labelKey: 'employees.surName',
                     columnDef: 'surName',
+                    width: '100px',
+                    filter: {
+                        type: 'STRING',
+                    }
+                },
+                {
+                    labelKey: 'employees.frontend',
+                    columnDef: 'frontend',
+                    type: 'boolean',
+                    width: '70px',
                     filter: {
                         type: 'STRING',
                     }
@@ -52,6 +60,7 @@ export class BasicTableComponent implements OnInit {
                 {
                     labelKey: 'employees.age',
                     columnDef: 'age',
+                    type: 'number',
                     sort: true,
                     footer: FooterType.MAX,
                     width: '100px',
@@ -65,6 +74,7 @@ export class BasicTableComponent implements OnInit {
                     labelKey: 'employees.summary',
                     customValue: (row: any) => `${ row.name } ${ row.surName }(${ row.age })`,
                     columnDef: 'summary',
+                    width: '150px',
                     filter: {
                         type: 'STRING',
                     }
@@ -72,6 +82,14 @@ export class BasicTableComponent implements OnInit {
                 {
                     labelKey: 'employees.birthday',
                     columnDef: 'date',
+                    type: 'date',
+                    format: 'dd.mm.yyyy',
+                    width: '130px'
+                },
+                {
+                    labelKey: 'employees.unFormattedBirthday',
+                    columnDef: 'date',
+                    type: 'date',
                     width: '330px',
                     filter: {
                         type: 'DATE_RANGE',
@@ -80,6 +98,7 @@ export class BasicTableComponent implements OnInit {
                 {
                     labelKey: 'employees.level',
                     columnDef: 'level',
+                    width: '100px',
                     filter: {
                         type: 'SELECT',
                         selectValues: [
@@ -104,6 +123,7 @@ export class BasicTableComponent implements OnInit {
                 },
                 {
                     columnDef: 'something',
+                    visible: false,
                     tableCellTemplate: this.customColumn,
                 }
             ]

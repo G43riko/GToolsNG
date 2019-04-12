@@ -11,7 +11,7 @@ import { TableConfigInterface } from '../../interfaces/table-config.interface';
 })
 export class CoreTableComponent implements OnInit {
     @Input() public tableConfig: TableConfigInterface;
-    @Input() public data: any[];
+    @Input() public data: Observable<any[]>;
     @ViewChildren('selectionCheckbox') public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
 
     public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {

@@ -21,6 +21,8 @@
         "age": "Vek",
         "summary": "Súhrn",
         "birthday": "Dátum narodenia",
+        "frontend": "Frontend",
+        "unFormattedBirthday": "Neformátovaný dátum narodenia",
         "level": "Úroveň",
         "issue": "Niečo"
     },

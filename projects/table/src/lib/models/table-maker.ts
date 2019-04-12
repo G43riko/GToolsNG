@@ -1,4 +1,4 @@
-import { TableColumnConfigInterface } from '../interfaces/table-column-config.interface';
+import { FooterType, TableColumnConfigInterface } from '../interfaces/table-column-config.interface';
 import { TableConfigInterface } from '../interfaces/table-config.interface';
 
 export class TableMaker<T> {
@@ -54,6 +54,7 @@ export class TableMaker<T> {
         if (typeof config.customValue === 'function') {
             return config.customValue(rowData);
         }
+
         return rowData[this.utils.getRowName(config)];
     }
 
@@ -139,13 +140,13 @@ export class TableMaker<T> {
                 const getNumberData = (): number[] => this.realData.map((row) => Number(this.getText(column, row)));
                 if (typeof column.customFooter === 'function') {
                     tableCell.innerText = column.customFooter(this.realData.entries());
-                } else if (column.footer === 'MAX') {
+                } else if (column.footer === FooterType.MAX) {
                     tableCell.innerText = 'Max: ' + Math.max(...getNumberData());
-                } else if (column.footer === 'MIN') {
+                } else if (column.footer === FooterType.MIN) {
                     tableCell.innerText = 'Min: ' + Math.min(...getNumberData());
-                } else if (column.footer === 'SUM') {
+                } else if (column.footer === FooterType.SUM) {
                     tableCell.innerText = 'Sum: ' + getNumberData().reduce((acc, val) => acc + val);
-                } else if (column.footer === 'AVG') {
+                } else if (column.footer === FooterType.AVG) {
                     const data = getNumberData();
                     tableCell.innerText = 'Avg: ' + data.reduce((acc, val) => acc + val) / data.length;
                 }
@@ -160,17 +161,16 @@ export class TableMaker<T> {
 
     private createBody(): void {
         const createCell = (rowData: T, config: TableColumnConfigInterface, cellIndex: number): HTMLTableCellElement | null => {
-            const columntTitle = this.utils.getRowName(config);
+            const columnTitle = this.utils.getRowName(config);
             const text = this.getText(config, rowData);
-            const filterValue: string | number = this.filters[columntTitle];
-            if (typeof filterValue === 'string') {
-                if (String(text).indexOf(filterValue) < 0) {
-                    return null;
-                }
+            const filterValue: string | number = this.filters[columnTitle];
+            if (typeof filterValue === 'string' && String(text).indexOf(filterValue) < 0) {
+                return null;
             }
 
             const tableCell = this.utils.createElement<HTMLTableCellElement>('td');
             tableCell.innerText = String(text);
+
             return tableCell;
         };
 
@@ -198,6 +198,7 @@ export class TableMaker<T> {
             if (this.sort === 'ASC') {
                 return String(a[this.sortColumn]).localeCompare(b[this.sortColumn]);
             }
+
             return String(b[this.sortColumn]).localeCompare(a[this.sortColumn]);
 
         });

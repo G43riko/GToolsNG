@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { TableConfigInterface } from '../../../../../projects/table/src/lib/interfaces/table-config.interface';
+import { TableConfigInterface } from '@table';
+import { Observable, of } from 'rxjs';
 import { Movie, movies } from '../../../mock/data/movies.data';
 
 @Component({
@@ -13,7 +14,7 @@ export class HugeTableComponent implements OnInit {
     @ViewChild('actorsColumn') public actorsColumn: TemplateRef<any>;
 
     public tableConfig: TableConfigInterface;
-    public readonly data: Movie[] = movies.filter((e, i) => i < 10);
+    public readonly data: Observable<Movie[]> = of(movies.filter((e, i) => i < 10));
     public readonly title = 'TableMaker';
 
     public ngOnInit(): void {

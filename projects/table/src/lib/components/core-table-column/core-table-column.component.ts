@@ -10,7 +10,7 @@ export class CoreTableColumnComponent implements OnInit {
     @Input() public columnConfig: TableColumnConfigInterface;
     @Input() public rowIndex: number;
     @Input() public columnIndex: number;
-    @Input() public edited: false;
+    @Input() public edited = true;
     @Input() public row: any;
 
     public constructor() {
@@ -29,7 +29,32 @@ export class CoreTableColumnComponent implements OnInit {
         }
 
         return !this.columnConfig.tableCellTemplate;
+    }
 
+    public get contentAlign(): string {
+        if (!this.columnConfig.contentAlign) {
+            switch (this.type) {
+                case 'boolean':
+                    return 'center';
+                case 'number':
+                    return 'right';
+                default:
+                    return 'left';
+            }
+        }
+
+        return this.columnConfig.contentAlign;
+    }
+
+    public get type() {
+        if (this.columnConfig.tableCellTemplate) {
+            return 'template';
+        }
+        if (!this.columnConfig.type) {
+            return 'string';
+        }
+
+        return this.columnConfig.type;
     }
 
     public get value() {

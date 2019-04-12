@@ -18,9 +18,10 @@ export interface TableColumnConfigInterface {
      * Enable / Disable sorting
      *
      */
-    type?: 'number' | 'string' | 'date';
+    type?: 'number' | 'string' | 'date' | 'boolean';
     sort?: boolean;
     width?: string;
+    contentAlign?: 'center' | 'left' | 'right';
     /**
      * Defines classes for td elements
      */
@@ -48,6 +49,12 @@ export interface TableColumnConfigInterface {
      * Name of attribute whose value is displayed
      */
     columnDef: string;
+
+    visible?: boolean;
+    /**
+     * Format for DatePipe
+     */
+    format?: string;
 
     /**
      */
