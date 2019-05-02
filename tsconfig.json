@@ -36,6 +36,12 @@
             ],
             "@gt-common/*": [
                 "projects/gt-common/src/*"
+            ],
+            "gt-input": [
+                "projects/gt-input"
+            ],
+            "gt-input/*": [
+                "projects/gt-input/*"
             ]
         }
     }

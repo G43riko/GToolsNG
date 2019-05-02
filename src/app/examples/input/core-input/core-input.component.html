@@ -1,0 +1,13 @@
+<gt-core-input [formControl]="nameFormControl" [label]="'someLabel'" [placeholder]="'somePlaceHolder'"></gt-core-input>
+{{nameFormControl | json}}
+
+<div [formGroup]="personFormGroup">
+    <gt-core-input [formControlName]="'name'" [label]="'Name'" [placeholder]="'Name'"></gt-core-input>
+    <gt-core-input [label]="'Surname'" [placeholder]="'Surname'" formControlName="surName"></gt-core-input>
+    <gt-number-input [label]="'Age'" [placeholder]="'Age'" formControlName="age"></gt-number-input>
+    <gt-core-input [label]="'Disabled age'" [placeholder]="'Disabled age'"
+                   formControlName="ageDisabled"></gt-core-input>
+    <gt-core-input [disabled]="true" [label]="'Disabled input age'" [placeholder]="'Disabled input age'"
+                   formControlName="ageDisabledInput"></gt-core-input>
+</div>
+{{personFormGroup.value | json}}

@@ -21,6 +21,10 @@ export const appRoutes: Routes = [
         loadChildren: './examples/table-maker/table-maker-example.module#TableMakerExampleModule',
     },
     {
+        path: 'input',
+        loadChildren: './examples/input/input-example.module#InputExampleModule',
+    },
+    {
         path: '**',
         redirectTo: 'home',
     },
