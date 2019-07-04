@@ -279,6 +279,41 @@
                     }
                 }
             }
+        },
+        "Translation": {
+            "root": "projects/translation",
+            "sourceRoot": "projects/translation/src",
+            "projectType": "library",
+            "prefix": "gt",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/translation/tsconfig.lib.json",
+                        "project": "projects/translation/ng-package.json"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/translation/src/test.ts",
+                        "tsConfig": "projects/translation/tsconfig.spec.json",
+                        "karmaConfig": "projects/translation/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/translation/tsconfig.lib.json",
+                            "projects/translation/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
         }
     },
     "defaultProject": "GToolsNG"

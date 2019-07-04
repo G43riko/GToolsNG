@@ -15,11 +15,12 @@ import { fakeBackendProvider } from './mock/fake-backend-interceptor.service';
 import { AboutComponent } from './pages/about/about.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
-registerLocaleData(localeSk, 'sk');
+registerLocaleData(localeSk, 'en');
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
 
 @NgModule({
     declarations: [

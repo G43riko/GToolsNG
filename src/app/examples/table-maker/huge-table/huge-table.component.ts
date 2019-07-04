@@ -9,9 +9,9 @@ import { Movie, movies } from '../../../mock/data/movies.data';
     styleUrls: ['./huge-table.component.scss']
 })
 export class HugeTableComponent implements OnInit {
-    @ViewChild('grossColumn') public grossColumn: TemplateRef<any>;
-    @ViewChild('budgetColumn') public budgetColumn: TemplateRef<any>;
-    @ViewChild('actorsColumn') public actorsColumn: TemplateRef<any>;
+    @ViewChild('grossColumn', {static: true}) public grossColumn: TemplateRef<any>;
+    @ViewChild('budgetColumn', {static: true}) public budgetColumn: TemplateRef<any>;
+    @ViewChild('actorsColumn', {static: true}) public actorsColumn: TemplateRef<any>;
 
     public tableConfig: TableConfigInterface;
     public readonly data: Observable<Movie[]> = of(movies.filter((e, i) => i < 10));

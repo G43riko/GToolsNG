@@ -12,13 +12,13 @@ export class MenuComponent implements OnInit {
     @Input() public menuItems: MenuItem[] = [MenuItem.create('home'), MenuItem.create('about')];
     public menuWidth = 240;
 
-    public currentLang = 'sk';
+    public currentLang = 'en';
 
     public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
     }
 
     public switchLanguage(): void {
-        this.currentLang = this.currentLang === 'sk' ? 'en' : 'sk';
+        this.currentLang = this.currentLang === 'en' ? 'en' : 'en';
         if (this.translationService && typeof this.translationService.use === 'function') {
             this.translationService.use(this.currentLang);
         }

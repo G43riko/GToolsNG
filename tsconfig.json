@@ -44,5 +44,8 @@
                 "projects/gt-input/*"
             ]
         }
+    },
+    "angularCompilerOptions": {
+        "enableIvy": true
     }
 }

@@ -10,7 +10,7 @@ import { EmployeeService } from '../../services/employee.service';
     styleUrls: ['./basic-table.component.scss']
 })
 export class BasicTableComponent implements OnInit {
-    @ViewChild('customColumn') public customColumn: TemplateRef<any>;
+    @ViewChild('customColumn', {static: true}) public customColumn: TemplateRef<any>;
     public tableConfig: TableConfigInterface;
     public employees$: Observable<Employee[]>;
     public readonly title = 'TableMaker';
