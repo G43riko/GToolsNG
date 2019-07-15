@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AbstractService } from '@gt-common';
+import { AbstractService } from '@gt/common';
 
 
 export abstract class GtService<T = any> extends AbstractService<T> {

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { GTNotification } from '@gt-common';
+import { GTNotification } from '@gt/common';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { CoreService } from './core-service.service';

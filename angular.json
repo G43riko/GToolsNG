@@ -140,7 +140,7 @@
                 }
             }
         },
-        "Menu": {
+        "GTMenu": {
             "root": "projects/menu",
             "sourceRoot": "projects/menu/src",
             "projectType": "library",
@@ -175,7 +175,7 @@
                 }
             }
         },
-        "Table": {
+        "GTTable": {
             "root": "projects/table",
             "sourceRoot": "projects/table/src",
             "projectType": "library",
@@ -211,24 +211,24 @@
             }
         },
         "GTCommon": {
-            "root": "projects/gt-common",
-            "sourceRoot": "projects/gt-common/src",
+            "root": "projects/common",
+            "sourceRoot": "projects/common/src",
             "projectType": "library",
             "prefix": "gt",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
                     "options": {
-                        "tsConfig": "projects/gt-common/tsconfig.lib.json",
-                        "project": "projects/gt-common/ng-package.json"
+                        "tsConfig": "projects/common/tsconfig.lib.json",
+                        "project": "projects/common/ng-package.json"
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/gt-common/src/test.ts",
-                        "tsConfig": "projects/gt-common/tsconfig.spec.json",
-                        "karmaConfig": "projects/gt-common/karma.conf.js"
+                        "main": "projects/common/src/test.ts",
+                        "tsConfig": "projects/common/tsconfig.spec.json",
+                        "karmaConfig": "projects/common/karma.conf.js"
                     }
                 },
                 "lint": {
@@ -245,68 +245,33 @@
                 }
             }
         },
-        "gt-input": {
-            "root": "projects/gt-input",
-            "sourceRoot": "projects/gt-input/src",
+        "GTInput": {
+            "root": "projects/input",
+            "sourceRoot": "projects/input/src",
             "projectType": "library",
             "prefix": "gt",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
                     "options": {
-                        "tsConfig": "projects/gt-input/tsconfig.lib.json",
-                        "project": "projects/gt-input/ng-package.json"
+                        "tsConfig": "projects/input/tsconfig.lib.json",
+                        "project": "projects/input/ng-package.json"
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/gt-input/src/test.ts",
-                        "tsConfig": "projects/gt-input/tsconfig.spec.json",
-                        "karmaConfig": "projects/gt-input/karma.conf.js"
+                        "main": "projects/input/src/test.ts",
+                        "tsConfig": "projects/input/tsconfig.spec.json",
+                        "karmaConfig": "projects/input/karma.conf.js"
                     }
                 },
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "projects/gt-input/tsconfig.lib.json",
-                            "projects/gt-input/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
-        },
-        "Translation": {
-            "root": "projects/translation",
-            "sourceRoot": "projects/translation/src",
-            "projectType": "library",
-            "prefix": "gt",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "projects/translation/tsconfig.lib.json",
-                        "project": "projects/translation/ng-package.json"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/translation/src/test.ts",
-                        "tsConfig": "projects/translation/tsconfig.spec.json",
-                        "karmaConfig": "projects/translation/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/translation/tsconfig.lib.json",
-                            "projects/translation/tsconfig.spec.json"
+                            "projects/input/tsconfig.lib.json",
+                            "projects/input/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**"

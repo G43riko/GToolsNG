@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestingModule } from '@gt-common';
+import { TestingModule } from '@gt/common';
 
 import { MenuComponent } from './menu.component';
 

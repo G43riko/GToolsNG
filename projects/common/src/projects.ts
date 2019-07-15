@@ -1,5 +1,5 @@
 /*
- * Public API Surface of gt-common
+ * Public API Surface of common
  */
 
 export * from './lib/testing/testing.module';

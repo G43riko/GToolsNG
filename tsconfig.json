@@ -19,33 +19,33 @@
             "dom"
         ],
         "paths": {
-            "@menu": [
+            "@gt/menu": [
                 "projects/menu/src/projects"
             ],
-            "@menu/*": [
+            "@gt/menu/*": [
                 "projects/menu/src/*"
             ],
-            "@table": [
+            "@gt/table": [
                 "projects/table/src/projects"
             ],
-            "@table/*": [
+            "@gt/table/*": [
                 "projects/table/src/*"
             ],
-            "@gt-common": [
-                "projects/gt-common/src/projects"
+            "@gt/common": [
+                "projects/common/src/projects"
             ],
-            "@gt-common/*": [
-                "projects/gt-common/src/*"
+            "@gt/common/*": [
+                "projects/common/src/*"
             ],
-            "gt-input": [
-                "projects/gt-input"
+            "@gt/input": [
+                "projects/input"
             ],
-            "gt-input/*": [
-                "projects/gt-input/*"
+            "@gt/input/*": [
+                "projects/input/*"
             ]
         }
     },
     "angularCompilerOptions": {
-        "enableIvy": true
+        "enableIvy": false
     }
 }

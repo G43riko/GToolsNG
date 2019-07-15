@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { GT_TRANSLATE_TOKEN } from '../../projects/gt-common/src/lib/services/gt-translate/gt-translation.interface';
+import { GT_TRANSLATE_TOKEN } from '../../projects/common/src/lib/services/gt-translate/gt-translation.interface';
 import { MenuModule } from '../../projects/menu/src/lib/menu.module';
 import { appRoutes } from './app-routing';
 

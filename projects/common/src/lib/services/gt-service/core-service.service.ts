@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { GTNotification } from '@gt-common';
+import { GTNotification } from '@gt/common';
 import { StringMap } from 'gtools';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';

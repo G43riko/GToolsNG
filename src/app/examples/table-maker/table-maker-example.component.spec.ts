@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TableMakerModule } from '@table';
+import { TableMakerModule } from '@gt/table';
 import { AppTestingModule } from '../../tests/app-testing.module';
 import { BasicTableComponent } from './basic-table/basic-table.component';
 import { HugeTableComponent } from './huge-table/huge-table.component';

@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { TableConfigInterface } from '@table';
+import { TableConfigInterface } from '@gt/table';
 import { Observable, of } from 'rxjs';
 import { Movie, movies } from '../../../mock/data/movies.data';
 
