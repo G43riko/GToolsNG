@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FooterType, TableConfigInterface } from '@gt/table';
+import { FooterType, TableConfigInterface } from '@g43/table';
 import { Observable } from 'rxjs';
 import { Employee } from '../../../mock/data/employees.data';
 import { EmployeeService } from '../../services/employee.service';

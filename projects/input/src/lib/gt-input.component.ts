@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'gt-@gt/input',
+    selector: 'gt-@g43/input',
     template: `
         <p>
-            @gt/input works!
+            @g43/input works!
         </p>
     `,
     styles: []

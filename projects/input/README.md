@@ -4,20 +4,20 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Code scaffolding
 
-Run `ng generate component component-name --project @gt/input` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project @gt/input`.
-> Note: Don't forget to add `--project @gt/input` or else it will be added to the default project in your `angular.json` file. 
+Run `ng generate component component-name --project @g43/input` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project @g43/input`.
+> Note: Don't forget to add `--project @g43/input` or else it will be added to the default project in your `angular.json` file. 
 
 ## Build
 
-Run `ng build @gt/input` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build @g43/input` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `ng build @gt/input`, go to the dist folder `cd dist/input` and run `npm publish`.
+After building your library with `ng build @g43/input`, go to the dist folder `cd dist/input` and run `npm publish`.
 
 ## Running unit tests
 
-Run `ng test @gt/input` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test @g43/input` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 

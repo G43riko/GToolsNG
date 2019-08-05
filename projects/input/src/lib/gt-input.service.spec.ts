@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GtInputService } from './@gt/input.service';
+import { GtInputService } from './@g43/input.service';
 
 describe('GtInputService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));

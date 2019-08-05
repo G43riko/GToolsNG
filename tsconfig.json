@@ -19,28 +19,23 @@
             "dom"
         ],
         "paths": {
-            "@gt/menu": [
+            "@g43/menu": [
                 "projects/menu/src/projects"
             ],
-            "@gt/menu/*": [
+            "@g43/menu/*": [
                 "projects/menu/src/*"
             ],
-            "@gt/table": [
+            "@g43/table": [
                 "projects/table/src/projects"
             ],
-            "@gt/table/*": [
+            "@g43/table/*": [
                 "projects/table/src/*"
             ],
-            "@gt/common": [
-                "projects/common/src/projects"
-            ],
-            "@gt/common/*": [
-                "projects/common/src/*"
-            ],
-            "@gt/input": [
+
+            "@g43/input": [
                 "projects/input"
             ],
-            "@gt/input/*": [
+            "@g43/input/*": [
                 "projects/input/*"
             ]
         }

@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { MenuModule } from '@gt/menu/lib/menu.module';
+import { MenuModule } from '@g43/menu/lib/menu.module';
 import { AppComponent } from './app.component';
 import { AppTestingModule } from './tests/app-testing.module';
 

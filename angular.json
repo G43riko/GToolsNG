@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "GToolsNG": {
+        "G43ToolsNG": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
@@ -21,7 +21,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/GToolsNG",
+                        "outputPath": "dist/G43ToolsNG",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -66,19 +66,19 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "GToolsNG:build",
+                        "browserTarget": "G43ToolsNG:build",
                         "port": 4202
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "GToolsNG:build:production"
+                            "browserTarget": "G43ToolsNG:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "GToolsNG:build"
+                        "browserTarget": "G43ToolsNG:build"
                     }
                 },
                 "test": {
@@ -112,7 +112,7 @@
                 }
             }
         },
-        "GToolsNG-e2e": {
+        "G43ToolsNG-e2e": {
             "root": "e2e/",
             "projectType": "application",
             "prefix": "",
@@ -121,11 +121,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "GToolsNG:serve"
+                        "devServerTarget": "G43ToolsNG:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "GToolsNG:serve:production"
+                            "devServerTarget": "G43ToolsNG:serve:production"
                         }
                     }
                 },
@@ -140,7 +140,7 @@
                 }
             }
         },
-        "GTMenu": {
+        "G43Menu": {
             "root": "projects/menu",
             "sourceRoot": "projects/menu/src",
             "projectType": "library",
@@ -175,7 +175,7 @@
                 }
             }
         },
-        "GTTable": {
+        "G43Table": {
             "root": "projects/table",
             "sourceRoot": "projects/table/src",
             "projectType": "library",
@@ -210,7 +210,7 @@
                 }
             }
         },
-        "GTCommon": {
+        "G43Common": {
             "root": "projects/common",
             "sourceRoot": "projects/common/src",
             "projectType": "library",
@@ -245,7 +245,7 @@
                 }
             }
         },
-        "GTInput": {
+        "G43Input": {
             "root": "projects/input",
             "sourceRoot": "projects/input/src",
             "projectType": "library",
@@ -281,5 +281,5 @@
             }
         }
     },
-    "defaultProject": "GToolsNG"
+    "defaultProject": "G43ToolsNG"
 }

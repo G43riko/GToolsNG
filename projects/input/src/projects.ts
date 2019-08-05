@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @gt/input
+ * Public API Surface of @g43/input
  */
 
 export * from './lib/gt-input.service';

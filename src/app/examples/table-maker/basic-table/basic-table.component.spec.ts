@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { GTCommonModule } from '@gt/common';
-import { TableMakerModule } from '@gt/table';
+import { GTCommonModule } from '@g43/common';
+import { TableMakerModule } from '@g43/table';
 import { AppTestingModule } from '../../../tests/app-testing.module';
 
 import { BasicTableComponent } from './basic-table.component';

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TestingModule } from '@gt/common';
+import { TestingModule } from '@g43/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { FakeTranslationLoader } from './fake-translation-loader';
 

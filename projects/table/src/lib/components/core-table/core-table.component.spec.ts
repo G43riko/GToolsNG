@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoreTableColumnComponent, CoreTableFilterComponent } from '@gt/table';
+import { CoreTableColumnComponent, CoreTableFilterComponent } from '@g43/table';
 
 import { CoreTableComponent } from './core-table.component';
 

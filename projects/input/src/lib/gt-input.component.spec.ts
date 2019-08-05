@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GtInputComponent } from './@gt/input.component';
+import { GtInputComponent } from './@g43/input.component';
 
 describe('GtInputComponent', () => {
     let component: GtInputComponent;

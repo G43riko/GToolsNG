@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from '@angular/core';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@gt/common';
+import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
 import { Observable, of } from 'rxjs';
 import { TableColumnConfigInterface } from '../../interfaces/table-column-config.interface';
 import { TableConfigInterface } from '../../interfaces/table-config.interface';

@@ -5,6 +5,9 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "buildAndPublishCommon": "ng build G43Common && cd dist/common && npm publish --access public",
+        "buildAndPublishTable": "ng build G43Table && cd dist/table && npm publish --access public",
+        "buildAndPublishMenu": "ng build G43Menu && cd dist/menu && npm publish --access public",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
@@ -13,7 +16,7 @@
         "> 1%",
         "last 10 versions"
     ],
-    "private": true,
+    "private": false,
     "dependencies": {
         "@angular/animations": "~8.1.0",
         "@angular/common": "~8.1.0",
@@ -28,9 +31,13 @@
         "core-js": "^3.1.4",
         "gtools": "^0.2.6",
         "rxjs": "~6.5.2",
+        "@g43/common": "0.0.1",
+        "@g43/table": "0.0.1",
+        "@g43/menu": "0.0.1",
         "tslib": "^1.10.0",
         "zone.js": "~0.9.1"
     },
+    "author": "Gabriel Csollei<gcsollei@hotmail.com>",
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.801.0",
         "@angular-devkit/build-ng-packagr": "~0.801.0",

@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@gt/common';
+import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
 import { MenuItem } from './models/menu-item.model';
 
 @Component({

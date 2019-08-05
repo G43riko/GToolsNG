@@ -3,7 +3,7 @@
 
 module.exports = function (config) {
     config.set({
-        basePath: '../@gt/input',
+        basePath: '../@g43/input',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
             require('karma-jasmine'),
@@ -16,7 +16,7 @@ module.exports = function (config) {
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
         coverageIstanbulReporter: {
-            dir: require('path').join(__dirname, '../../coverage/@gt/input'),
+            dir: require('path').join(__dirname, '../../coverage/@g43/input'),
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true
         },

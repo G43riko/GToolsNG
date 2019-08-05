@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AbstractService } from '@gt/common';
+import { AbstractService } from '@g43/common';
 
 
 export abstract class GtService<T = any> extends AbstractService<T> {
-    public constructor(http: HttpClient) {
+    protected constructor(http: HttpClient) {
         super(http, null);
     }
 

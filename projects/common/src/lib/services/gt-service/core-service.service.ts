@@ -1,15 +1,15 @@
-import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { GTNotification } from '@gt/common';
-import { StringMap } from 'gtools';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
+import {GTNotification} from "../gt-notification/gt-notification.interface";
+import {StringMap} from "gtools";
+import {Observable, throwError} from "rxjs";
+import {catchError, map} from "rxjs/operators";
 
 export interface AbstractServiceParams<T> {
     url: string;
     body?: any;
     mapFunction?: (response: any) => T;
     headers?: HttpHeaders;
-    responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
+    responseType?: "arraybuffer" | "blob" | "json" | "text";
     params?: HttpParams | { [param: string]: string | string[]; };
 }
 
@@ -35,7 +35,7 @@ export abstract class CoreService<T> {
      *
      */
     protected getHeader(): HttpHeaders {
-        throw new Error('CoreService.getHeader method must by implemented');
+        throw new Error("CoreService.getHeader method must by implemented");
     }
 
     /**
@@ -77,7 +77,7 @@ export abstract class CoreService<T> {
 
     /**
      */
-    protected get<S = T>({url, body, mapFunction = (e) => e, params = {}, responseType = 'json', headers = this.getHeader()}: AbstractServiceParams<S>): Observable<S> {
+    protected get<S = T>({url, body, mapFunction = (e) => e, params = {}, responseType = "json", headers = this.getHeader()}: AbstractServiceParams<S>): Observable<S> {
         return this.http.get<S>(url, {
             headers,
             responseType: responseType as any, // Hack because overloading
@@ -94,12 +94,12 @@ export abstract class CoreService<T> {
      */
     protected handleError(error: HttpResponse<any>): Observable<never> {
         if (error.status === 401) {
-            window.location.hash = '/login';
+            window.location.hash = "/login";
 
-            return throwError('error.unauthorized');
+            return throwError("error.unauthorized");
         }
         if (error.status === 504) {
-            return throwError('error.gatewayTimeout');
+            return throwError("error.gatewayTimeout");
         }
 
         return throwError(error);

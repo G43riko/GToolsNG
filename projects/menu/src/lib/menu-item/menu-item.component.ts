@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@gt/common';
+import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
 import { of } from 'rxjs';
 import { MenuItem } from '../models/menu-item.model';
 

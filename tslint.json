@@ -26,7 +26,7 @@
     "interface-name": false,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "radix": true,
     "triple-equals": true,

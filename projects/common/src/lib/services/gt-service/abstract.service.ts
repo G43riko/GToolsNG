@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { GTNotification } from '@gt/common';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { CoreService } from './core-service.service';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { switchMap } from "rxjs/operators";
+import {GTNotification} from "../gt-notification/gt-notification.interface";
+import { CoreService } from "./core-service.service";
 
 export abstract class AbstractService<T = any> extends CoreService<T> {
     protected constructor(http: HttpClient,
@@ -13,12 +13,12 @@ export abstract class AbstractService<T = any> extends CoreService<T> {
     protected getImage(url: string, sendHeaders = true): Observable<Blob> {
         return this.get<Blob>({
             url,
-            responseType: 'blob',
+            responseType: "blob",
             headers: sendHeaders ? this.getHeader() : undefined,
         });
     }
 
-    protected uploadLink<S = T>(url: string, link: string, name: string, fileName = 'image.jpg'): Observable<S> {
+    protected uploadLink<S = T>(url: string, link: string, name: string, fileName = "image.jpg"): Observable<S> {
         return this.getImage(url, false).pipe(switchMap((myBlob) => {
             return this.uploadFile<S>(url, myBlob as File, name, fileName);
         }));
