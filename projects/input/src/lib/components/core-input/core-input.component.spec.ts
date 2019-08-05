@@ -1,16 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {G43TestingModule} from "../../../../../common/src/lib/testing/g43-testing.module";
 
 import { CoreInputComponent } from './core-input.component';
 
 describe('CoreInputComponent', () => {
     let component: CoreInputComponent;
-    let fixture: ComponentFixture<CoreInputComponent>;
+    let fixture: ComponentFixture<CoreInputComponent<any>>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CoreInputComponent]
-        })
-               .compileComponents();
+            imports: [
+                G43TestingModule,
+                FormsModule,
+                ReactiveFormsModule,
+            ],
+            declarations: [
+                CoreInputComponent,
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {

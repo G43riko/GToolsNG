@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
  *  limit
  *  formatter
  */
-export class RestApiHandler<T extends { id: number }> {
+export class G43RestApiHandler<T extends { id: number }> {
     private readonly realData: T[];
 
     public constructor(data: T[], private readonly path: string) {

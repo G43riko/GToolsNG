@@ -1,22 +1,22 @@
 import {TestBed} from "@angular/core/testing";
-import {TestingModule} from "../../testing/testing.module";
+import {G43TestingModule} from "../../testing/testing.module";
 import {GT_NOTIFICATION_TOKEN} from "../gt-notification/gt-notification.interface";
-import {AbstractService} from "./abstract.service";
+import {G43Service} from "./abstract.service";
 
 describe("AbstractService", () => {
     beforeEach(() => TestBed.configureTestingModule({
         imports: [
-            TestingModule,
+            G43TestingModule,
         ],
         providers: [
-            AbstractService,
+            G43Service,
             {provide: GT_NOTIFICATION_TOKEN, useClass: {}},
             {provide: String, useValue: "something"},
         ]
     }));
 
     it("should be created", () => {
-        const service: AbstractService = TestBed.get(AbstractService);
+        const service: G43Service = TestBed.get(G43Service);
         expect(service).toBeTruthy();
     });
 });

@@ -1,12 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { switchMap } from "rxjs/operators";
-import {GTNotification} from "../gt-notification/gt-notification.interface";
-import { CoreService } from "./core-service.service";
+import {G43Notification} from "../g43-notification/g43-notification.interface";
+import {G43CoreService} from "./g43-core-service.service";
 
-export abstract class AbstractService<T = any> extends CoreService<T> {
+export abstract class G43Service<T = any> extends G43CoreService<T> {
     protected constructor(http: HttpClient,
-                          notificationService: GTNotification) {
+                          notificationService: G43Notification) {
         super(http, notificationService);
     }
 

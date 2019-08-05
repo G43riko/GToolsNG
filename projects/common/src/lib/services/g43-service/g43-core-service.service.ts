@@ -1,10 +1,10 @@
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
-import {GTNotification} from "../gt-notification/gt-notification.interface";
 import {StringMap} from "gtools";
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
+import {G43Notification} from "../g43-notification/g43-notification.interface";
 
-export interface AbstractServiceParams<T> {
+export interface G43ServiceParams<T> {
     url: string;
     body?: any;
     mapFunction?: (response: any) => T;
@@ -13,14 +13,14 @@ export interface AbstractServiceParams<T> {
     params?: HttpParams | { [param: string]: string | string[]; };
 }
 
-export abstract class CoreService<T> {
+export abstract class G43CoreService<T> {
     protected constructor(protected readonly http: HttpClient,
-                          protected readonly notificationService: GTNotification) {
+                          protected readonly notificationService: G43Notification) {
     }
 
     /**
      */
-    protected delete<S = T>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: AbstractServiceParams<S>): Observable<any> {
+    protected delete<S = T>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: G43ServiceParams<S>): Observable<any> {
         return this.http.delete(url, {
             headers,
             params: this.getParameters(params as StringMap),
@@ -57,7 +57,7 @@ export abstract class CoreService<T> {
 
     /**
      */
-    protected post<S = T[]>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: AbstractServiceParams<S>): Observable<S> {
+    protected post<S = T[]>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: G43ServiceParams<S>): Observable<S> {
         return this.http.post(url, body, {
             params, headers,
         }).pipe(
@@ -68,7 +68,7 @@ export abstract class CoreService<T> {
 
     /**
      */
-    protected put<S = T[]>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: AbstractServiceParams<S>): Observable<{} | S> {
+    protected put<S = T[]>({url, body, mapFunction = (e) => e, params = {}, headers = this.getHeader()}: G43ServiceParams<S>): Observable<{} | S> {
         return this.http.put(url, JSON.stringify(body), {headers}).pipe(
             map(mapFunction),
             catchError((error) => this.handleError(error)),
@@ -77,7 +77,7 @@ export abstract class CoreService<T> {
 
     /**
      */
-    protected get<S = T>({url, body, mapFunction = (e) => e, params = {}, responseType = "json", headers = this.getHeader()}: AbstractServiceParams<S>): Observable<S> {
+    protected get<S = T>({url, body, mapFunction = (e) => e, params = {}, responseType = "json", headers = this.getHeader()}: G43ServiceParams<S>): Observable<S> {
         return this.http.get<S>(url, {
             headers,
             responseType: responseType as any, // Hack because overloading

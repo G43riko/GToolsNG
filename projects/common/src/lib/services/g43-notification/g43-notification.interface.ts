@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-export interface GTNotification {
+export interface G43Notification {
     openErrorNotification(error: any): void;
 
     openInfoNotification(info: any): void;
@@ -8,4 +8,4 @@ export interface GTNotification {
     openSuccessNotification(success: any): void;
 }
 
-export const GT_NOTIFICATION_TOKEN = new InjectionToken<GTNotification>('GTNotification');
+export const GT_NOTIFICATION_TOKEN = new InjectionToken<G43Notification>('GTNotification');

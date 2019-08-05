@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {G43TestingModule} from "../../../../projects/common/src/lib/testing/g43-testing.module";
 
 import { InputExampleComponent } from './input-example.component';
 
@@ -8,9 +10,15 @@ describe('InputExampleComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [InputExampleComponent]
-        })
-               .compileComponents();
+            imports: [
+                G43TestingModule,
+                FormsModule,
+                ReactiveFormsModule,
+            ],
+            declarations: [
+                InputExampleComponent,
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {
