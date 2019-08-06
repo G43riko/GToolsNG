@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
+import { G43_TRANSLATE_TOKEN, G43Translation } from '@g43/common';
 import { MenuItem } from './models/menu-item.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
 
     public currentLang = 'en';
 
-    public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
+    public constructor(@Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation) {
     }
 
     public switchLanguage(): void {

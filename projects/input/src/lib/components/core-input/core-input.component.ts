@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-    selector: 'gt-core-input',
+    selector: 'g43-core-input',
     templateUrl: './core-input.component.html',
     styleUrls: ['./core-input.component.scss'],
     providers: [

@@ -25,7 +25,6 @@
     <tr #actRow
         (click)="onRowClick(row, rowIndex)"
         *ngFor="let row of data | async; let rowIndex = index"
-        [attr.edited]="false"
         [ngClass]="getRowClass(row, rowIndex)">
         <td *ngIf="hasSelection">
             <input #selectionCheckbox
@@ -40,7 +39,7 @@
             <gt-core-table-column *ngIf="column.visible !== false"
                                   [columnConfig]="column"
                                   [columnIndex]="columnIndex"
-                                  [edited]="actRow.edited"
+                                  [edited]="false"
                                   [rowIndex]="rowIndex"
                                   [row]="row"></gt-core-table-column>
         </td>

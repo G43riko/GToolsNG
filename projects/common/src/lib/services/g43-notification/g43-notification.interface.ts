@@ -8,4 +8,4 @@ export interface G43Notification {
     openSuccessNotification(success: any): void;
 }
 
-export const GT_NOTIFICATION_TOKEN = new InjectionToken<G43Notification>('GTNotification');
+export const G43_NOTIFICATION_TOKEN = new InjectionToken<G43Notification>('G43Notification');

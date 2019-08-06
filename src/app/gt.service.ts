@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AbstractService } from '@g43/common';
+import { G43Service } from '@g43/common';
 
 
-export abstract class GtService<T = any> extends AbstractService<T> {
+export abstract class GtService<T = any> extends G43Service<T> {
     protected constructor(http: HttpClient) {
         super(http, null);
     }

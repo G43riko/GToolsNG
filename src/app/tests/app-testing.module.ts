@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TestingModule } from '@g43/common';
+import { G43TestingModule } from '@g43/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { FakeTranslationLoader } from './fake-translation-loader';
 
@@ -11,7 +11,7 @@ import { FakeTranslationLoader } from './fake-translation-loader';
         })
     ],
     exports: [
-        TestingModule,
+        G43TestingModule,
         TranslateModule,
     ]
 })

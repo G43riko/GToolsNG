@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {G43TestingModule} from "../../../../projects/common/src/lib/testing/g43-testing.module";
+import {G43TestingModule} from "@g43/common";
 
 import { InputExampleComponent } from './input-example.component';
 

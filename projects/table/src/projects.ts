@@ -6,7 +6,6 @@ export * from './lib/table.service';
 export * from './lib/table.component';
 export * from './lib/table-maker.module';
 
-export * from './lib/interfaces/key-value.interface';
 export * from './lib/interfaces/table-column-config.interface';
 export * from './lib/interfaces/table-config.interface';
 export * from './lib/interfaces/table-filter-config.interface';

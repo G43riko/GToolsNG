@@ -19,25 +19,6 @@
             "dom"
         ],
         "paths": {
-            "@g43/menu": [
-                "projects/menu/src/projects"
-            ],
-            "@g43/menu/*": [
-                "projects/menu/src/*"
-            ],
-            "@g43/table": [
-                "projects/table/src/projects"
-            ],
-            "@g43/table/*": [
-                "projects/table/src/*"
-            ],
-
-            "@g43/input": [
-                "projects/input"
-            ],
-            "@g43/input/*": [
-                "projects/input/*"
-            ]
         }
     },
     "angularCompilerOptions": {

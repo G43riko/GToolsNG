@@ -1,4 +1,4 @@
-import { MenuItem } from '../../projects/menu/src/lib/models/menu-item.model';
+import {MenuItem} from "@g43/menu";
 
 export const menuItems = [
     MenuItem.create('menu.home'),

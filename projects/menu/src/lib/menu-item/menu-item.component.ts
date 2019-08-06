@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
+import { G43_TRANSLATE_TOKEN, G43Translation } from '@g43/common';
 import { of } from 'rxjs';
 import { MenuItem } from '../models/menu-item.model';
 
@@ -13,7 +13,7 @@ export class MenuItemComponent implements OnInit {
     @Input() public menuItem: MenuItem;
 
     public constructor(private readonly router: Router,
-                       @Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
+                       @Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation) {
     }
 
     public ngOnInit(): void {

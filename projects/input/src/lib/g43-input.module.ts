@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GtInputComponent } from '@g43/input/src/lib/gt-input.component';
 import { CoreInputComponent } from './components/core-input/core-input.component';
 import { NumberInputComponent } from './components/number-input/number-input.component';
+import {G43InputComponent} from "./g43-input.component";
 
 @NgModule({
     declarations: [
-        GtInputComponent,
+        G43InputComponent,
         CoreInputComponent,
         NumberInputComponent],
     imports: [
@@ -14,10 +14,10 @@ import { NumberInputComponent } from './components/number-input/number-input.com
         ReactiveFormsModule,
     ],
     exports: [
-        GtInputComponent,
+        G43InputComponent,
         NumberInputComponent,
         CoreInputComponent,
     ]
 })
-export class GtInputModule {
+export class G43InputModule {
 }

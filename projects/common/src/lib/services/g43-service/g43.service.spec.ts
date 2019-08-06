@@ -1,7 +1,7 @@
 import {TestBed} from "@angular/core/testing";
-import {G43TestingModule} from "../../testing/testing.module";
-import {GT_NOTIFICATION_TOKEN} from "../gt-notification/gt-notification.interface";
-import {G43Service} from "./abstract.service";
+import {G43TestingModule} from "../../testing/g43-testing.module";
+import {G43_NOTIFICATION_TOKEN} from "../g43-notification/g43-notification.interface";
+import {G43Service} from "./g43.service";
 
 describe("AbstractService", () => {
     beforeEach(() => TestBed.configureTestingModule({
@@ -10,7 +10,7 @@ describe("AbstractService", () => {
         ],
         providers: [
             G43Service,
-            {provide: GT_NOTIFICATION_TOKEN, useClass: {}},
+            {provide: G43_NOTIFICATION_TOKEN, useClass: {}},
             {provide: String, useValue: "something"},
         ]
     }));

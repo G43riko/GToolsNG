@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from '@angular/core';
-import { GT_TRANSLATE_TOKEN, GTTranslation } from '@g43/common';
+import { G43_TRANSLATE_TOKEN, G43Translation } from '@g43/common';
 import { Observable, of } from 'rxjs';
 import { TableColumnConfigInterface } from '../../interfaces/table-column-config.interface';
 import { TableConfigInterface } from '../../interfaces/table-config.interface';
@@ -14,7 +14,7 @@ export class CoreTableComponent implements OnInit {
     @Input() public data: Observable<any[]>;
     @ViewChildren('selectionCheckbox') public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
 
-    public constructor(@Optional() @Inject(GT_TRANSLATE_TOKEN) private readonly translationService: GTTranslation) {
+    public constructor(@Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation) {
     }
 
     public get hasSelection(): boolean {

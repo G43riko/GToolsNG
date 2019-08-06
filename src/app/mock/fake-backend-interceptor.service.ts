@@ -1,6 +1,6 @@
 import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {RestApiHandler} from "@g43/common";
+import {G43RestApiHandler} from "@g43/common";
 import {Observable, of} from "rxjs";
 import {delay, dematerialize, materialize, mergeMap} from "rxjs/operators";
 import {employees} from "./data/employees.data";
@@ -9,8 +9,8 @@ import {movies} from "./data/movies.data";
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     private static readonly REQUEST_DELAY = 500;
-    private readonly moviesRestHandler = new RestApiHandler(movies, "movies");
-    private readonly employeesRestHandler = new RestApiHandler(employees, "employees");
+    private readonly moviesRestHandler = new G43RestApiHandler(movies, "movies");
+    private readonly employeesRestHandler = new G43RestApiHandler(employees, "employees");
 
     public constructor() {
         // empty

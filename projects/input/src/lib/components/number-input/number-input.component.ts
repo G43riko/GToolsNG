@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-    selector: 'gt-number-input',
+    selector: 'g43-number-input',
     templateUrl: './number-input.component.html',
     styleUrls: ['./number-input.component.css'],
     providers: [

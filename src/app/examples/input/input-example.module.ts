@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GtInputModule } from '@g43/input/src/lib/gt-input.module';
-import { CoreInputComponent } from './core-input/core-input.component';
-import { InputExampleRoutingModule } from './input-example-routing.module';
-import { InputExampleComponent } from './input-example.component';
+import {CommonModule} from "@angular/common";
+import {NgModule} from "@angular/core";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {G43InputModule} from "@g43/input";
+import {CoreInputComponent} from "./core-input/core-input.component";
+import {InputExampleRoutingModule} from "./input-example-routing.module";
+import {InputExampleComponent} from "./input-example.component";
 
 @NgModule({
     declarations: [
@@ -14,7 +14,7 @@ import { InputExampleComponent } from './input-example.component';
     imports: [
         CommonModule,
         InputExampleRoutingModule,
-        GtInputModule,
+        G43InputModule,
         FormsModule,
         ReactiveFormsModule
     ]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'gt-@g43/input',
+    selector: 'g43-input',
     template: `
         <p>
             @g43/input works!
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
     `,
     styles: []
 })
-export class GtInputComponent implements OnInit {
+export class G43InputComponent implements OnInit {
 
     public constructor() {
     }
