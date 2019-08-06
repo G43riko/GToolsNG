@@ -1,12 +1,12 @@
-import { TemplateRef } from '@angular/core';
-import { KeyValue } from './key-value.interface';
+import { TemplateRef } from "@angular/core";
+import { KeyValue } from "gtools";
 
 export interface TableFilterConfigInterface {
     /**
      * Type of filtering
      *
      */
-    type: 'STRING' | 'NUMBER' | 'BOOLEAN' | 'SELECT' | 'DATE_RANGE' | 'NUMBER_RANGE';
+    type: "STRING" | "NUMBER" | "BOOLEAN" | "SELECT" | "DATE_RANGE" | "NUMBER_RANGE";
 
     /**
      * Values used in select input
