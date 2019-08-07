@@ -5,5 +5,18 @@
         "@angular/common": "^7.2.0",
         "@angular/core": "^7.2.0"
     },
-    "author": "Gabriel Csollei<gcsollei@hotmail.com>"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/G43riko/GToolsNG.git"
+    },
+    "author": {
+        "email": "gcsollei@hotmail.com",
+        "name": "Gabriel Csollei"
+    },
+    "keywords": ["gtools", "angular", "library"],
+    "bugs": {
+        "email": "gcsollei@hotmail.com",
+        "url": "https://github.com/G43riko/GToolsNG/issues"
+    },
+    "homepage": "https://github.com/G43riko/GToolsNG#readme"
 }
