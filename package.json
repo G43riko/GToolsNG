@@ -1,6 +1,7 @@
 {
     "name": "gtools-ng",
     "version": "0.0.0",
+    "description": "simple library for angular projects",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
