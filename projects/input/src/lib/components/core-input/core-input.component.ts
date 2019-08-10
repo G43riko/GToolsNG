@@ -1,10 +1,10 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, OnInit } from "@angular/core";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-    selector: 'g43-core-input',
-    templateUrl: './core-input.component.html',
-    styleUrls: ['./core-input.component.scss'],
+    selector: "g43-core-input",
+    templateUrl: "./core-input.component.html",
+    styleUrls: ["./core-input.component.scss"],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -16,9 +16,9 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 export class CoreInputComponent<T = string> implements OnInit, ControlValueAccessor {
     @Input() public label?: string;
     @Input() public placeholder?: string;
-    public inputFormControl = new FormControl('');
+    public inputFormControl = new FormControl("");
 
-    @Input('disabled')
+    @Input("disabled")
     public set disable(value: boolean) {
         this.setDisabledState(value);
     }
@@ -52,7 +52,7 @@ export class CoreInputComponent<T = string> implements OnInit, ControlValueAcces
     }
 
     public writeValue(value: T): void {
-        this.inputFormControl.setValue(value || '', {emitEvent: false});
+        this.inputFormControl.setValue(value || "", {emitEvent: false});
     }
 
     protected processValue(value: T): T {

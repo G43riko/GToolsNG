@@ -1,4 +1,4 @@
-import { InjectionToken } from '@angular/core';
+import { InjectionToken } from "@angular/core";
 
 export interface G43Notification {
     openErrorNotification(error: any): void;
@@ -8,4 +8,4 @@ export interface G43Notification {
     openSuccessNotification(success: any): void;
 }
 
-export const G43_NOTIFICATION_TOKEN = new InjectionToken<G43Notification>('G43Notification');
+export const G43_NOTIFICATION_TOKEN = new InjectionToken<G43Notification>("G43Notification");

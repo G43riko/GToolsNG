@@ -27,6 +27,7 @@
     "menu": {
         "home": "Home",
         "about": "About",
-        "table": "Tables"
+        "table": "Tables",
+        "input": "Inputs"
     }
 }

@@ -1,0 +1,33 @@
+{
+    "title": "My name",
+    "movies": {
+        "title": "Title",
+        "year": "Year",
+        "budget": "Budget",
+        "director": "Director",
+        "actors": "Play",
+        "gross": "Profit",
+        "contentRating": "Accessibility",
+        "country": "Country",
+        "duration": "Length",
+        "genres": "Genres",
+        "language": "Language",
+        "content": "Content",
+        "aspectRation": "Aspect Ratio"
+    },
+    "employees": {
+        "name": "Name",
+        "surName": "Surname",
+        "age": "Age",
+        "summary": "Summary",
+        "birthday": "Birthday",
+        "level": "Level",
+        "issue": "Issue"
+    },
+    "menu": {
+        "home": "Home",
+        "about": "About",
+        "table": "Tables",
+        "input": "Inputs"
+    }
+}

@@ -29,6 +29,7 @@
     "menu": {
         "home": "Úvod",
         "about": "O nás",
-        "table": "Tabuľky"
+        "table": "Tabuľky",
+        "input": "Inputy"
     }
 }

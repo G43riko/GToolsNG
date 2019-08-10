@@ -1,8 +1,8 @@
-import { TranslateLoader } from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
+import { TranslateLoader } from "@ngx-translate/core";
+import { Observable, of } from "rxjs";
 
 const translations: any = {
-    CARDS_TITLE: 'This is a test'
+    CARDS_TITLE: "This is a test"
 };
 
 export class FakeTranslationLoader implements TranslateLoader {

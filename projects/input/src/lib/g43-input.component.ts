@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-    selector: 'g43-input',
+    selector: "g43-input",
     template: `
         <p>
             @g43/input works!

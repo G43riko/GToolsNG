@@ -1,0 +1,35 @@
+{
+    "title": "Môj názov",
+    "movies": {
+        "title": "Názov",
+        "year": "Rok",
+        "budget": "Rozpočet",
+        "director": "Režisér",
+        "actors": "Hrajú",
+        "gross": "Zisk",
+        "contentRating": "Prístupnosť",
+        "country": "Krajna",
+        "duration": "Dĺžka",
+        "genres": "Žánre",
+        "language": "Jazyk",
+        "content": "Obsah",
+        "aspectRation": "Pomer strán"
+    },
+    "employees": {
+        "name": "Meno",
+        "surName": "Priezvisko",
+        "age": "Vek",
+        "summary": "Súhrn",
+        "birthday": "Dátum narodenia",
+        "frontend": "Frontend",
+        "unFormattedBirthday": "Neformátovaný dátum narodenia",
+        "level": "Úroveň",
+        "issue": "Niečo"
+    },
+    "menu": {
+        "home": "Úvod",
+        "about": "O nás",
+        "table": "Tabuľky",
+        "input": "Inputy"
+    }
+}

@@ -1,5 +1,5 @@
-import { InjectionToken } from '@angular/core';
-import { Observable } from 'rxjs';
+import { InjectionToken } from "@angular/core";
+import { Observable } from "rxjs";
 
 export interface G43Translation {
     get(key: string): Observable<string>;
@@ -17,4 +17,4 @@ export interface G43Translation {
     exists?(key: string): boolean;
 }
 
-export const G43_TRANSLATE_TOKEN = new InjectionToken<G43Translation>('GTTranslation');
+export const G43_TRANSLATE_TOKEN = new InjectionToken<G43Translation>("GTTranslation");

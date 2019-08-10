@@ -1,5 +1,5 @@
-import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import {NgModule} from "@angular/core";
 import {G43FileSizePipe} from "./g43-file-size.pipe";
 import {G43SafePipe} from "./g43-safe.pipe";
 

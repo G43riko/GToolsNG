@@ -1,10 +1,10 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, OnInit } from "@angular/core";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
-    selector: 'g43-number-input',
-    templateUrl: './number-input.component.html',
-    styleUrls: ['./number-input.component.css'],
+    selector: "g43-number-input",
+    templateUrl: "./number-input.component.html",
+    styleUrls: ["./number-input.component.css"],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -14,7 +14,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
     ]
 })
 export class NumberInputComponent implements OnInit, ControlValueAccessor {
-    public inputFormControl = new FormControl('');
+    public inputFormControl = new FormControl("");
     @Input() public label?: string;
     @Input() public placeholder?: string;
     private lastValue: string;
@@ -52,7 +52,7 @@ export class NumberInputComponent implements OnInit, ControlValueAccessor {
         if (!this.lastValue) {
             this.lastValue = value;
         }
-        this.inputFormControl.setValue(value || '', {emitEvent: false});
+        this.inputFormControl.setValue(value || "", {emitEvent: false});
     }
 
     protected processValue(value: string): string {
