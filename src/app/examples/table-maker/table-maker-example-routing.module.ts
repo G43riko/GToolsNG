@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TableMakerExampleComponent } from './table-maker-example.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { TableMakerExampleComponent } from "./table-maker-example.component";
 
 const routes: Routes = [{
-    path: '',
+    path: "",
     children: [
         {
-            path: '',
-            pathMatch: 'full',
-            redirectTo: 'overview',
+            path: "",
+            pathMatch: "full",
+            redirectTo: "overview",
         },
         {
-            path: 'overview',
+            path: "overview",
             component: TableMakerExampleComponent,
         }
     ],

@@ -1,17 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {G43Service} from "@g43/common";
 import { Observable } from "rxjs";
+import {GtService} from "../../gt.service";
 import { Employee } from "../../mock/data/employees.data";
-import {NotificationService} from "../../tests/notification.service";
 
 @Injectable({
     providedIn: "root"
 })
-export class EmployeeService extends G43Service<Employee> {
+export class EmployeeService extends GtService<Employee> {
 
-    public constructor(httpClient: HttpClient, notificationService: NotificationService) {
-        super(httpClient, notificationService);
+    public constructor(httpClient: HttpClient) {
+        super(httpClient);
     }
 
     public getList(): Observable<Employee[]> {

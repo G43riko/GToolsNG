@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TableColumnConfigInterface } from '../../interfaces/table-column-config.interface';
+import { Component, Input, OnInit } from "@angular/core";
+import { TableColumnConfigInterface } from "../../interfaces/table-column-config.interface";
 
 @Component({
-    selector: 'gt-core-table-column',
-    templateUrl: './core-table-column.component.html',
-    styleUrls: ['./core-table-column.component.scss']
+    selector: "g43-table-column",
+    templateUrl: "./core-table-column.component.html",
+    styleUrls: ["./core-table-column.component.scss"]
 })
 export class CoreTableColumnComponent implements OnInit {
     @Input() public columnConfig: TableColumnConfigInterface;
@@ -34,12 +34,12 @@ export class CoreTableColumnComponent implements OnInit {
     public get contentAlign(): string {
         if (!this.columnConfig.contentAlign) {
             switch (this.type) {
-                case 'boolean':
-                    return 'center';
-                case 'number':
-                    return 'right';
+                case "boolean":
+                    return "center";
+                case "number":
+                    return "right";
                 default:
-                    return 'left';
+                    return "left";
             }
         }
 
@@ -48,10 +48,10 @@ export class CoreTableColumnComponent implements OnInit {
 
     public get type() {
         if (this.columnConfig.tableCellTemplate) {
-            return 'template';
+            return "template";
         }
         if (!this.columnConfig.type) {
-            return 'string';
+            return "string";
         }
 
         return this.columnConfig.type;
@@ -61,7 +61,7 @@ export class CoreTableColumnComponent implements OnInit {
         if (!this.columnConfig) {
             return null;
         }
-        if (typeof this.columnConfig.customValue === 'function') {
+        if (typeof this.columnConfig.customValue === "function") {
             return this.columnConfig.customValue(this.row);
         }
 

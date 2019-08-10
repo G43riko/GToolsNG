@@ -1,21 +1,21 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { TableConfigInterface } from '@g43/table';
-import { Observable, of } from 'rxjs';
-import { Movie, movies } from '../../../mock/data/movies.data';
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { TableConfigInterface } from "@g43/table";
+import { Observable, of } from "rxjs";
+import { Movie, movies } from "../../../mock/data/movies.data";
 
 @Component({
-    selector: 'huge-table',
-    templateUrl: './huge-table.component.html',
-    styleUrls: ['./huge-table.component.scss']
+    selector: "huge-table",
+    templateUrl: "./huge-table.component.html",
+    styleUrls: ["./huge-table.component.scss"]
 })
 export class HugeTableComponent implements OnInit {
-    @ViewChild('grossColumn', {static: true}) public grossColumn: TemplateRef<any>;
-    @ViewChild('budgetColumn', {static: true}) public budgetColumn: TemplateRef<any>;
-    @ViewChild('actorsColumn', {static: true}) public actorsColumn: TemplateRef<any>;
+    @ViewChild("grossColumn", {static: true}) public grossColumn: TemplateRef<any>;
+    @ViewChild("budgetColumn", {static: true}) public budgetColumn: TemplateRef<any>;
+    @ViewChild("actorsColumn", {static: true}) public actorsColumn: TemplateRef<any>;
 
     public tableConfig: TableConfigInterface;
     public readonly data: Observable<Movie[]> = of(movies.filter((e, i) => i < 10));
-    public readonly title = 'TableMaker';
+    public readonly title = "TableMaker";
 
     public ngOnInit(): void {
         this.tableConfig = {
@@ -23,77 +23,77 @@ export class HugeTableComponent implements OnInit {
             // selectable: 'SINGLE',
             columns: [
                 {
-                    labelKey: 'movies.title',
-                    columnDef: 'movie_title',
+                    labelKey: "movies.title",
+                    columnDef: "movie_title",
                     sort: true,
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'movies.actors',
+                    labelKey: "movies.actors",
                     tableCellTemplate: this.actorsColumn,
-                    columnDef: 'actors'
+                    columnDef: "actors"
                 },
                 {
-                    labelKey: 'movies.year',
-                    columnDef: 'title_year',
+                    labelKey: "movies.year",
+                    columnDef: "title_year",
                     sort: true,
-                    type: 'number',
-                    width: '100px',
+                    type: "number",
+                    width: "100px",
                     filter: {
-                        type: 'NUMBER_RANGE',
-                        min: '1800',
-                        max: '2100',
+                        type: "NUMBER_RANGE",
+                        min: "1800",
+                        max: "2100",
                     }
                 },
                 {
-                    labelKey: 'movies.budget',
-                    columnDef: 'budget',
+                    labelKey: "movies.budget",
+                    columnDef: "budget",
                     tableCellTemplate: this.budgetColumn,
                 },
                 {
-                    labelKey: 'movies.gross',
+                    labelKey: "movies.gross",
                     tableCellTemplate: this.grossColumn,
-                    columnDef: 'gross',
+                    columnDef: "gross",
                 },
                 {
-                    labelKey: 'movies.contentRating',
-                    columnDef: 'content_rating',
-                    width: '70px',
+                    labelKey: "movies.contentRating",
+                    columnDef: "content_rating",
+                    width: "70px",
                     sort: true,
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'movies.director',
-                    columnDef: 'director_name',
+                    labelKey: "movies.director",
+                    columnDef: "director_name",
                     customValue: (row) => `${ row.director_name }(${ row.director_facebook_likes })`,
                     sort: true,
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'movies.duration',
-                    columnDef: 'duration',
-                    width: '100px',
+                    labelKey: "movies.duration",
+                    columnDef: "duration",
+                    width: "100px",
                     sort: true,
-                    customValue: (row) => row.duration ? row.duration + ' min' : row.duration,
+                    customValue: (row) => row.duration ? row.duration + " min" : row.duration,
                     filter: {
-                        type: 'NUMBER_RANGE',
-                        min: '0',
-                        max: '500',
+                        type: "NUMBER_RANGE",
+                        min: "0",
+                        max: "500",
                     }
                 },
                 {
-                    labelKey: 'movies.genres',
-                    columnDef: 'genres',
+                    labelKey: "movies.genres",
+                    columnDef: "genres",
                     sort: true,
-                    customValue: (row) => row.genres ? row.genres.replace(/\|/g, ', ') : row.genres,
+                    customValue: (row) => row.genres ? row.genres.replace(/\|/g, ", ") : row.genres,
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 /*

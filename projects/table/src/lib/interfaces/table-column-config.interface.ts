@@ -1,5 +1,5 @@
-import { TemplateRef } from '@angular/core';
-import { TableFilterConfigInterface } from './table-filter-config.interface';
+import { TemplateRef } from "@angular/core";
+import { TableFilterConfigInterface } from "./table-filter-config.interface";
 
 export enum FooterType {
     SUM = 1 << 0,
@@ -18,10 +18,10 @@ export interface TableColumnConfigInterface {
      * Enable / Disable sorting
      *
      */
-    type?: 'number' | 'string' | 'date' | 'boolean';
+    type?: "number" | "string" | "date" | "boolean";
     sort?: boolean;
     width?: string;
-    contentAlign?: 'center' | 'left' | 'right';
+    contentAlign?: "center" | "left" | "right";
     /**
      * Defines classes for td elements
      */
@@ -39,11 +39,11 @@ export interface TableColumnConfigInterface {
     footer?: FooterType | FooterType[];
     customFooter?: (iterator: IterableIterator<any>) => string;
 
-    selection?: 'none' | 'single' | 'multi';
+    selection?: "none" | "single" | "multi";
     /**
      * Align property for alignment usage
      */
-    align?: 'center' | 'left' | 'right';
+    align?: "center" | "left" | "right";
 
     /**
      * Name of attribute whose value is displayed

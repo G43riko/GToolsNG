@@ -17,7 +17,7 @@
         <th *ngFor="let column of tableConfig.columns"
             [ngStyle]="{'text-align': column.align}"
             [width]="column.width">
-            <gt-core-table-filter [filterConfig]="column.filter" [width]="column.width"></gt-core-table-filter>
+            <g43-table-filter [filterConfig]="column.filter" [width]="column.width"></g43-table-filter>
         </th>
     </tr>
     </thead>
@@ -36,12 +36,12 @@
             [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
             [ngStyle]="{'text-align': column.align}"
             [width]="column.width">
-            <gt-core-table-column *ngIf="column.visible !== false"
-                                  [columnConfig]="column"
-                                  [columnIndex]="columnIndex"
-                                  [edited]="false"
-                                  [rowIndex]="rowIndex"
-                                  [row]="row"></gt-core-table-column>
+            <g43-table-column *ngIf="column.visible !== false"
+                              [columnConfig]="column"
+                              [columnIndex]="columnIndex"
+                              [edited]="false"
+                              [rowIndex]="rowIndex"
+                              [row]="row"></g43-table-column>
         </td>
         <!--
         <td (click)="actRow.edited = true" *ngIf="!actRow.edited">

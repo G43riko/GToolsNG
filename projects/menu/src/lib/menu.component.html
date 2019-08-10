@@ -1,13 +1,19 @@
 <div class="menu-wrapper">
     <div [ngStyle]="{'width.px': menuWidth}" class="menu-drawer">
-        <button (click)="switchLanguage()">{{currentLang}}</button>
         <ul>
-            <li (click)="component.click()" *ngFor="let menuItem of menuItems">
-                <gt-menu-item #component [menuItem]="menuItem"></gt-menu-item>
-            </li>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li *ngIf="!menuItem.template; else hasTemplate" (click)="component.click()">
+                    <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                </li>
+                <ng-template #hasTemplate>
+                    <li>
+                        <ng-content *ngTemplateOutlet="menuItem.template"></ng-content>
+                    </li>
+                </ng-template>
+            </ng-container>
         </ul>
     </div>
     <div [ngStyle]="{'left.px': menuWidth, 'width': 'calc(100% - ' + menuWidth + 'px)'}" class="menu-content">
-        <ng-content></ng-content>
+        <ng-content *ngTemplateOutlet="content"></ng-content>
     </div>
 </div>

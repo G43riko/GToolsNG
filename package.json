@@ -7,10 +7,10 @@
         "start": "ng serve",
         "build": "ng build",
         "build:github": "ng build --configuration=production --outputPath=docs",
-        "build:common": "ng build G43Common --configuration=production",
-        "build:table": "ng build G43Table --configuration=production",
-        "build:menu": "ng build G43Menu --configuration=production",
-        "build:input": "ng build G43Input --configuration=production",
+        "build:common": "ng build G43Common",
+        "build:table": "ng build G43Table",
+        "build:menu": "ng build G43Menu",
+        "build:input": "ng build G43Input",
         "buildAndPublishCommon": "npm run build:common && cd dist/common && npm publish --access public",
         "buildAndPublishTable": "npm run build:table && cd dist/table && npm publish --access public",
         "buildAndPublishMenu": "npm run build:menu && cd dist/menu && npm publish --access public",
@@ -35,8 +35,8 @@
         "@angular/router": "~8.2.0",
         "@g43/common": "0.0.5",
         "@g43/input": "0.0.1",
-        "@g43/menu": "0.0.2",
-        "@g43/table": "0.0.1",
+        "@g43/menu": "0.0.3",
+        "@g43/table": "0.0.2",
         "@ngx-translate/core": "^11.0.1",
         "@ngx-translate/http-loader": "^4.0.0",
         "core-js": "^3.1.4",
@@ -53,7 +53,11 @@
         "email": "gcsollei@hotmail.com",
         "name": "Gabriel Csollei"
     },
-    "keywords": ["gtools", "angular", "library"],
+    "keywords": [
+        "gtools",
+        "angular",
+        "library"
+    ],
     "bugs": {
         "email": "gcsollei@hotmail.com",
         "url": "https://github.com/G43riko/GToolsNG/issues"

@@ -1,5 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<gt-menu [menuItems]="menuItems">
+<ng-template #languageSwitcher>
+    <button (click)="switchLanguage()">{{translate.currentLang}}</button>
+</ng-template>
+<ng-template #content>
     <router-outlet></router-outlet>
-    <!--    title:  {{gtranslate.instant.title}}-->
-</gt-menu>
+</ng-template>
+
+<g43-menu [menuItems]="menuItems" [content]="content">
+</g43-menu>

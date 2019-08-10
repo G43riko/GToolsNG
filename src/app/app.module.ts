@@ -1,25 +1,25 @@
-import { registerLocaleData } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import localeSk from '@angular/common/locales/sk';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import {G43_TRANSLATE_TOKEN, G43_NOTIFICATION_TOKEN} from "@g43/common";
+import {registerLocaleData} from "@angular/common";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import localeSk from "@angular/common/locales/sk";
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {RouterModule} from "@angular/router";
+import {G43_NOTIFICATION_TOKEN, G43_TRANSLATE_TOKEN} from "@g43/common";
 import {MenuModule} from "@g43/menu";
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { appRoutes } from './app-routing';
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {appRoutes} from "./app-routing";
 
-import { AppComponent } from './app.component';
-import { fakeBackendProvider } from './mock/fake-backend-interceptor.service';
-import { AboutComponent } from './pages/about/about.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
+import {AppComponent} from "./app.component";
+import {fakeBackendProvider} from "./mock/fake-backend-interceptor.service";
+import {AboutComponent} from "./pages/about/about.component";
+import {WelcomeComponent} from "./pages/welcome/welcome.component";
 import {NotificationService} from "./tests/notification.service";
 
-registerLocaleData(localeSk, 'en');
+registerLocaleData(localeSk, "en");
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 
@@ -39,7 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
                 deps: [HttpClient],
             },
         }),
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, {useHash: true}),
         MenuModule,
     ],
     providers: [

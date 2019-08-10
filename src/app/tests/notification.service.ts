@@ -16,7 +16,4 @@ export class NotificationService implements G43Notification {
     public openSuccessNotification(success: any): void {
         console.log(success);
     }
-
-    public constructor() {
-    }
 }

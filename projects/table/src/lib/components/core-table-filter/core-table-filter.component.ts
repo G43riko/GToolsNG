@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TableFilterConfigInterface } from '../../interfaces/table-filter-config.interface';
+import { Component, Input, OnInit } from "@angular/core";
+import { TableFilterConfigInterface } from "../../interfaces/table-filter-config.interface";
 
 @Component({
-    selector: 'gt-core-table-filter',
-    templateUrl: './core-table-filter.component.html',
-    styleUrls: ['./core-table-filter.component.scss']
+    selector: "g43-table-filter",
+    templateUrl: "./core-table-filter.component.html",
+    styleUrls: ["./core-table-filter.component.scss"]
 })
 export class CoreTableFilterComponent implements OnInit {
     @Input() public filterConfig: TableFilterConfigInterface;

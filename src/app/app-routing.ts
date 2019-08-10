@@ -1,31 +1,31 @@
-import { Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { Routes } from "@angular/router";
+import { AboutComponent } from "./pages/about/about.component";
+import { WelcomeComponent } from "./pages/welcome/welcome.component";
 
 export const appRoutes: Routes = [
     {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
+        path: "",
+        redirectTo: "home",
+        pathMatch: "full",
     },
     {
-        path: 'home',
+        path: "home",
         component: WelcomeComponent,
     },
     {
-        path: 'about',
+        path: "about",
         component: AboutComponent
     },
     {
-        path: 'table',
-        loadChildren: './examples/table-maker/table-maker-example.module#TableMakerExampleModule',
+        path: "table",
+        loadChildren: "./examples/table-maker/table-maker-example.module#TableMakerExampleModule",
     },
     {
-        path: 'input',
-        loadChildren: './examples/input/input-example.module#InputExampleModule',
+        path: "input",
+        loadChildren: "./examples/input/input-example.module#InputExampleModule",
     },
     {
-        path: '**',
-        redirectTo: 'home',
+        path: "**",
+        redirectTo: "home",
     },
 ];

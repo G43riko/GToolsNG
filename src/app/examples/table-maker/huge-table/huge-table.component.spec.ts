@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TableMakerModule } from '@g43/table';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { TableMakerModule } from "@g43/table";
 
-import { HugeTableComponent } from './huge-table.component';
+import { HugeTableComponent } from "./huge-table.component";
 
-describe('HugeTableComponent', () => {
+describe("HugeTableComponent", () => {
     let component: HugeTableComponent;
     let fixture: ComponentFixture<HugeTableComponent>;
 
@@ -24,7 +24,7 @@ describe('HugeTableComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });

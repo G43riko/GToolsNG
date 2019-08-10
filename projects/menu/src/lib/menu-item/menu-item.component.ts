@@ -1,13 +1,13 @@
-import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
-import { Router } from '@angular/router';
-import { G43_TRANSLATE_TOKEN, G43Translation } from '@g43/common';
-import { of } from 'rxjs';
-import { MenuItem } from '../models/menu-item.model';
+import { Component, Inject, Input, OnInit, Optional } from "@angular/core";
+import { Router } from "@angular/router";
+import { G43_TRANSLATE_TOKEN, G43Translation } from "@g43/common";
+import { of } from "rxjs";
+import { MenuItem } from "../models/menu-item.model";
 
 @Component({
-    selector: 'gt-menu-item',
-    templateUrl: './menu-item.component.html',
-    styleUrls: ['./menu-item.component.scss']
+    selector: "g43-menu-item",
+    templateUrl: "./menu-item.component.html",
+    styleUrls: ["./menu-item.component.scss"]
 })
 export class MenuItemComponent implements OnInit {
     @Input() public menuItem: MenuItem;
@@ -32,9 +32,9 @@ export class MenuItemComponent implements OnInit {
             return;
         }
 
-        if (typeof this.menuItem.action === 'string') {
+        if (typeof this.menuItem.action === "string") {
             this.router.navigate([this.menuItem.action]);
-        } else if (typeof this.menuItem.action === 'function') {
+        } else if (typeof this.menuItem.action === "function") {
             this.menuItem.action();
         }
     }

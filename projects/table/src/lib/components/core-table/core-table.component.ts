@@ -1,18 +1,18 @@
-import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from '@angular/core';
-import { G43_TRANSLATE_TOKEN, G43Translation } from '@g43/common';
-import { Observable, of } from 'rxjs';
-import { TableColumnConfigInterface } from '../../interfaces/table-column-config.interface';
-import { TableConfigInterface } from '../../interfaces/table-config.interface';
+import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from "@angular/core";
+import { G43_TRANSLATE_TOKEN, G43Translation } from "@g43/common";
+import { Observable, of } from "rxjs";
+import { TableColumnConfigInterface } from "../../interfaces/table-column-config.interface";
+import { TableConfigInterface } from "../../interfaces/table-config.interface";
 
 @Component({
-    selector: 'gt-core-table',
-    templateUrl: './core-table.component.html',
-    styleUrls: ['./core-table.component.scss']
+    selector: "g43-table",
+    templateUrl: "./core-table.component.html",
+    styleUrls: ["./core-table.component.scss"]
 })
 export class CoreTableComponent implements OnInit {
     @Input() public tableConfig: TableConfigInterface;
     @Input() public data: Observable<any[]>;
-    @ViewChildren('selectionCheckbox') public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
+    @ViewChildren("selectionCheckbox") public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
 
     public constructor(@Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation) {
     }
@@ -22,7 +22,7 @@ export class CoreTableComponent implements OnInit {
             return false;
         }
 
-        return this.tableConfig.selectable === 'MULTI' || this.tableConfig.selectable === 'SINGLE';
+        return this.tableConfig.selectable === "MULTI" || this.tableConfig.selectable === "SINGLE";
     }
 
     public ngOnInit(): void {
@@ -41,7 +41,7 @@ export class CoreTableComponent implements OnInit {
     }
 
     public onRowClick(row: any, rowIndex: number) {
-        if (typeof this.tableConfig.onRowClick !== 'function') {
+        if (typeof this.tableConfig.onRowClick !== "function") {
             return;
         }
 
@@ -49,8 +49,8 @@ export class CoreTableComponent implements OnInit {
     }
 
     public getCellClass(row: any, rowIndex: number, columnIndex: number, config: TableColumnConfigInterface): string {
-        if (typeof config.cellClass !== 'function') {
-            return '';
+        if (typeof config.cellClass !== "function") {
+            return "";
         }
 
         return config.cellClass(row, rowIndex, columnIndex);
@@ -63,7 +63,7 @@ export class CoreTableComponent implements OnInit {
     }
 
     public changeCheckbox(row: any, checkboxInput: HTMLInputElement): void {
-        if (this.tableConfig.selectable === 'SINGLE') {
+        if (this.tableConfig.selectable === "SINGLE") {
             const value = checkboxInput.checked;
             this.checkboxes.forEach((e) => {
                 e.nativeElement.checked = false;
@@ -74,12 +74,12 @@ export class CoreTableComponent implements OnInit {
 
     public getRowClass(row: any, rowIndex: number): string {
         switch (typeof this.tableConfig.rowClass) {
-            case 'function':
+            case "function":
                 return this.tableConfig.rowClass(row, rowIndex);
-            case 'string':
+            case "string":
                 return this.tableConfig.rowClass;
             default:
-                return '';
+                return "";
         }
     }
 

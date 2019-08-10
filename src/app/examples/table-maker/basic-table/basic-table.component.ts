@@ -1,19 +1,19 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FooterType, TableConfigInterface } from '@g43/table';
-import { Observable } from 'rxjs';
-import { Employee } from '../../../mock/data/employees.data';
-import { EmployeeService } from '../../services/employee.service';
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { FooterType, TableConfigInterface } from "@g43/table";
+import { Observable } from "rxjs";
+import { Employee } from "../../../mock/data/employees.data";
+import { EmployeeService } from "../../services/employee.service";
 
 @Component({
-    selector: 'basic-table',
-    templateUrl: './basic-table.component.html',
-    styleUrls: ['./basic-table.component.scss']
+    selector: "basic-table",
+    templateUrl: "./basic-table.component.html",
+    styleUrls: ["./basic-table.component.scss"]
 })
 export class BasicTableComponent implements OnInit {
-    @ViewChild('customColumn', {static: true}) public customColumn: TemplateRef<any>;
+    @ViewChild("customColumn", {static: true}) public customColumn: TemplateRef<any>;
     public tableConfig: TableConfigInterface;
     public employees$: Observable<Employee[]>;
-    public readonly title = 'TableMaker';
+    public readonly title = "TableMaker";
 
     public constructor(private readonly employeeService: EmployeeService) {
     }
@@ -23,13 +23,13 @@ export class BasicTableComponent implements OnInit {
         this.tableConfig = {
             // onRowClick: (row: any) => alert("Age: " + row.age),
             // selectable: 'SINGLE',
-            selectable: 'MULTI',
+            selectable: "MULTI",
             rowClass: (row: any, rowIndex: number) => `table-row-${ rowIndex } hovered`,
             columns: [
                 {
-                    labelKey: 'employees.name',
-                    columnDef: 'name',
-                    width: '100px',
+                    labelKey: "employees.name",
+                    columnDef: "name",
+                    width: "100px",
                     sort: true,
                     customFooter: (iterator: IterableIterator<any>): string => {
                         const result = [];
@@ -37,92 +37,92 @@ export class BasicTableComponent implements OnInit {
                             result.push(entry.value[1].surname);
                         }
 
-                        return result.join(', ');
+                        return result.join(", ");
                     },
                 },
                 {
-                    labelKey: 'employees.surName',
-                    columnDef: 'surName',
-                    width: '100px',
+                    labelKey: "employees.surName",
+                    columnDef: "surName",
+                    width: "100px",
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'employees.frontend',
-                    columnDef: 'frontend',
-                    type: 'boolean',
-                    width: '70px',
+                    labelKey: "employees.frontend",
+                    columnDef: "frontend",
+                    type: "boolean",
+                    width: "70px",
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'employees.age',
-                    columnDef: 'age',
-                    type: 'number',
+                    labelKey: "employees.age",
+                    columnDef: "age",
+                    type: "number",
                     sort: true,
                     footer: FooterType.MAX,
-                    width: '100px',
+                    width: "100px",
                     filter: {
-                        type: 'NUMBER_RANGE',
-                        min: '0',
-                        max: '150',
+                        type: "NUMBER_RANGE",
+                        min: "0",
+                        max: "150",
                     }
                 },
                 {
-                    labelKey: 'employees.summary',
+                    labelKey: "employees.summary",
                     customValue: (row: any) => `${ row.name } ${ row.surName }(${ row.age })`,
-                    columnDef: 'summary',
-                    width: '150px',
+                    columnDef: "summary",
+                    width: "150px",
                     filter: {
-                        type: 'STRING',
+                        type: "STRING",
                     }
                 },
                 {
-                    labelKey: 'employees.birthday',
-                    columnDef: 'date',
-                    type: 'date',
-                    format: 'dd.mm.yyyy',
-                    width: '130px'
+                    labelKey: "employees.birthday",
+                    columnDef: "date",
+                    type: "date",
+                    format: "dd.mm.yyyy",
+                    width: "130px"
                 },
                 {
-                    labelKey: 'employees.unFormattedBirthday',
-                    columnDef: 'date',
-                    type: 'date',
-                    width: '330px',
+                    labelKey: "employees.unFormattedBirthday",
+                    columnDef: "date",
+                    type: "date",
+                    width: "330px",
                     filter: {
-                        type: 'DATE_RANGE',
+                        type: "DATE_RANGE",
                     }
                 },
                 {
-                    labelKey: 'employees.level',
-                    columnDef: 'level',
-                    width: '100px',
+                    labelKey: "employees.level",
+                    columnDef: "level",
+                    width: "100px",
                     filter: {
-                        type: 'SELECT',
+                        type: "SELECT",
                         selectValues: [
                             {
-                                key: '',
-                                value: '',
+                                key: "",
+                                value: "",
                             },
                             {
-                                key: 'Junior',
-                                value: 'JUNIOR'
+                                key: "Junior",
+                                value: "JUNIOR"
                             },
                             {
-                                key: 'Senior',
-                                value: 'SENIOR'
+                                key: "Senior",
+                                value: "SENIOR"
                             },
                             {
-                                key: 'Študent',
-                                value: 'STUDENT'
+                                key: "Študent",
+                                value: "STUDENT"
                             }
                         ]
                     }
                 },
                 {
-                    columnDef: 'something',
+                    columnDef: "something",
                     visible: false,
                     tableCellTemplate: this.customColumn,
                 }

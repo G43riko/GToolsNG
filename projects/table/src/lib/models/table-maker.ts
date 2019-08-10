@@ -1,12 +1,12 @@
-import { FooterType, TableColumnConfigInterface } from '../interfaces/table-column-config.interface';
-import { TableConfigInterface } from '../interfaces/table-config.interface';
+import { FooterType, TableColumnConfigInterface } from "../interfaces/table-column-config.interface";
+import { TableConfigInterface } from "../interfaces/table-config.interface";
 
 export class TableMaker<T> {
     private readonly wrapper: HTMLElement;
     private readonly tableHeader: HTMLTableSectionElement;
     private readonly tableBody: HTMLTableSectionElement;
     private readonly tableFooter: HTMLTableSectionElement;
-    private sort: '' | 'DESC' | 'ASC';
+    private sort: "" | "DESC" | "ASC";
     private sortColumn: string;
     private realData: T[] = [];
     private readonly filters: { [key: string]: string | number } = {};
@@ -25,23 +25,23 @@ export class TableMaker<T> {
             throw new Error(`Cannot find element "${ selector }"`);
         }
 
-        const table = this.utils.createElement<HTMLTableElement>('table');
+        const table = this.utils.createElement<HTMLTableElement>("table");
 
-        this.tableHeader = this.utils.createElement<HTMLTableSectionElement>('thead');
+        this.tableHeader = this.utils.createElement<HTMLTableSectionElement>("thead");
         this.createHeader();
         table.appendChild(this.tableHeader);
 
 
         const hasAnyData = defaultData.some((row) => !!row);
         if (hasAnyData) {
-            this.tableBody = this.utils.createElement<HTMLTableSectionElement>('tbody');
+            this.tableBody = this.utils.createElement<HTMLTableSectionElement>("tbody");
             this.createBody();
             table.appendChild(this.tableBody);
         }
 
         const hasAnyFooter = this.config.columns.some((actConfig) => !!actConfig.footer || !actConfig.customFooter);
         if (hasAnyFooter) {
-            this.tableFooter = this.utils.createElement<HTMLTableSectionElement>('tfoot');
+            this.tableFooter = this.utils.createElement<HTMLTableSectionElement>("tfoot");
             this.createFooter();
             table.appendChild(this.tableFooter);
 
@@ -51,7 +51,7 @@ export class TableMaker<T> {
     }
 
     private getText(config: TableColumnConfigInterface, rowData: T): string | number {
-        if (typeof config.customValue === 'function') {
+        if (typeof config.customValue === "function") {
             return config.customValue(rowData);
         }
 
@@ -66,28 +66,28 @@ export class TableMaker<T> {
     private createHeader(): void {
         const hasAnyFilter = this.config.columns.some((config) => !!config.filter);
         const createFirstRow = (): HTMLTableRowElement => {
-            const tableRow = this.utils.createElement<HTMLTableRowElement>('tr');
+            const tableRow = this.utils.createElement<HTMLTableRowElement>("tr");
 
             this.config.columns.forEach((column) => {
-                const tableHeader = this.utils.createElement<HTMLTableHeaderCellElement>('th');
+                const tableHeader = this.utils.createElement<HTMLTableHeaderCellElement>("th");
 
-                if (typeof column.label === 'string') {
+                if (typeof column.label === "string") {
                     tableHeader.innerText = column.label;
                 }
                 if (column.sort === true) {
-                    tableHeader.style.cursor = 'pointer';
-                    tableHeader.addEventListener('click', () => {
+                    tableHeader.style.cursor = "pointer";
+                    tableHeader.addEventListener("click", () => {
                         if (this.sortColumn === column.columnDef) {
-                            if (this.sort === 'ASC') {
-                                this.sort = 'DESC';
-                            } else if (this.sort === 'DESC') {
-                                this.sort = '';
+                            if (this.sort === "ASC") {
+                                this.sort = "DESC";
+                            } else if (this.sort === "DESC") {
+                                this.sort = "";
                             } else {
-                                this.sort = 'ASC';
+                                this.sort = "ASC";
                             }
                         } else {
                             this.sortColumn = column.columnDef;
-                            this.sort = 'ASC';
+                            this.sort = "ASC";
                         }
                         this.createBody();
                     });
@@ -100,22 +100,22 @@ export class TableMaker<T> {
         };
 
         const createFilterRow = (): HTMLTableRowElement => {
-            const tableRow = this.utils.createElement<HTMLTableRowElement>('tr');
+            const tableRow = this.utils.createElement<HTMLTableRowElement>("tr");
 
             this.config.columns.forEach((column) => {
-                const tableHeader = this.utils.createElement<HTMLTableHeaderCellElement>('th');
+                const tableHeader = this.utils.createElement<HTMLTableHeaderCellElement>("th");
                 if (column.filter) {
-                    if (column.filter.type === 'STRING') {
-                        const input = this.utils.createElement<HTMLInputElement>('input');
-                        input.addEventListener('keyup', (e) => this.setFilter(this.utils.getRowName(column), input.value));
+                    if (column.filter.type === "STRING") {
+                        const input = this.utils.createElement<HTMLInputElement>("input");
+                        input.addEventListener("keyup", (e) => this.setFilter(this.utils.getRowName(column), input.value));
                         tableHeader.appendChild(input);
                     }
-                    if (column.filter.type === 'NUMBER') {
-                        const input = this.utils.createElement<HTMLInputElement>('input');
-                        input.addEventListener('keyup',
-                            (e) => e.key !== 'Enter' && this.setFilter(this.utils.getRowName(column), input.value));
-                        input.addEventListener('change', (e) => this.setFilter(this.utils.getRowName(column), input.value));
-                        input.type = 'number';
+                    if (column.filter.type === "NUMBER") {
+                        const input = this.utils.createElement<HTMLInputElement>("input");
+                        input.addEventListener("keyup",
+                            (e) => e.key !== "Enter" && this.setFilter(this.utils.getRowName(column), input.value));
+                        input.addEventListener("change", (e) => this.setFilter(this.utils.getRowName(column), input.value));
+                        input.type = "number";
                         tableHeader.appendChild(input);
                     }
                 }
@@ -133,22 +133,22 @@ export class TableMaker<T> {
 
     private createFooter(): void {
         const createFooterRow = (): HTMLTableRowElement => {
-            const tableRow = this.utils.createElement<HTMLTableRowElement>('tr');
+            const tableRow = this.utils.createElement<HTMLTableRowElement>("tr");
 
             this.config.columns.forEach((column) => {
-                const tableCell = this.utils.createElement<HTMLTableHeaderCellElement>('td');
+                const tableCell = this.utils.createElement<HTMLTableHeaderCellElement>("td");
                 const getNumberData = (): number[] => this.realData.map((row) => Number(this.getText(column, row)));
-                if (typeof column.customFooter === 'function') {
+                if (typeof column.customFooter === "function") {
                     tableCell.innerText = column.customFooter(this.realData.entries());
                 } else if (column.footer === FooterType.MAX) {
-                    tableCell.innerText = 'Max: ' + Math.max(...getNumberData());
+                    tableCell.innerText = "Max: " + Math.max(...getNumberData());
                 } else if (column.footer === FooterType.MIN) {
-                    tableCell.innerText = 'Min: ' + Math.min(...getNumberData());
+                    tableCell.innerText = "Min: " + Math.min(...getNumberData());
                 } else if (column.footer === FooterType.SUM) {
-                    tableCell.innerText = 'Sum: ' + getNumberData().reduce((acc, val) => acc + val);
+                    tableCell.innerText = "Sum: " + getNumberData().reduce((acc, val) => acc + val);
                 } else if (column.footer === FooterType.AVG) {
                     const data = getNumberData();
-                    tableCell.innerText = 'Avg: ' + data.reduce((acc, val) => acc + val) / data.length;
+                    tableCell.innerText = "Avg: " + data.reduce((acc, val) => acc + val) / data.length;
                 }
 
                 tableRow.appendChild(tableCell);
@@ -164,18 +164,18 @@ export class TableMaker<T> {
             const columnTitle = this.utils.getRowName(config);
             const text = this.getText(config, rowData);
             const filterValue: string | number = this.filters[columnTitle];
-            if (typeof filterValue === 'string' && String(text).indexOf(filterValue) < 0) {
+            if (typeof filterValue === "string" && String(text).indexOf(filterValue) < 0) {
                 return null;
             }
 
-            const tableCell = this.utils.createElement<HTMLTableCellElement>('td');
+            const tableCell = this.utils.createElement<HTMLTableCellElement>("td");
             tableCell.innerText = String(text);
 
             return tableCell;
         };
 
         const createRow = (rowData: T, rowIndex: number): HTMLTableRowElement | null => {
-            const tableRow = this.utils.createElement<HTMLTableRowElement>('tr');
+            const tableRow = this.utils.createElement<HTMLTableRowElement>("tr");
 
             for (let columnIndex = 0; columnIndex < this.config.columns.length; columnIndex++) {
                 const columnConfig = this.config.columns[columnIndex];
@@ -189,13 +189,13 @@ export class TableMaker<T> {
             return tableRow;
         };
 
-        this.tableBody.innerHTML = '';
+        this.tableBody.innerHTML = "";
 
         this.realData = [...this.defaultData].sort((a, b) => {
             if (!this.sort || !this.sortColumn) {
                 return 0;
             }
-            if (this.sort === 'ASC') {
+            if (this.sort === "ASC") {
                 return String(a[this.sortColumn]).localeCompare(b[this.sortColumn]);
             }
 

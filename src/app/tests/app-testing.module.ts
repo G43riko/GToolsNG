@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { G43TestingModule } from '@g43/common';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { FakeTranslationLoader } from './fake-translation-loader';
+import { NgModule } from "@angular/core";
+import { G43TestingModule } from "@g43/common";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { FakeTranslationLoader } from "./fake-translation-loader";
 
 @NgModule({
     declarations: [],

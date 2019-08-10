@@ -1,4 +1,4 @@
-import { TableColumnConfigInterface } from './table-column-config.interface';
+import { TableColumnConfigInterface } from "./table-column-config.interface";
 
 export interface TableConfigInterface {
     // sticky footer
@@ -8,7 +8,7 @@ export interface TableConfigInterface {
     pageSizeOptions?: number[];
     uppercaseHeader?: boolean;
     noDataText?: string;
-    selectable?: 'NONE' | 'SINGLE' | 'MULTI';
+    selectable?: "NONE" | "SINGLE" | "MULTI";
     onSelectionChange?: (selectedRows: any[]) => void;
     columns: TableColumnConfigInterface[];
     rowClass?: (row: any, rowIndex: number) => string;

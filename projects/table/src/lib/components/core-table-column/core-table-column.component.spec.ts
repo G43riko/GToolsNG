@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CoreTableColumnComponent } from './core-table-column.component';
+import { CoreTableColumnComponent } from "./core-table-column.component";
 
-describe('CoreTableColumnComponent', () => {
+describe("CoreTableColumnComponent", () => {
     let component: CoreTableColumnComponent;
     let fixture: ComponentFixture<CoreTableColumnComponent>;
 
@@ -19,7 +19,7 @@ describe('CoreTableColumnComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });
