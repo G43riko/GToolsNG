@@ -1,7 +1,7 @@
-import { async, TestBed } from "@angular/core/testing";
-import { MenuModule } from "@g43/menu/lib/menu.module";
-import { AppComponent } from "./app.component";
-import { AppTestingModule } from "./tests/app-testing.module";
+import {async, TestBed} from "@angular/core/testing";
+import {MenuModule} from "@g43/menu/lib/menu.module";
+import {AppComponent} from "./app.component";
+import {AppTestingModule} from "./tests/app-testing.module";
 
 describe("AppComponent", () => {
     beforeEach(async(() => {

@@ -144,7 +144,7 @@
             "root": "projects/menu",
             "sourceRoot": "projects/menu/src",
             "projectType": "library",
-            "prefix": "gt",
+            "prefix": "g43",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
@@ -179,7 +179,7 @@
             "root": "projects/table",
             "sourceRoot": "projects/table/src",
             "projectType": "library",
-            "prefix": "gt",
+            "prefix": "g43",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
@@ -214,7 +214,7 @@
             "root": "projects/common",
             "sourceRoot": "projects/common/src",
             "projectType": "library",
-            "prefix": "gt",
+            "prefix": "g43",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
@@ -249,7 +249,7 @@
             "root": "projects/input",
             "sourceRoot": "projects/input/src",
             "projectType": "library",
-            "prefix": "gt",
+            "prefix": "g43",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",

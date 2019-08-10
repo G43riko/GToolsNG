@@ -3,7 +3,6 @@
 
 module.exports = function (config) {
     config.set({
-        basePath: '../@g43/input',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
             require('karma-jasmine'),

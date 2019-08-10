@@ -1,8 +1,8 @@
-import { Component, Inject, Input, OnInit, Optional } from "@angular/core";
-import { Router } from "@angular/router";
-import { G43_TRANSLATE_TOKEN, G43Translation } from "@g43/common";
-import { of } from "rxjs";
-import { MenuItem } from "../models/menu-item.model";
+import {Component, Inject, Input, OnInit, Optional} from "@angular/core";
+import {Router} from "@angular/router";
+import {G43_TRANSLATE_TOKEN, G43Translation} from "@g43/common";
+import {of} from "rxjs";
+import {MenuItem} from "../models/menu-item.model";
 
 @Component({
     selector: "g43-menu-item",
@@ -27,15 +27,16 @@ export class MenuItemComponent implements OnInit {
         return of(menuItem.label);
     }
 
-    public click(): void {
+    public click(): any {
         if (!this.menuItem) {
             return;
         }
 
         if (typeof this.menuItem.action === "string") {
-            this.router.navigate([this.menuItem.action]);
-        } else if (typeof this.menuItem.action === "function") {
-            this.menuItem.action();
+            return this.router.navigate([this.menuItem.action]);
+        }
+        if (typeof this.menuItem.action === "function") {
+            return this.menuItem.action();
         }
     }
 

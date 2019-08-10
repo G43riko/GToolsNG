@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { TestingModule } from "@g43/common";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {G43TestingModule} from "@g43/common";
 
-import { MenuComponent } from "./menu.component";
+import {MenuComponent} from "./menu.component";
 
 describe("MenuComponent", () => {
     let component: MenuComponent;
@@ -10,7 +10,7 @@ describe("MenuComponent", () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                TestingModule,
+                G43TestingModule,
             ],
             declarations: [
                 MenuComponent

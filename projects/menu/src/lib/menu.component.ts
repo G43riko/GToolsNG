@@ -1,12 +1,11 @@
 import {Component, Inject, Input, OnInit, Optional, TemplateRef} from "@angular/core";
-import { G43_TRANSLATE_TOKEN, G43Translation } from "@g43/common";
-import { MenuItem } from "./models/menu-item.model";
+import {G43_TRANSLATE_TOKEN, G43Translation} from "@g43/common";
+import {MenuItem} from "./models/menu-item.model";
 
 @Component({
     selector: "g43-menu",
     styleUrls: ["./menu.component.scss"],
-    templateUrl: "./menu.component.html",
-    styles: []
+    templateUrl: "./menu.component.html"
 })
 export class MenuComponent implements OnInit {
     @Input() public menuItems: MenuItem[] = [MenuItem.create("home"), MenuItem.create("about")];

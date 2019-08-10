@@ -1,19 +1,17 @@
-/*
-import { inject, TestBed } from "@angular/core";
-import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
-import { SafePipe } from "./safe.pipe";
+import {TestBed} from "@angular/core/testing";
+import {BrowserModule} from "@angular/platform-browser";
+import {G43SafePipe} from "./g43-safe.pipe";
 
 xdescribe("SafePipe", () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-                imports: [
-                    BrowserModule,
-                ],
-            });
+            imports: [
+                BrowserModule,
+            ],
+        });
     });
-    it("create an instance", inject(DomSanitizer, (domSanitizer: DomSanitizer) => {
-        const pipe = new SafePipe(domSanitizer);
+    it("create an instance", () => {
+        const pipe = TestBed.get(G43SafePipe);
         expect(pipe).toBeTruthy();
-    }));
+    });
 });
-*/
