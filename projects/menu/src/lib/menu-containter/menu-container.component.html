@@ -1,0 +1,17 @@
+<div (click)="isShowingBackdrop && onBackdropClicked()"
+     *ngIf="hasBackdrop"
+     [class.visible]="isShowingBackdrop"
+     class="backdrop"></div>
+
+<nav [class.visible]="visible" [ngStyle]="{'width.px': menuWidth}">
+    <ng-content select="g43-menu-drawer"></ng-content>
+</nav>
+<div [ngStyle]="visible && {'margin-left.px': menuType === 'moving' ? menuWidth : 0, filter: realFilter}"
+     class="content">
+    <ng-content select="g43-menu-content"></ng-content>
+</div>
+
+<!-- if content is not present, then add default content-->
+<g43-menu-drawer *ngIf="!content">
+    <ng-content></ng-content>
+</g43-menu-drawer>

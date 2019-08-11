@@ -1,10 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ng-template #languageSwitcher>
-    <button (click)="switchLanguage()">{{translate.currentLang}}</button>
-</ng-template>
-<ng-template #content>
-    <router-outlet></router-outlet>
-</ng-template>
+<ng-template *ngIf="false">
+    <ng-template #languageSwitcher>
+        <button (click)="switchLanguage()">{{translate.currentLang}}</button>
+    </ng-template>
+    <ng-template #content>
+        <router-outlet></router-outlet>
+    </ng-template>
 
-<g43-menu [menuItems]="menuItems" [content]="content">
-</g43-menu>
+    <g43-menu [content]="content" [menuItems]="menuItems">
+    </g43-menu>
+</ng-template>
+<g43-menu-container [backdrop]="false" menuType="moving" visible="true">
+    <g43-menu-drawer>
+        <div class="menu-drawer">
+            <button (click)="switchLanguage()">{{translate.currentLang}}</button>
+            <ul>
+                <ng-container *ngFor="let menuItem of menuItems">
+                    <li (click)="component.click()">
+                        <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </g43-menu-drawer>
+    <g43-menu-content>
+        <div class="menu-content">
+            <router-outlet></router-outlet>
+        </div>
+    </g43-menu-content>
+</g43-menu-container>

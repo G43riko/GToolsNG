@@ -1,6 +1,6 @@
-import { Routes } from "@angular/router";
-import { AboutComponent } from "./pages/about/about.component";
-import { WelcomeComponent } from "./pages/welcome/welcome.component";
+import {Routes} from "@angular/router";
+import {AboutComponent} from "./pages/about/about.component";
+import {WelcomeComponent} from "./pages/welcome/welcome.component";
 
 export const appRoutes: Routes = [
     {
@@ -18,11 +18,11 @@ export const appRoutes: Routes = [
     },
     {
         path: "table",
-        loadChildren: "./examples/table-maker/table-maker-example.module#TableMakerExampleModule",
+        loadChildren: () => import("./examples/table-maker/table-maker-example.module").then((mod) => mod.TableMakerExampleModule),
     },
     {
         path: "input",
-        loadChildren: "./examples/input/input-example.module#InputExampleModule",
+        loadChildren: () => import("./examples/input/input-example.module").then((mod) => mod.InputExampleModule),
     },
     {
         path: "**",

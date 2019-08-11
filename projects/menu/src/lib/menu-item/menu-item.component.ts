@@ -1,7 +1,7 @@
 import {Component, Inject, Input, OnInit, Optional} from "@angular/core";
 import {Router} from "@angular/router";
 import {G43_TRANSLATE_TOKEN, G43Translation} from "@g43/common";
-import {of} from "rxjs";
+import {Observable, of} from "rxjs";
 import {MenuItem} from "../models/menu-item.model";
 
 @Component({
@@ -19,7 +19,11 @@ export class MenuItemComponent implements OnInit {
     public ngOnInit(): void {
     }
 
-    public getLabelFor(menuItem: MenuItem) {
+    public getLabelFor(menuItem: MenuItem): Observable<string> {
+        if (!menuItem.label) {
+            return of("");
+        }
+
         if (this.translationService) {
             return this.translationService.get(menuItem.label);
         }

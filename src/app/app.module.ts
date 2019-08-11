@@ -5,9 +5,10 @@ import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {G43_NOTIFICATION_TOKEN, G43_TRANSLATE_TOKEN} from "@g43/common";
-import {MenuModule} from "@g43/menu";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+// import {MenuModule} from "@g43/menu";
+import {MenuModule} from "../../projects/menu/src/public-api";
 import {appRoutes} from "./app-routing";
 
 import {AppComponent} from "./app.component";
