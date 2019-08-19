@@ -1,3 +1,7 @@
-<span>
+<span *ngIf="menuItem; else: showContent">
     {{getLabelFor(menuItem) | async}}
 </span>
+
+<ng-template #showContent>
+    <ng-content></ng-content>
+</ng-template>

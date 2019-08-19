@@ -1,0 +1,7 @@
+$transition-speed: 0.3s;
+
+:host {
+    transition: margin-left $transition-speed, left $transition-speed, margin-right $transition-speed, filter $transition-speed;
+    display: block;
+    position: relative;
+}

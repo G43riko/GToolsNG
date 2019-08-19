@@ -10,8 +10,20 @@
     <g43-menu [content]="content" [menuItems]="menuItems">
     </g43-menu>
 </ng-template>
-<g43-menu-container [backdrop]="false" menuType="moving" visible="true">
-    <g43-menu-drawer>
+
+<g43-menu-container [backdrop]="true" [filter]="'blur(10px)'">
+    <g43-menu-drawer #drawerComponent type="moving">
+        <button (click)="switchLanguage()">{{translate.currentLang}}</button>
+        <ul>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li (click)="component.click()">
+                    <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                </li>
+            </ng-container>
+        </ul>
+    </g43-menu-drawer>
+
+    <g43-menu-drawer #drawerComponent2 align="right" type="moving">
         <div class="menu-drawer">
             <button (click)="switchLanguage()">{{translate.currentLang}}</button>
             <ul>
@@ -23,8 +35,26 @@
             </ul>
         </div>
     </g43-menu-drawer>
+
+    <g43-menu-top class="menu-flex-top" visible="true">
+        <g43-menu-item (click)="drawerComponent.toggle();">
+            <span>1☰</span>
+        </g43-menu-item>
+        <g43-menu-item (click)=" drawerComponent2.toggle()">
+            <span>2☰</span>
+        </g43-menu-item>
+        <div class="flex-divider"></div>
+        <g43-menu-item>
+            home
+        </g43-menu-item>
+        <g43-menu-item>
+            About
+        </g43-menu-item>
+    </g43-menu-top>
+
     <g43-menu-content>
         <div class="menu-content">
+            <br><br><br><br><br><br><br><br><br><br>
             <router-outlet></router-outlet>
         </div>
     </g43-menu-content>

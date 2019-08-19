@@ -7,7 +7,10 @@ import {MenuItem} from "../models/menu-item.model";
 @Component({
     selector: "g43-menu-item",
     templateUrl: "./menu-item.component.html",
-    styleUrls: ["./menu-item.component.scss"]
+    styleUrls: ["./menu-item.component.scss"],
+    host: {
+        class: "menu-item"
+    }
 })
 export class MenuItemComponent implements OnInit {
     @Input() public menuItem: MenuItem;
