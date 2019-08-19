@@ -13,10 +13,4 @@
 <ng-content select="g43-menu-drawer"></ng-content>
 
 <!--MENU CONTENT-->
-<!-- if content is not present, then add default content-->
-<g43-menu-content *ngIf="!content; else: contentPresent">
-    <ng-content></ng-content>
-</g43-menu-content>
-<ng-template #contentPresent>
-    <ng-content select="g43-menu-content"></ng-content>
-</ng-template>
+<ng-content select="g43-menu-content"></ng-content>

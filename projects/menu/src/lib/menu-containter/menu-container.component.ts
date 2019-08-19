@@ -1,5 +1,4 @@
 import {Component, ContentChild, ContentChildren, HostListener, Input, OnInit, QueryList} from "@angular/core";
-import {MenuContentComponent} from "../menu-content/menu-content.component";
 import {MenuDrawerComponent} from "../menu-drawer/menu-drawer.component";
 import {MenuTopComponent} from "../menu-top/menu-top.component";
 
@@ -13,7 +12,6 @@ export class MenuContainerComponent implements OnInit {
     @Input() public backdrop = true;
     @ContentChildren(MenuDrawerComponent) private drawers: QueryList<MenuDrawerComponent>;
     @ContentChild(MenuTopComponent, {static: false}) public topMenu: MenuTopComponent;
-    @ContentChild(MenuContentComponent, {static: false}) public content: MenuContentComponent;
 
     private openDrawer: MenuDrawerComponent;
 
