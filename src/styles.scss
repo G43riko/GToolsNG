@@ -1,33 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "common";
 
-.menu-item {
-    box-sizing: border-box;
-    position: relative;
-    user-select: none;
-    padding: 1em;
-    white-space: nowrap;
-}
-
-.menu-flex-top {
-    display: flex;
-    max-width: 100%;
-    width: 100%;
-
-    .menu-item {
-        line-height: 1;
-        text-transform: none;
-        text-align: center;
-        color: rgba(0, 0, 0, .87);
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-
-        &:hover {
-            cursor: pointer;
-            background: rgba(0, 0, 0, .3);
-            color: rgba(0, 0, 0, .95);
-        }
-    }
-
+body {
+    overflow-x: hidden;
 }

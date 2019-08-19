@@ -1,28 +1,5 @@
 $line-height: 40px;
 $content-padding: 20px;
 
-.menu-drawer {
-    ul {
-        list-style: none;
-
-        li {
-            background-color: azure;
-            justify-content: center;
-            padding-left: $content-padding;
-            box-sizing: border-box;
-            margin-top: 3px;
-            width: 100%;
-            min-height: $line-height;
-            line-height: $line-height;
-            cursor: pointer;
-
-            &:hover {
-                background-color: bisque;
-            }
-        }
-    }
-}
-
 .menu-content {
-    padding: 0 1em;
 }

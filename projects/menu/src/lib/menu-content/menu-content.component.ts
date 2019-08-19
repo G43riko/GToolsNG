@@ -6,6 +6,7 @@ import {MenuContainerComponent} from "../menu-containter/menu-container.componen
     templateUrl: "./menu-content.component.html",
     styleUrls: ["./menu-content.component.scss"],
     host: {
+        "class": "menu-drawer",
         "[style.margin-top.px]": "container.topMenu ? container.topMenu.height : 0",
         "[style.left.px]": "container.contentLeft",
         "[style.margin-right.px]": "container.contentMarginRight",

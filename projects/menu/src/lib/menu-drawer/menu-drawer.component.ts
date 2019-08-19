@@ -10,7 +10,8 @@ import {MenuContainerComponent} from "../menu-containter/menu-container.componen
         "[style.width.px]": "width",
         "[style.transform]": "'translateX(' + translate + '%)'",
         "[class.left]": "align === 'left'",
-        "[class.right]": "align === 'right'"
+        "[class.right]": "align === 'right'",
+        "[class.visible]": "visible",
     },
 })
 export class MenuDrawerComponent implements OnInit {

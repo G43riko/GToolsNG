@@ -6,16 +6,13 @@
      [class.visible]="isShowingBackdrop"
      class="backdrop"></div>
 
-<ng-container *ngIf="topMenu">
-    <ng-content select="g43-menu-top"></ng-content>
-</ng-container>
+<!--TOP MENU-->
+<ng-content *ngIf="topMenu" select="g43-menu-top"></ng-content>
 
 <!--MENU DRAWER-->
 <ng-content select="g43-menu-drawer"></ng-content>
 
 <!--MENU CONTENT-->
-
-
 <!-- if content is not present, then add default content-->
 <g43-menu-content *ngIf="!content; else: contentPresent">
     <ng-content></ng-content>

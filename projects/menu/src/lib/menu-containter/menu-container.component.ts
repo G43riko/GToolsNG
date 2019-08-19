@@ -10,16 +10,16 @@ import {MenuTopComponent} from "../menu-top/menu-top.component";
 })
 export class MenuContainerComponent implements OnInit {
     @Input() public filter;
-    @Input() private backdrop = true;
-    @ContentChildren(MenuDrawerComponent) public drawers: QueryList<MenuDrawerComponent>;
+    @Input() public backdrop = true;
+    @ContentChildren(MenuDrawerComponent) private drawers: QueryList<MenuDrawerComponent>;
     @ContentChild(MenuTopComponent, {static: false}) public topMenu: MenuTopComponent;
     @ContentChild(MenuContentComponent, {static: false}) public content: MenuContentComponent;
+
     private openDrawer: MenuDrawerComponent;
 
     public get isShowingBackdrop(): boolean {
         return this.backdrop && this.drawerVisible;
     }
-
 
     public get backdropLeft(): number {
         if (!this.drawerVisible) {
@@ -78,7 +78,7 @@ export class MenuContainerComponent implements OnInit {
         return this.filter;
     }
 
-    public get drawerVisible(): boolean {
+    private get drawerVisible(): boolean {
         return this.openDrawer && this.openDrawer.visible;
     }
 
