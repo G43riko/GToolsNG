@@ -1,4 +1,5 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {ReactiveFormsModule} from "@angular/forms";
 
 import {MenuExampleComponent} from "./menu-example.component";
 
@@ -8,9 +9,13 @@ describe("MenuExampleComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MenuExampleComponent]
-        })
-            .compileComponents();
+            declarations: [
+                MenuExampleComponent,
+            ],
+            imports: [
+                ReactiveFormsModule,
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {

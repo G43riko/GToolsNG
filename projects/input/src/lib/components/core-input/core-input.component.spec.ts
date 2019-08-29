@@ -1,10 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {G43TestingModule} from "../../../../../common/src/lib/testing/g43-testing.module";
+import {G43TestingModule} from "@g43/common";
+import {G43InputModule} from "@g43/input";
 
-import { CoreInputComponent } from './core-input.component';
+import {CoreInputComponent} from "./core-input.component";
 
-describe('CoreInputComponent', () => {
+describe("CoreInputComponent", () => {
     let component: CoreInputComponent;
     let fixture: ComponentFixture<CoreInputComponent<any>>;
 
@@ -14,6 +15,7 @@ describe('CoreInputComponent', () => {
                 G43TestingModule,
                 FormsModule,
                 ReactiveFormsModule,
+                G43InputModule,
             ],
             declarations: [
                 CoreInputComponent,
@@ -27,7 +29,7 @@ describe('CoreInputComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });

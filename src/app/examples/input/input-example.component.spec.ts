@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {G43TestingModule} from "@g43/common";
+import {G43InputModule} from "@g43/input";
 
-import { InputExampleComponent } from "./input-example.component";
+import {InputExampleComponent} from "./input-example.component";
 
 describe("InputExampleComponent", () => {
     let component: InputExampleComponent;
@@ -12,8 +12,7 @@ describe("InputExampleComponent", () => {
         TestBed.configureTestingModule({
             imports: [
                 G43TestingModule,
-                FormsModule,
-                ReactiveFormsModule,
+                G43InputModule,
             ],
             declarations: [
                 InputExampleComponent,

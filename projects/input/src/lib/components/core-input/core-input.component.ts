@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input, OnInit } from "@angular/core";
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import {Component, forwardRef, Input, OnInit} from "@angular/core";
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
     selector: "g43-core-input",

@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import {Component, OnInit} from "@angular/core";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
-    selector: "core-input",
-    templateUrl: "./core-input.component.html",
-    styleUrls: ["./core-input.component.scss"]
+    selector: "test-core-input",
+    templateUrl: "./test-core-input.component.html",
+    styleUrls: ["./test-core-input.component.scss"]
 })
-export class CoreInputComponent implements OnInit {
+export class TestCoreInputComponent implements OnInit {
     public readonly nameFormControl = new FormControl("someText");
     public readonly personFormGroup: FormGroup;
 
