@@ -25,6 +25,10 @@ export const appRoutes: Routes = [
         loadChildren: () => import("./examples/input/input-example.module").then((mod) => mod.InputExampleModule),
     },
     {
+        path: "menu",
+        loadChildren: () => import("./examples/menu/menu-example.module").then((mod) => mod.MenuExampleModule),
+    },
+    {
         path: "**",
         redirectTo: "home",
     },

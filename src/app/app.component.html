@@ -11,8 +11,8 @@
     </g43-menu>
 </ng-template>
 
-<g43-menu-container [backdrop]="true" [filter]="'blur(10px)'">
-    <g43-menu-drawer #drawerComponent>
+<g43-menu-container [backdrop]="stateService.backdrop" [filter]="'blur(10px)'">
+    <g43-menu-drawer #drawerComponent [type]="stateService.menuType">
         <button (click)="switchLanguage()">{{translate.currentLang}}</button>
         <ul>
             <ng-container *ngFor="let menuItem of menuItems">
@@ -23,7 +23,7 @@
         </ul>
     </g43-menu-drawer>
 
-    <g43-menu-drawer #drawerComponent2 align="right">
+    <g43-menu-drawer #drawerComponent2 [type]="stateService.menuType" align="right">
         <button (click)="switchLanguage()">{{translate.currentLang}}</button>
         <ul>
             <ng-container *ngFor="let menuItem of menuItems">
@@ -34,12 +34,25 @@
         </ul>
     </g43-menu-drawer>
 
-    <g43-menu-top visible="true">
+    <g43-menu-drawer #drawerComponent3 [type]="stateService.menuType" width="400">
+        <button (click)="switchLanguage()">{{translate.currentLang}}</button>
+        <ul>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li (click)="component.click()">
+                    <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                </li>
+            </ng-container>
+        </ul>
+    </g43-menu-drawer>
+    <g43-menu-top [height]="stateService.topMenuHeight" visible="true">
         <g43-menu-item (click)="drawerComponent.toggle();">
             <span>1☰</span>
         </g43-menu-item>
         <g43-menu-item (click)=" drawerComponent2.toggle()">
             <span>2☰</span>
+        </g43-menu-item>
+        <g43-menu-item (click)=" drawerComponent3.toggle()">
+            <span>3☰</span>
         </g43-menu-item>
         <div class="flex-divider"></div>
         <g43-menu-item>

@@ -1,5 +1,6 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {G43TestingModule} from "@g43/common";
+import {MenuItemComponent} from "./menu-item/menu-item.component";
 
 import {MenuComponent} from "./menu.component";
 
@@ -13,7 +14,8 @@ describe("MenuComponent", () => {
                 G43TestingModule,
             ],
             declarations: [
-                MenuComponent
+                MenuComponent,
+                MenuItemComponent,
             ]
         }).compileComponents();
     }));

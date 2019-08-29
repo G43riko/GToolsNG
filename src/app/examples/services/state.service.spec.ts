@@ -1,12 +1,12 @@
 import {TestBed} from "@angular/core/testing";
-import {G43InputService} from "./g43-input.service";
 
+import {StateService} from "./state.service";
 
-describe("GtInputService", () => {
+describe("StateService", () => {
     beforeEach(() => TestBed.configureTestingModule({}));
 
     it("should be created", () => {
-        const service: G43InputService = TestBed.get(G43InputService);
+        const service: StateService = TestBed.get(StateService);
         expect(service).toBeTruthy();
     });
 });

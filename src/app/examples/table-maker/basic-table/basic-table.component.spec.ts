@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { GTCommonModule } from "@g43/common";
-import { TableMakerModule } from "@g43/table";
-import { AppTestingModule } from "../../../tests/app-testing.module";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {G43CommonModule} from "@g43/common";
+import {TableMakerModule} from "@g43/table";
+import {AppTestingModule} from "../../../tests/app-testing.module";
 
-import { BasicTableComponent } from "./basic-table.component";
+import {BasicTableComponent} from "./basic-table.component";
 
 describe("BasicTableComponent", () => {
     let component: BasicTableComponent;
@@ -14,7 +14,7 @@ describe("BasicTableComponent", () => {
             imports: [
                 AppTestingModule,
                 TableMakerModule,
-                GTCommonModule,
+                G43CommonModule,
             ],
             declarations: [
                 BasicTableComponent,

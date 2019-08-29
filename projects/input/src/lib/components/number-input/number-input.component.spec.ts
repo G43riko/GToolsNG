@@ -1,16 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {ReactiveFormsModule} from "@angular/forms";
+import {CoreInputComponent} from "../core-input/core-input.component";
 
-import { NumberInputComponent } from './number-input.component';
+import {NumberInputComponent} from "./number-input.component";
 
-describe('NumberInputComponent', () => {
+describe("NumberInputComponent", () => {
     let component: NumberInputComponent;
     let fixture: ComponentFixture<NumberInputComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [NumberInputComponent]
-        })
-               .compileComponents();
+            declarations: [
+                NumberInputComponent,
+                CoreInputComponent,
+            ],
+            imports: [
+                ReactiveFormsModule,
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {
@@ -19,7 +26,7 @@ describe('NumberInputComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });

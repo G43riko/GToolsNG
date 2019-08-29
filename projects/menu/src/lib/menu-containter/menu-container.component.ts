@@ -24,6 +24,10 @@ export class MenuContainerComponent implements OnInit {
             return 0;
         }
 
+        if (this.openDrawer.type === "classic") {
+            return 0;
+        }
+
         return this.openDrawer.align === "right" ? -this.openDrawer.width : this.openDrawer.width;
     }
 

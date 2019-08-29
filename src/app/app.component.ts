@@ -1,7 +1,8 @@
 import {Component, OnInit, TemplateRef, ViewChild} from "@angular/core";
 import {MenuItem} from "@g43/menu";
-import { TranslateService } from "@ngx-translate/core";
-import { menuItems } from "./menu-items";
+import {TranslateService} from "@ngx-translate/core";
+import {StateService} from "./examples/services/state.service";
+import {menuItems} from "./menu-items";
 
 @Component({
     selector: "app-root",
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit{
     public readonly menuItems = [];
     public currentLang;
 
-    public constructor(public readonly translate: TranslateService) {
+    public constructor(public readonly translate: TranslateService,
+                       public readonly stateService: StateService) {
         translate.currentLang = translate.getBrowserLang();
 
         translate.setDefaultLang(translate.currentLang);

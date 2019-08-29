@@ -1,0 +1,19 @@
+<div style="text-align: center">
+    <div>
+        <label for="menuType">Menu type</label>
+        <select [formControl]="menuTypeFormControl" id="menuType" name="menuType">
+            <option value="classic">Classic</option>
+            <option value="squash">Squash</option>
+            <option value="moving">Move</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="backdropInput"> backdrop</label>
+        <input [formControl]="backdropFormControl" id="backdropInput" type="checkbox">
+    </div>
+    <div>
+        <label for="topMenuHeightInput">Top menu height</label>
+        <input [formControl]="topMenuHeightInputFormControl" id="topMenuHeightInput" type="number">
+    </div>
+</div>

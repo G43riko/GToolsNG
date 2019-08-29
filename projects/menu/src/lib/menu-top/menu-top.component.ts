@@ -12,9 +12,6 @@ export class MenuTopComponent implements OnInit {
     @Input() public visible = false;
     private realHeight = 50;
 
-    public constructor() {
-    }
-
     public get height(): number {
         return this.realHeight;
     }
