@@ -1,8 +1,11 @@
 $transition-speed: 0.3s;
 
 :host {
-    transition: margin-left $transition-speed, left $transition-speed, margin-right $transition-speed, filter $transition-speed;
+    transition: width $transition-speed, transform $transition-speed, margin-left $transition-speed, left $transition-speed, margin-right $transition-speed, filter $transition-speed;
     display: block;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
     padding: 0 1em;
 }

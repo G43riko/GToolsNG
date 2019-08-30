@@ -6,19 +6,21 @@ import {MenuContainerComponent} from "../menu-containter/menu-container.componen
     templateUrl: "./menu-drawer.component.html",
     styleUrls: ["./menu-drawer.component.scss"],
     host: {
-        "class": "menu-drawer",
         "[style.width.px]": "width",
-        "[style.transform]": "'translateX(' + translate + '%)'",
-        "[class.left]": "align === 'left'",
-        "[class.right]": "align === 'right'",
+        "[style.background-color]": "background",
+        "[style.padding-top.px]": "container.topOffset",
+        "[class]": "'menu-drawer ' + align",
         "[class.visible]": "visible",
+        "[style.display]": "loaded ? 'block' : 'none'",
     },
 })
 export class MenuDrawerComponent implements OnInit {
     @Input() public align: "left" | "right" = "left";
     @Input() public visible = false;
+    @Input() public background = "aliceblue";
     @Input() public type: "classic" | "moving" | "squash" = "classic";
     private realWidth = 160;
+    public loaded = false;
 
     public constructor(@Inject(forwardRef(() => MenuContainerComponent)) public readonly container: MenuContainerComponent) {
     }
@@ -29,18 +31,13 @@ export class MenuDrawerComponent implements OnInit {
 
     @Input()
     public set width(value: number) {
-        this.realWidth = value;
+        this.realWidth = Math.min(value, window.innerWidth);
     }
 
     public ngOnInit(): void {
-    }
-
-    public get translate(): number {
-        if (this.visible) {
-            return 0;
-        }
-
-        return this.align === "left" ? -100 : 100;
+        setTimeout(() => {
+            this.loaded = true;
+        }, 1000);
     }
 
     public close(): void {

@@ -42,6 +42,16 @@
                     <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
                 </li>
             </ng-container>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li (click)="component.click()">
+                    <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                </li>
+            </ng-container>
+            <ng-container *ngFor="let menuItem of menuItems">
+                <li (click)="component.click()">
+                    <g43-menu-item #component [menuItem]="menuItem"></g43-menu-item>
+                </li>
+            </ng-container>
         </ul>
     </g43-menu-drawer>
     <g43-menu-top [height]="stateService.topMenuHeight" visible="true">

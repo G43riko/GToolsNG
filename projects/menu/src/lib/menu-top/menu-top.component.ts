@@ -5,11 +5,13 @@ import {Component, Input, OnInit} from "@angular/core";
     templateUrl: "./menu-top.component.html",
     styleUrls: ["./menu-top.component.scss"],
     host: {
-        "[style.height.px]": "height"
+        "[style.height.px]": "height",
+        "[style.background-color]": "background",
     }
 })
 export class MenuTopComponent implements OnInit {
     @Input() public visible = false;
+    @Input() public background = "aliceblue";
     private realHeight = 50;
 
     public get height(): number {

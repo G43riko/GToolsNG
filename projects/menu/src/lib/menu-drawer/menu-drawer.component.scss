@@ -1,23 +1,32 @@
 :host {
-    background-color: aliceblue;
     display: block;
-    transition: all 0.3s;
+    transition: transform 0.3s;
     box-shadow: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-top: 20px;
+    top: 0;
+    max-height: 100vh;
+    overflow: hidden;
     max-width: 100vw;
     height: 100%;
     box-sizing: border-box;
     z-index: 2;
     position: fixed;
 
-    &.visible {
-        box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
-    }
+    transform: translateX(-100%);
 
     &.right {
         right: 0;
+        transform: translateX(100%);
     }
 
+
+    &.visible {
+        box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+        transform: translateX(0);
+    }
+
+
+    .inner-wrapper {
+        height: 100%;
+        overflow-y: auto;
+    }
 }

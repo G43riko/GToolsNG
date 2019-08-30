@@ -12,7 +12,7 @@ interface State {
 })
 export class StateService {
     private readonly data: State = {
-        menuType: "squash",
+        menuType: "classic",
         backdrop: true,
         topMenuHeight: 50
     };

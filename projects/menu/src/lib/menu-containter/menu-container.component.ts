@@ -19,6 +19,14 @@ export class MenuContainerComponent implements OnInit {
         return this.backdrop && this.drawerVisible;
     }
 
+    public get topOffset(): number {
+        if (!this.topMenu) {
+            return 0;
+        }
+
+        return this.topMenu.height;
+    }
+
     public get backdropLeft(): number {
         if (!this.drawerVisible) {
             return 0;

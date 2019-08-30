@@ -7,9 +7,12 @@ import {MenuContainerComponent} from "../menu-containter/menu-container.componen
     styleUrls: ["./menu-content.component.scss"],
     host: {
         "class": "menu-drawer",
-        "[style.margin-top.px]": "container.topMenu ? container.topMenu.height : 0",
-        "[style.left.px]": "container.contentLeft",
-        "[style.margin-right.px]": "container.contentMarginRight",
+        "[style.padding-top.px]": "container.topMenu ? container.topMenu.height : 0",
+        // "[style.left.px]": "container.contentLeft",
+        "[style.transform]": "'translateX(' + container.contentLeft + 'px)'",
+        // "[style.margin-right.px]": "container.contentMarginRight",
+        "[style.width]": "'calc(100% - ' + container.contentMarginRight + 'px)'",
+        "[attr.margin-rrrr]": "container.contentMarginRight",
         "[style.filter]": "container.realFilter"
     }
 })
