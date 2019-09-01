@@ -1,0 +1,106 @@
+@import "variables";
+
+
+// DEFAULT VARIABLES
+$primary-color: rgb(194, 185, 255) !default;
+$primary-color-hover: #7678f8 !default;
+$primary-color-active: #3c45e2 !default;
+$font-color: #111111 !default;
+
+$border-radius: .28571429rem;
+$loader-size: 1.28571429em;
+$loader-background: rgba(0, 0, 0, .15);
+$loader-color: #fff;
+$loader-width: .2em;
+$loader-speed: .6s;
+
+:host {
+    padding: 14px 24px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    //display: flex;
+    //display: block;
+
+    @keyframes button-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    &.styled {
+        border: 0 none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        //text-transform: uppercase;
+        background: $primary-color;
+        color: $font-color;
+        border-radius: $border-radius;
+
+
+        &:not(.loading):not(.disabled) {
+            &:focus, &:active:focus {
+                outline: 0 none;
+            }
+
+            &:hover {
+                background: $primary-color-hover;
+            }
+
+            &:active {
+                background: $primary-color-active;
+                box-shadow: none;
+            }
+        }
+    }
+
+
+    &.disabled {
+        cursor: default;
+
+        &, &:focus, &:hover {
+            color: rgba($font-color, 0.5);
+        }
+    }
+
+    &.loading {
+        &, &:focus, &:hover {
+            color: transparent;
+        }
+
+        &:before, &:after {
+            box-sizing: border-box;
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            margin: -.64285714em 0 0 -.64285714em;
+            width: $loader-size;
+            height: $loader-size;
+            border-radius: 50%;
+        }
+
+        &:before {
+            border: .2em solid $loader-background;
+        }
+
+        &:after {
+            animation: button-spin $loader-speed linear;
+            animation-iteration-count: infinite;
+            border-color: $loader-color transparent transparent;
+            border-style: solid;
+            border-width: $loader-width;
+            box-shadow: 0 0 0 1px transparent;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+    :host {
+        padding: 8px 16px;
+    }
+}

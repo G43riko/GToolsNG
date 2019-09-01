@@ -3,6 +3,8 @@ import {G43TestingModule} from "@g43/common";
 import {G43InputModule} from "@g43/input";
 
 import {InputExampleComponent} from "./input-example.component";
+import {TestButtonComponent} from "./test-button/test-button.component";
+import {TestCoreInputComponent} from "./test-core-input/test-core-input.component";
 
 describe("InputExampleComponent", () => {
     let component: InputExampleComponent;
@@ -15,6 +17,8 @@ describe("InputExampleComponent", () => {
                 G43InputModule,
             ],
             declarations: [
+                TestCoreInputComponent,
+                TestButtonComponent,
                 InputExampleComponent,
             ],
         }).compileComponents();

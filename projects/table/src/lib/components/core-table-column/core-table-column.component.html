@@ -1,19 +1,19 @@
-<ng-template [ngIf]="columnConfig">
-    <div [ngStyle]="{'text-align': contentAlign}" [ngSwitch]="type">
-        <ng-container *ngSwitchCase="'template'">
-            <ng-container *ngTemplateOutlet="columnConfig.tableCellTemplate; context: {
+<div *ngIf="columnConfig"
+     [ngSwitch]="type"
+     [style.text-align]="contentAlign">
+    <ng-container *ngSwitchCase="'template'">
+        <ng-container *ngTemplateOutlet="columnConfig.tableCellTemplate; context: {
                           row: row, columnConfig: columnConfig, value: value
                       }"
-            ></ng-container>
-        </ng-container>
-        <ng-container *ngSwitchCase="'boolean'">
-            <input [checked]="value" [disabled]="!edited" type="checkbox">
-        </ng-container>
-        <ng-container *ngSwitchCase="'date'">
-            {{value | date: columnConfig.format}}
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-            {{value}}
-        </ng-container>
-    </div>
-</ng-template>
+        ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'boolean'">
+        <input [checked]="value" [disabled]="!edited" type="checkbox">
+    </ng-container>
+    <ng-container *ngSwitchCase="'date'">
+        {{value | date: columnConfig.format}}
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        {{value}}
+    </ng-container>
+</div>

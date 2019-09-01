@@ -1,5 +1,5 @@
 <div class="menu-wrapper">
-    <div [ngStyle]="{'width.px': menuWidth}" class="menu-drawer">
+    <div [style.width.px]="menuWidth" class="menu-drawer">
         <ul>
             <ng-container *ngFor="let menuItem of menuItems">
                 <li *ngIf="!menuItem.template; else hasTemplate" (click)="component.click()">
@@ -13,7 +13,9 @@
             </ng-container>
         </ul>
     </div>
-    <div [ngStyle]="{'left.px': menuWidth, 'width': 'calc(100% - ' + menuWidth + 'px)'}" class="menu-content">
+    <div [style.left.px]="menuWidth"
+         [style.width]="'calc(100% - ' + menuWidth + 'px)'"
+         class="menu-content">
         <ng-content *ngTemplateOutlet="content"></ng-content>
     </div>
 </div>

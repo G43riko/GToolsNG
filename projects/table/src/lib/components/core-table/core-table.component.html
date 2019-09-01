@@ -1,9 +1,9 @@
-<table *ngIf="tableConfig" style="width: 100%;">
+<table *ngIf="tableConfig">
     <thead>
     <tr>
         <th *ngIf="hasSelection" width="20px"></th>
-        <th *ngFor="let column of tableConfig.columns"
-            [ngStyle]="{'text-align': column.align}"
+        <th *ngFor="let column of visibleColumns"
+            [style.text-align]="column.align"
             [width]="column.width">
             {{getLabel(column) | async}}
         </th>
@@ -14,16 +14,15 @@
                    *ngIf="tableConfig.selectable === 'MULTI'"
                    type="checkbox">
         </th>
-        <th *ngFor="let column of tableConfig.columns"
-            [ngStyle]="{'text-align': column.align}"
+        <th *ngFor="let column of visibleColumns"
+            [style.text-align]="column.align"
             [width]="column.width">
             <g43-table-filter [filterConfig]="column.filter" [width]="column.width"></g43-table-filter>
         </th>
     </tr>
     </thead>
     <tbody>
-    <tr #actRow
-        (click)="onRowClick(row, rowIndex)"
+    <tr (click)="onRowClick(row, rowIndex)"
         *ngFor="let row of data | async; let rowIndex = index"
         [ngClass]="getRowClass(row, rowIndex)">
         <td *ngIf="hasSelection">
@@ -32,12 +31,11 @@
                    name="tableSelector"
                    type="checkbox">
         </td>
-        <td *ngFor="let column of tableConfig.columns; let columnIndex = index"
+        <td *ngFor="let column of visibleColumns; let columnIndex = index"
             [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
-            [ngStyle]="{'text-align': column.align}"
+            [style.text-align]="column.align"
             [width]="column.width">
-            <g43-table-column *ngIf="column.visible !== false"
-                              [columnConfig]="column"
+            <g43-table-column [columnConfig]="column"
                               [columnIndex]="columnIndex"
                               [edited]="false"
                               [rowIndex]="rowIndex"

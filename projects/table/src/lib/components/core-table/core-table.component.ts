@@ -1,8 +1,8 @@
-import { Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren } from "@angular/core";
-import { G43_TRANSLATE_TOKEN, G43Translation } from "@g43/common";
-import { Observable, of } from "rxjs";
-import { TableColumnConfigInterface } from "../../interfaces/table-column-config.interface";
-import { TableConfigInterface } from "../../interfaces/table-config.interface";
+import {Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren} from "@angular/core";
+import {G43_TRANSLATE_TOKEN, G43Translation} from "@g43/common";
+import {Observable, of} from "rxjs";
+import {TableColumnConfigInterface} from "../../interfaces/table-column-config.interface";
+import {TableConfigInterface} from "../../interfaces/table-config.interface";
 
 @Component({
     selector: "g43-table",
@@ -38,6 +38,10 @@ export class CoreTableComponent implements OnInit {
         }
 
         return of(columnConfig.label);
+    }
+
+    public get visibleColumns(): TableColumnConfigInterface[] {
+        return this.tableConfig.columns.filter((column) => column.visible !== false);
     }
 
     public onRowClick(row: any, rowIndex: number) {

@@ -1,0 +1,13 @@
+<g43-core-input [formControl]="nameFormControl" [label]="'someLabel'" [placeholder]="'somePlaceHolder'"></g43-core-input>
+{{nameFormControl | json}}
+
+<div [formGroup]="personFormGroup">
+    <g43-core-input [formControlName]="'name'" [label]="'Name'" [placeholder]="'Name'"></g43-core-input>
+    <g43-core-input [label]="'Surname'" [placeholder]="'Surname'" formControlName="surName"></g43-core-input>
+    <g43-number-input [label]="'Age'" [placeholder]="'Age'" formControlName="age"></g43-number-input>
+    <g43-core-input [label]="'Disabled age'" [placeholder]="'Disabled age'"
+                    formControlName="ageDisabled"></g43-core-input>
+    <g43-core-input [disabled]="true" [label]="'Disabled input age'" [placeholder]="'Disabled input age'"
+                    formControlName="ageDisabledInput"></g43-core-input>
+</div>
+{{personFormGroup.value | json}}
