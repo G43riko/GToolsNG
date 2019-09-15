@@ -22,6 +22,7 @@ export class TestCoreInputComponent implements OnInit {
     }
 
     public ngOnInit() {
+        // empty
     }
 
 }

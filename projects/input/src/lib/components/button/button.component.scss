@@ -1,5 +1,3 @@
-@import "variables";
-
 
 // DEFAULT VARIABLES
 $primary-color: rgb(194, 185, 255) !default;
@@ -14,6 +12,7 @@ $loader-color: #fff;
 $loader-width: .2em;
 $loader-speed: .6s;
 
+$breakpoint-tablet: 765px !default;
 :host {
     padding: 14px 24px;
     position: relative;
