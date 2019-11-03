@@ -1,0 +1,67 @@
+$primary-color: rgb(194, 185, 255) !default;
+$primary-color-hover: #7678f8 !default;
+$primary-color-active: #3c45e2 !default;
+$input-border-radius: .28571429rem !default;
+
+$input-height: 1.21428571em !default;
+;
+$input-padding: $input-height / 2 !default;
+
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .label {
+
+    }
+
+    .options {
+        .select-input {
+            background: $primary-color;
+            border-radius: $input-border-radius;
+            border: 1px solid $primary-color-active;
+
+            margin: 0;
+            max-width: 100%;
+            min-width: 100px;
+            flex: 1 0 auto;
+            position: relative;
+
+            text-align: left;
+            line-height: $input-height;
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: $input-padding 1em;
+        }
+
+        .select-options {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            right: 0;
+            max-height: 150px;
+            overflow-y: auto;
+
+            .select-option {
+                cursor: pointer;
+                padding: $input-padding/2 1em;
+
+                &.focused {
+                    background: $primary-color-hover;
+                }
+            }
+        }
+    }
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

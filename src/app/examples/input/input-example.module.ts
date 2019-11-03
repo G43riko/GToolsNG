@@ -6,12 +6,14 @@ import {InputExampleRoutingModule} from "./input-example-routing.module";
 import {InputExampleComponent} from "./input-example.component";
 import {TestButtonComponent} from "./test-button/test-button.component";
 import {TestCoreInputComponent} from "./test-core-input/test-core-input.component";
+import {TestCoreSelectComponent} from "./test-core-select/test-core-select.component";
 
 @NgModule({
     declarations: [
         TestCoreInputComponent,
         InputExampleComponent,
         TestButtonComponent,
+        TestCoreSelectComponent,
     ],
     imports: [
         CommonModule,

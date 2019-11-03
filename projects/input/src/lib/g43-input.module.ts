@@ -3,6 +3,7 @@ import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ButtonComponent} from "./components/button/button.component";
 import {CoreInputComponent} from "./components/core-input/core-input.component";
+import {CoreSelectComponent} from "./components/core-select/core-select.component";
 import {NumberInputComponent} from "./components/number-input/number-input.component";
 import {G43InputComponent} from "./g43-input.component";
 
@@ -12,6 +13,7 @@ import {G43InputComponent} from "./g43-input.component";
         CoreInputComponent,
         NumberInputComponent,
         ButtonComponent,
+        CoreSelectComponent,
     ],
     imports: [
         FormsModule,
@@ -23,6 +25,7 @@ import {G43InputComponent} from "./g43-input.component";
         NumberInputComponent,
         CoreInputComponent,
         ButtonComponent,
+        CoreSelectComponent,
     ]
 })
 export class G43InputModule {

@@ -6,4 +6,5 @@ export const menuItems = [
     MenuItem.create("menu.table", "table"),
     MenuItem.create("menu.input", "input"),
     MenuItem.create("menu.menu", "menu"),
+    MenuItem.create("menu.lazyLoading", "poc/lazyLoading"),
 ];

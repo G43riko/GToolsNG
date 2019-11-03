@@ -1,3 +1,4 @@
+//@import "/src/assets/styles/variables";
 
 // DEFAULT VARIABLES
 $primary-color: rgb(194, 185, 255) !default;
@@ -5,14 +6,15 @@ $primary-color-hover: #7678f8 !default;
 $primary-color-active: #3c45e2 !default;
 $font-color: #111111 !default;
 
-$border-radius: .28571429rem;
+$breakpoint-tablet: 765px !default;
+$input-border-radius: .28571429rem !default;
+
 $loader-size: 1.28571429em;
 $loader-background: rgba(0, 0, 0, .15);
 $loader-color: #fff;
 $loader-width: .2em;
 $loader-speed: .6s;
 
-$breakpoint-tablet: 765px !default;
 :host {
     padding: 14px 24px;
     position: relative;
@@ -38,7 +40,7 @@ $breakpoint-tablet: 765px !default;
         //text-transform: uppercase;
         background: $primary-color;
         color: $font-color;
-        border-radius: $border-radius;
+        border-radius: $input-border-radius;
 
 
         &:not(.loading):not(.disabled) {

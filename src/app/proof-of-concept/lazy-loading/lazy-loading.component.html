@@ -1,0 +1,8 @@
+<div class="header">
+    loaded images: {{loadedImages}} / {{images}}
+</div>
+<div class="content">
+    <img *ngFor="let i of imageLinks"
+         alt=""
+         lazyLoading="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{i}}.png">
+</div>

@@ -1,0 +1,23 @@
+$topHeight: 1em;
+.header {
+    height: $topHeight;
+    width: 100vw;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+    left: 0;
+    position: absolute;
+}
+
+.content {
+    top: $topHeight;
+    width: calc(100vw - 16px);
+    height: calc(100% - #{$topHeight});
+    overflow-y: auto;
+    position: relative;
+
+    img {
+        height: 475px;
+        width: 475px;
+        position: relative;
+    }
+}
