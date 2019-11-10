@@ -1,4 +1,5 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {CoreSelectOptionDirective} from "./core-select-option.directive";
 
 import {CoreSelectComponent} from "./core-select.component";
 
@@ -8,9 +9,11 @@ describe("CoreSelectComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CoreSelectComponent]
-        })
-            .compileComponents();
+            declarations: [
+                CoreSelectComponent,
+                CoreSelectOptionDirective,
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {

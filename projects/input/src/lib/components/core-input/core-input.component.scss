@@ -1,0 +1,6 @@
+@import "projects/input/src/lib/input-styles";
+
+input {
+    @extend .basic-input;
+    @extend .themed;
+}

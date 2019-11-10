@@ -1,10 +1,11 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { TableMakerModule } from "@g43/table";
-import { AppTestingModule } from "../../tests/app-testing.module";
-import { BasicTableComponent } from "./basic-table/basic-table.component";
-import { HugeTableComponent } from "./huge-table/huge-table.component";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {TableMakerModule} from "@g43/table";
+import {AppTestingModule} from "../../tests/app-testing.module";
+import {BasicTableComponent} from "./basic-table/basic-table.component";
+import {HugeTableFramedComponent} from "./huge-table-framed/huge-table-framed.component";
+import {HugeTableComponent} from "./huge-table/huge-table.component";
 
-import { TableMakerExampleComponent } from "./table-maker-example.component";
+import {TableMakerExampleComponent} from "./table-maker-example.component";
 
 describe("TableMakerExampleComponent", () => {
     let component: TableMakerExampleComponent;
@@ -19,6 +20,7 @@ describe("TableMakerExampleComponent", () => {
             declarations: [
                 BasicTableComponent,
                 HugeTableComponent,
+                HugeTableFramedComponent,
                 TableMakerExampleComponent,
             ],
         }).compileComponents();

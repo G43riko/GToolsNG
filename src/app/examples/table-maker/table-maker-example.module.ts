@@ -1,7 +1,6 @@
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {TranslateModule} from "@ngx-translate/core";
-// import {TableMakerModule} from "@g43/table";
 import {TableMakerModule} from "../../../../projects/table/src/public-api";
 import {BasicTableComponent} from "./basic-table/basic-table.component";
 import {HugeTableFramedComponent} from "./huge-table-framed/huge-table-framed.component";

@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, OnInit} from "@angular/core";
+import {Component, ElementRef, forwardRef, Input, OnInit} from "@angular/core";
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -17,10 +17,16 @@ export class CoreInputComponent<T = string> implements OnInit, ControlValueAcces
     @Input() public label?: string;
     @Input() public placeholder?: string;
     public inputFormControl = new FormControl("");
+    public localDisabled: boolean;
+
+    public constructor(private readonly elementRef: ElementRef) {
+        this.disable = !!this.elementRef.nativeElement.getAttribute("disabled");
+    }
 
     @Input("disabled")
     public set disable(value: boolean) {
         this.setDisabledState(value);
+        this.localDisabled = value;
     }
 
     public ngOnInit() {

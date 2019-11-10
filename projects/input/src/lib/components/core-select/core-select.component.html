@@ -1,16 +1,13 @@
-<div (click)="close()" *ngIf="opened" class="backdrop"></div>
-<div class="select-wrapper">
-    <div *ngIf="label" class="label">{{label}}</div>
-    <div class="options">
-        <div (click)="open()" class="select-input">
-            {{visibleValue}}
-        </div>
-        <div *ngIf="opened" class="select-options">
-            <div (click)="setValue(value); close()"
-                 (mouseenter)="focusIndex = idx"
-                 *ngFor="let value of values, let idx=index"
-                 [class.focused]="focusIndex===idx"
-                 class="select-option">{{value}}</div>
-        </div>
+<div *ngIf="label" class="label">{{label}}</div>
+<div class="options" tabindex="{{disabled ? -1 : 0}}">
+    <div (click)="toggle()" [class.disabled]="disabled" class="select-input">
+        {{visibleValue}}
+    </div>
+    <div *ngIf="opened" class="select-options">
+        <div *ngFor="let value of values, let idx=index"
+             [index]="idx"
+             [parent]="this"
+             [value]="value"
+             g43CoreSelectOption></div>
     </div>
 </div>

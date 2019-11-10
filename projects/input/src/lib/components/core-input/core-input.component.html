@@ -2,6 +2,8 @@
     {{label}}
     <input [formControl]="inputFormControl"
            [placeholder]="placeholder"
+           [class.disabled]="localDisabled"
+           tabindex="{{localDisabled ? -1 : 0}}"
            autocomplete="off"
            style="width: 100%;"/>
 </label>

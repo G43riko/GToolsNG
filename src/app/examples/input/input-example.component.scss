@@ -1,4 +1,9 @@
 .space-holder {
     position: relative;
     height: 300px;
+    pointer-events: none;
+}
+
+.hr-divider {
+    margin: 2rem 0;
 }

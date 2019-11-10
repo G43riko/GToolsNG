@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {LazyLoadingComponent} from "./lazy-loading.component";
+import {LazyLoadingDirective} from "./lazy-loading.directive";
 
 describe("LazyLoadingComponent", () => {
     let component: LazyLoadingComponent;
@@ -8,9 +9,11 @@ describe("LazyLoadingComponent", () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [LazyLoadingComponent]
-        })
-            .compileComponents();
+            declarations: [
+                LazyLoadingComponent,
+                LazyLoadingDirective,
+            ]
+        }).compileComponents();
     }));
 
     beforeEach(() => {

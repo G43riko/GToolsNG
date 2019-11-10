@@ -1,8 +1,31 @@
 <div class="row">
-    <span>Empty select</span>
+    <strong>Empty select</strong>
     <g43-core-select></g43-core-select>
 </div>
 <div class="row">
-    <span>Empty select</span>
-    <g43-core-select [values]="['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']"></g43-core-select>
+    <strong>Simple select</strong>
+    <g43-core-select [formControl]="controlA"
+                     [values]="characterValues"></g43-core-select>
+    <span>selected value: {{controlA.value}}</span>
+</div>
+
+<div class="row">
+    <strong>Simple disabled select 1</strong>
+    <g43-core-select [formControl]="controlB" [values]="characterValues"
+                     disabled="disabled"></g43-core-select>
+    <span>selected value: {{controlB.value}}</span>
+</div>
+
+<div class="row">
+    <strong>Simple disabled select 2 </strong>
+    <g43-core-select [disabled]="true" [formControl]="controlC"
+                     [values]="characterValues"></g43-core-select>
+    <span>selected value: {{controlC.value}}</span>
+</div>
+
+<div class="row">
+    <strong>Simple select with label</strong>
+    <g43-core-select [formControl]="controlD" [values]="characterValues"
+                     label="Some label"></g43-core-select>
+    <span>selected value: {{controlD.value}}</span>
 </div>

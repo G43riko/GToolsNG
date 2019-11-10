@@ -1,13 +1,6 @@
-//@import "/src/assets/styles/variables";
-
-// DEFAULT VARIABLES
-$primary-color: rgb(194, 185, 255) !default;
-$primary-color-hover: #7678f8 !default;
-$primary-color-active: #3c45e2 !default;
-$font-color: #111111 !default;
+@import "projects/input/src/lib/input-styles";
 
 $breakpoint-tablet: 765px !default;
-$input-border-radius: .28571429rem !default;
 
 $loader-size: 1.28571429em;
 $loader-background: rgba(0, 0, 0, .15);
@@ -16,13 +9,26 @@ $loader-width: .2em;
 $loader-speed: .6s;
 
 :host {
+    @extend .cursored;
+    @extend .centered;
     padding: 14px 24px;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    //display: flex;
-    //display: block;
+
+    &.styled {
+        @extend .textable;
+        @extend .radiusable;
+        @extend .bordered;
+        @extend .backgrounded;
+
+        &:not(.loading):not(.disabled) {
+            &:focus, &:active:focus {
+                outline: 0 none;
+            }
+
+            &:active {
+                box-shadow: none;
+            }
+        }
+    }
 
     @keyframes button-spin {
         from {
@@ -30,41 +36,6 @@ $loader-speed: .6s;
         }
         to {
             transform: rotate(360deg);
-        }
-    }
-
-    &.styled {
-        border: 0 none;
-        font-weight: 700;
-        letter-spacing: 1px;
-        //text-transform: uppercase;
-        background: $primary-color;
-        color: $font-color;
-        border-radius: $input-border-radius;
-
-
-        &:not(.loading):not(.disabled) {
-            &:focus, &:active:focus {
-                outline: 0 none;
-            }
-
-            &:hover {
-                background: $primary-color-hover;
-            }
-
-            &:active {
-                background: $primary-color-active;
-                box-shadow: none;
-            }
-        }
-    }
-
-
-    &.disabled {
-        cursor: default;
-
-        &, &:focus, &:hover {
-            color: rgba($font-color, 0.5);
         }
     }
 

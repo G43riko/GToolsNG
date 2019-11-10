@@ -3,6 +3,7 @@ import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ButtonComponent} from "./components/button/button.component";
 import {CoreInputComponent} from "./components/core-input/core-input.component";
+import {CoreSelectOptionDirective} from "./components/core-select/core-select-option.directive";
 import {CoreSelectComponent} from "./components/core-select/core-select.component";
 import {NumberInputComponent} from "./components/number-input/number-input.component";
 import {G43InputComponent} from "./g43-input.component";
@@ -14,6 +15,7 @@ import {G43InputComponent} from "./g43-input.component";
         NumberInputComponent,
         ButtonComponent,
         CoreSelectComponent,
+        CoreSelectOptionDirective,
     ],
     imports: [
         FormsModule,

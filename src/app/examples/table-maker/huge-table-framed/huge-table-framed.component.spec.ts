@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {TableMakerModule} from "@g43/table";
+import {HugeTableFramedComponent} from "./huge-table-framed.component";
 
-import {HugeTableFramedComponent} from "./huge-table.component";
 
 describe("HugeTableComponent", () => {
     let component: HugeTableFramedComponent;

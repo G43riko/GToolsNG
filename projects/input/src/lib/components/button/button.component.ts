@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
     selector: "button[g43-button], a[g43-button]",
@@ -8,20 +8,19 @@ import {Component, Input, OnInit} from "@angular/core";
     host: {
         "[class.loading]": "loading",
         "[class.inline]": "inline",
+        "[tabindex]": "disabled ? -1 : 0",
         // "[attr.disabled]": "disabled || loading || null",
         "[class.disabled]": "disabled || loading || null",
         "(click)": "checkClick($event)"
     }
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
     @Input() public value: string;
     @Input() public icon: string;
     @Input() public inline: boolean;
     @Input() public loading: boolean;
     @Input() public disabled: boolean;
 
-    public ngOnInit() {
-    }
 
     public checkClick($event: Event): void {
         if (this.disabled || this.loading) {
