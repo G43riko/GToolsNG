@@ -8,21 +8,26 @@
                type="date">
     </ng-template>
     <ng-template [ngSwitchCase]="'NUMBER_RANGE'">
-        <input [min]="filterConfig.min"
+        <input #minNumberRange
+               (input)="setNumberRange(minNumberRange.value, maxNumberRange.value)"
+               [min]="filterConfig.min"
                class="range"
                type="number">
-        <input [max]="filterConfig.max"
+        <input #maxNumberRange
+               (input)="setNumberRange(minNumberRange.value, maxNumberRange.value)"
+               [max]="filterConfig.max"
                class="range"
                type="number">
     </ng-template>
     <ng-template [ngSwitchCase]="'SELECT'">
-        <select>
+        <select #selectElement (input)="setSelectValue(selectElement.value)">
             <option *ngFor="let selectData of filterConfig.selectValues" [value]="selectData.value">
                 {{selectData.key}}
             </option>
         </select>
     </ng-template>
     <ng-template ngSwitchDefault>
-        <input [style.width]="width" [type]="filterConfig.type.toLowerCase()">
+        <input #textInput (input)="setLike(textInput.value)" [style.width]="width"
+               [type]="filterConfig.type.toLowerCase()">
     </ng-template>
 </ng-container>

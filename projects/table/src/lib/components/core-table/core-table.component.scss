@@ -9,3 +9,29 @@
     overflow: hidden;
     border-radius: 50%;
 }
+
+table.sticky {
+    border-collapse: collapse;
+
+    thead {
+        tr {
+            th {
+                position: sticky;
+                height: 20px;
+            }
+
+            &:first-child {
+                th {
+                    top: 0;
+                }
+            }
+
+            &:last-child {
+                th {
+                    top: 20px;
+                }
+            }
+        }
+    }
+
+}

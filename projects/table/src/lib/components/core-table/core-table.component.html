@@ -1,10 +1,10 @@
-<table *ngIf="tableConfig">
+<table *ngIf="tableConfig" [class.sticky]="tableConfig.sticky">
     <thead>
     <tr>
         <th *ngIf="hasSelection" width="20px"></th>
         <th *ngFor="let column of visibleColumns"
             [style.text-align]="column.align"
-            [width]="column.width">
+            [width]="widthFor(column)">
             {{getLabel(column) | async}}
         </th>
     </tr>
@@ -16,14 +16,15 @@
         </th>
         <th *ngFor="let column of visibleColumns"
             [style.text-align]="column.align"
-            [width]="column.width">
-            <g43-table-filter [filterConfig]="column.filter" [width]="column.width"></g43-table-filter>
+            [width]="widthFor(column)">
+            <g43-table-filter [column]="column.columnDef" [filterConfig]="column.filter"
+                              [width]="widthFor(column)"></g43-table-filter>
         </th>
     </tr>
     </thead>
     <tbody>
     <tr (click)="onRowClick(row, rowIndex)"
-        *ngFor="let row of data | async; let rowIndex = index"
+        *ngFor="let row of realData; let rowIndex = index; trackBy: trackByFn"
         [ngClass]="getRowClass(row, rowIndex)">
         <td *ngIf="hasSelection">
             <input #selectionCheckbox
@@ -34,7 +35,7 @@
         <td *ngFor="let column of visibleColumns; let columnIndex = index"
             [ngClass]="getCellClass(row, rowIndex, columnIndex, column)"
             [style.text-align]="column.align"
-            [width]="column.width">
+            [width]="widthFor(column)">
             <g43-table-column [columnConfig]="column"
                               [columnIndex]="columnIndex"
                               [edited]="false"

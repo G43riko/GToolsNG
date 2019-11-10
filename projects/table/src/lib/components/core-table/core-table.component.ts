@@ -1,20 +1,32 @@
-import {Component, ElementRef, Inject, Input, OnInit, Optional, QueryList, ViewChildren} from "@angular/core";
+import {Component, ElementRef, Inject, Input, OnDestroy, OnInit, Optional, QueryList, ViewChildren, ViewEncapsulation} from "@angular/core";
 import {G43_TRANSLATE_TOKEN, G43Translation} from "@g43/common";
-import {Observable, of} from "rxjs";
+import {Observable, of, Subscription} from "rxjs";
 import {TableColumnConfigInterface} from "../../interfaces/table-column-config.interface";
 import {TableConfigInterface} from "../../interfaces/table-config.interface";
+import {CoreTableFilterComponent} from "../core-table-filter/core-table-filter.component";
+import {CoreTableService} from "../core-table.service";
 
 @Component({
     selector: "g43-table",
     templateUrl: "./core-table.component.html",
-    styleUrls: ["./core-table.component.scss"]
+    styleUrls: ["./core-table.component.scss"],
+    providers: [CoreTableService],
+    encapsulation: ViewEncapsulation.None
 })
-export class CoreTableComponent implements OnInit {
+export class CoreTableComponent implements OnInit, OnDestroy {
     @Input() public tableConfig: TableConfigInterface;
     @Input() public data: Observable<any[]>;
+    public realData: any[];
+    @ViewChildren(CoreTableFilterComponent) public filters: QueryList<CoreTableFilterComponent>;
     @ViewChildren("selectionCheckbox") public checkboxes: QueryList<ElementRef<HTMLInputElement>>;
+    private subscription: Subscription;
 
-    public constructor(@Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation) {
+    public constructor(@Optional() @Inject(G43_TRANSLATE_TOKEN) private readonly translationService: G43Translation,
+                       private readonly coreTableService: CoreTableService) {
+    }
+
+    public widthFor(columnConfig: TableColumnConfigInterface): string {
+        return columnConfig.width || "auto";
     }
 
     public get hasSelection(): boolean {
@@ -26,6 +38,23 @@ export class CoreTableComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        let innerSubscription;
+        this.subscription = this.data.subscribe((data) => {
+            if (innerSubscription) {
+                innerSubscription.unsubscribe();
+            }
+            innerSubscription = this.coreTableService.filter$.subscribe((filters) => {
+                this.realData = this.coreTableService.process(filters, data);
+            });
+        });
+
+        // this.coreTableService.filter$.pipe(
+        //     mergeMap(() => this.data, (filters, data) => {
+        //         return this.coreTableService.process(filters, data);
+        //     })
+        // ).subscribe((data) => {
+        //     this.realData = data;
+        // });
     }
 
     public getLabel(columnConfig: TableColumnConfigInterface): Observable<string> {
@@ -87,4 +116,13 @@ export class CoreTableComponent implements OnInit {
         }
     }
 
+    public trackByFn(index, item) {
+        return item.id;
+    }
+
+    public ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
+
 }
+

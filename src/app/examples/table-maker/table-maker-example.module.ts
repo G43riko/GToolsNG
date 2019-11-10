@@ -4,6 +4,7 @@ import {TranslateModule} from "@ngx-translate/core";
 // import {TableMakerModule} from "@g43/table";
 import {TableMakerModule} from "../../../../projects/table/src/public-api";
 import {BasicTableComponent} from "./basic-table/basic-table.component";
+import {HugeTableFramedComponent} from "./huge-table-framed/huge-table-framed.component";
 import {HugeTableComponent} from "./huge-table/huge-table.component";
 import {TableMakerExampleRoutingModule} from "./table-maker-example-routing.module";
 import {TableMakerExampleComponent} from "./table-maker-example.component";
@@ -13,6 +14,7 @@ import {TableMakerExampleComponent} from "./table-maker-example.component";
         TableMakerExampleComponent,
         BasicTableComponent,
         HugeTableComponent,
+        HugeTableFramedComponent,
     ],
     imports: [
         CommonModule,

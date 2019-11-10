@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { TableColumnConfigInterface } from "../../interfaces/table-column-config.interface";
+import {ChangeDetectionStrategy, Component, Input, OnInit} from "@angular/core";
+import {TableColumnConfigInterface} from "../../interfaces/table-column-config.interface";
 
 @Component({
     selector: "g43-table-column",
     templateUrl: "./core-table-column.component.html",
-    styleUrls: ["./core-table-column.component.scss"]
+    styleUrls: ["./core-table-column.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoreTableColumnComponent implements OnInit {
     @Input() public columnConfig: TableColumnConfigInterface;

@@ -1,8 +1,8 @@
-import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
-import { FooterType, TableConfigInterface } from "@g43/table";
-import { Observable } from "rxjs";
-import { Employee } from "../../../mock/data/employees.data";
-import { EmployeeService } from "../../services/employee.service";
+import {Component, OnInit, TemplateRef, ViewChild} from "@angular/core";
+import {FooterType, TableConfigInterface} from "@g43/table";
+import {Observable} from "rxjs";
+import {Employee} from "../../../mock/data/employees.data";
+import {EmployeeService} from "../../services/employee.service";
 
 @Component({
     selector: "basic-table",
@@ -54,7 +54,7 @@ export class BasicTableComponent implements OnInit {
                     type: "boolean",
                     width: "70px",
                     filter: {
-                        type: "STRING",
+                        type: "BOOLEAN",
                     }
                 },
                 {

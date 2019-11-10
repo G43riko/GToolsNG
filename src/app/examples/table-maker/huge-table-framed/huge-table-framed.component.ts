@@ -4,11 +4,11 @@ import {Observable, of} from "rxjs";
 import {Movie, movies} from "../../../mock/data/movies.data";
 
 @Component({
-    selector: "huge-table",
-    templateUrl: "./huge-table.component.html",
-    styleUrls: ["./huge-table.component.scss"]
+    selector: "huge-table-framed",
+    templateUrl: "./huge-table-framed.component.html",
+    styleUrls: ["./huge-table-framed.component.scss"]
 })
-export class HugeTableComponent implements OnInit {
+export class HugeTableFramedComponent implements OnInit {
     @ViewChild("grossColumn", {static: true}) public grossColumn: TemplateRef<any>;
     @ViewChild("budgetColumn", {static: true}) public budgetColumn: TemplateRef<any>;
     @ViewChild("actorsColumn", {static: true}) public actorsColumn: TemplateRef<any>;
@@ -19,6 +19,7 @@ export class HugeTableComponent implements OnInit {
 
     public ngOnInit(): void {
         this.tableConfig = {
+            sticky: true,
             // onRowClick: (row: any) => alert("Age: " + row.age),
             // selectable: 'SINGLE',
             columns: [
@@ -69,7 +70,7 @@ export class HugeTableComponent implements OnInit {
                 {
                     labelKey: "movies.director",
                     columnDef: "director_name",
-                    customValue: (row) => `${ row.director_name }(${ row.director_facebook_likes })`,
+                    customValue: (row) => `${row.director_name}(${row.director_facebook_likes})`,
                     sort: true,
                     filter: {
                         type: "STRING",
@@ -133,6 +134,6 @@ export class HugeTableComponent implements OnInit {
                 }
                  */
             ]
-        };
+        } as any;
     }
 }
