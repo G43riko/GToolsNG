@@ -9,6 +9,20 @@
 <h2>Here are some links to help you start: </h2>
 <ul>
     <li>
+        <h2><a href="{{url}}/" rel="noopener" target="_blank">Demo</a></h2>
+    </li>
+    <li>
+        <h2><a href="{{url}}/documentation" rel="noopener" target="_blank">Documentation</a></h2>
+    </li>
+    <li *ngFor="let module of modules">
+        <h2>{{module.name}}</h2>
+        <ul>
+            <li><h4><a href="{{url}}/{{module.demo}}" rel="noopener" target="_blank">Demo</a></h4></li>
+            <li><h4><a href="{{url}}/{{module.docs}}" rel="noopener" target="_blank">Documentation</a></h4></li>
+            <li><h4><a href="{{module.npm}}" rel="noopener" target="_blank">NPM</a></h4></li>
+        </ul>
+    </li>
+    <li>
         <h2><a href="https://angular.io/tutorial" rel="noopener" target="_blank">Tour of Heroes</a></h2>
     </li>
     <li>

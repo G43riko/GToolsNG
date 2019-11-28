@@ -166,7 +166,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -264,7 +264,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -292,7 +292,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -324,8 +324,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:28</a></div>
                 </td>
             </tr>
 
@@ -354,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:33</a></div>
                 </td>
             </tr>
 
@@ -386,7 +386,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/input/src/lib/components/core-select/core-select-option.directive.ts:18</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -447,6 +447,9 @@ export class CoreSelectOptionDirective {
     @Input(&quot;index&quot;) public index: number;
     @Input(&quot;parent&quot;) private select: CoreSelectComponent;
 
+    public constructor(private readonly elementRef: ElementRef) {
+    }
+
     @Input(&quot;value&quot;)
     public set value(value: any) {
         this.elementRef.nativeElement.innerHTML &#x3D; value;
@@ -465,9 +468,6 @@ export class CoreSelectOptionDirective {
     @HostListener(&quot;mouseenter&quot;)
     private onMouseEnter(): void {
         this.select.focusIndex &#x3D; this.index;
-    }
-
-    public constructor(private readonly elementRef: ElementRef) {
     }
 
 }
