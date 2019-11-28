@@ -19,6 +19,13 @@
         "test:common": "ng test G43Common",
         "test:table": "ng test G43Table",
         "test:menu": "ng test G43Menu",
+        "docs": "npm run build:github && npm run compodoc",
+        "compodoc": "npm run compodoc:all && npm run compodoc:input && npm run compodoc:table && npm run compodoc:common && npm run compodoc:menu",
+        "compodoc:all": "npx compodoc -p projects/tsconfig.compodoc.json -d docs/documentation",
+        "compodoc:table": "npx compodoc -p projects/table/tsconfig.lib.json -d docs/documentation/project/table",
+        "compodoc:input": "npx compodoc -p projects/input/tsconfig.lib.json -d docs/documentation/project/input",
+        "compodoc:common": "npx compodoc -p projects/common/tsconfig.lib.json -d docs/documentation/project/common",
+        "compodoc:menu": "npx compodoc -p projects/menu/tsconfig.lib.json -d docs/documentation/project/menu",
         "test:input": "ng test G43Input",
         "test:all": "npm run test:common && npm run test:table && npm run test:menu && npm run test:input",
         "lint": "ng lint",
@@ -52,7 +59,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/G43riko/GToolsNG.git"
+        "url": "https://github.com/G43riko/G43-cli.git"
     },
     "author": {
         "email": "gcsollei@hotmail.com",

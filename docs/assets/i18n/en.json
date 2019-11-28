@@ -28,6 +28,8 @@
         "home": "Home",
         "about": "About",
         "table": "Tables",
-        "input": "Inputs"
+        "input": "Inputs",
+        "menu": "Menu",
+        "lazyLoading": "Lazy loading"
     }
 }
