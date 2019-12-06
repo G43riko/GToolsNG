@@ -1,5 +1,8 @@
 import { HttpRequest, HttpResponse } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { HttpStatusCodes } from "gtools";
+import { Observable, throwError } from "rxjs";
+import { map } from "rxjs/operators";
+import { AbstractDatabaseService } from "../abstract-database.service";
 
 /**
  * TODO: allow process parameters like
@@ -7,58 +10,65 @@ import { Observable, of } from "rxjs";
  *  limit
  *  formatter
  */
-export class G43RestApiHandler<T extends { id: number }> {
-    private readonly realData: T[];
-
-    public constructor(data: T[], private readonly path: string) {
-        this.realData = [...data];
+export class AbstractRestApiHandler<T extends { id: number }> {
+    public constructor(private readonly database: AbstractDatabaseService<T>, private readonly path: string, private urlMap = {
+        list  : (url: string) => url.indexOf(`/${this.path}`) >= 0,
+        add   : (url: string) => url.endsWith(`/${this.path}`),
+        update: (url: string) => url.match(new RegExp(`/${this.path}/[1-9][0-9]?`)),
+        delete: (url: string) => url.match(new RegExp(`/${this.path}/[1-9][0-9]?`)),
+        count : (url: string) => url.endsWith(`/${this.path}/count`),
+        detail: (url: string) => url.match(new RegExp(`/${this.path}/[1-9][0-9]?`)),
+    }) {
     }
 
-    public use(request: HttpRequest<T>): Observable<HttpResponse<T | T[]>> | null {
+    public use(request: HttpRequest<T>): Observable<HttpResponse<T | T[] | number>> | null {
+        // get count
+        if (this.urlMap.count(request.url) && request.method === "GET") {
+            return this.database.getCount().pipe(map((body) => new HttpResponse({body, status: 200})));
+        }
+        // get data by id
+        if (this.urlMap.detail(request.url) && request.method === "GET") {
+            const splitUrl = request.url.split("/");
+            const id       = splitUrl[splitUrl.length - 1];
+
+            return this.database.getDetail(id).pipe(map((body) => new HttpResponse({body, status: 200})));
+        }
         // get all data
-        if (request.url.endsWith(`/${ this.path }`) && request.method === "GET") {
-            return of(new HttpResponse({
-                status: 200, body: this.realData,
-            }));
+        if (this.urlMap.list(request.url) && request.method === "GET") {
+            return this.database.getList().pipe(map((body) => new HttpResponse({body, status: 200})));
         }
 
         // add new item
-        if (request.url.endsWith(`/${ this.path }`) && request.method === "POST") {
-            this.realData.push(request.body);
+        if (this.urlMap.add(request.url) && request.method === "POST") {
+            if (request.body) {
+                return this.database.create(request.body).pipe(map(() => new HttpResponse({
+                    status: 200,
+                    body  : request.body,
+                })));
+            }
 
-            return of(new HttpResponse({
-                status: 200, body: request.body,
-            }));
-        }
-
-        // get data by id
-        if (request.url.match(new RegExp(`/${ this.path }/[1-9][0-9]?`)) && request.method === "GET") {
-            const splitUrl = request.url.split("/");
-            const id = parseInt(splitUrl[splitUrl.length - 1], 10);
-
-            return of(new HttpResponse({
-                status: 200, body: this.realData.find((employee) => employee.id === id),
-            }));
+            return throwError(new HttpResponse({status: HttpStatusCodes.BAD_REQUEST, body: "Body is missing"}));
         }
 
         // delete data by id
-        if (request.url.match(new RegExp(`/${ this.path }/[1-9][0-9]?`)) && request.method === "DELETE") {
+        if (this.urlMap.delete(request.url) && request.method === "DELETE") {
             const splitUrl = request.url.split("/");
-            const id = parseInt(splitUrl[splitUrl.length - 1], 10);
-            const indexOfElementForDelete = this.realData.findIndex((employee) => employee.id === id);
-            const removedElement = this.realData.splice(indexOfElementForDelete, 1)[0];
+            const id       = splitUrl[splitUrl.length - 1];
 
-            return of(new HttpResponse({status: 200, body: removedElement}));
+            return this.database.delete(id).pipe(map((body) => new HttpResponse({body, status: 200})));
         }
 
         // update data by id
-        if (request.url.match(new RegExp(`/${ this.path }/[1-9][0-9]?`)) && request.method === "PUT") {
+        if (this.urlMap.update(request.url) && request.method === "PUT") {
             const splitUrl = request.url.split("/");
-            const id = parseInt(splitUrl[splitUrl.length - 1], 10);
-            const indexOfUpdating = this.realData.findIndex((employee) => employee.id === id);
-            this.realData[indexOfUpdating] = request.body;
+            const id       = splitUrl[splitUrl.length - 1];
+            if (request.body) {
+                return this.database.update(id, request.body).pipe(map((body) => new HttpResponse({
+                    body, status: 200,
+                })));
+            }
 
-            return of(new HttpResponse({status: 200, body: this.realData[indexOfUpdating]}));
+            return throwError(new HttpResponse({status: HttpStatusCodes.BAD_REQUEST, body: "Body is missing"}));
         }
 
         return null;

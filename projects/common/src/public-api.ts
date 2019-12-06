@@ -16,4 +16,6 @@ export * from "./lib/shared-pipes/g43-safe.pipe";
 
 export * from "./lib/testing/g43-testing.module";
 export * from "./lib/testing/api/g43-rest-api.handler";
+export * from "./lib/testing/abstract-database.service";
+export * from "./lib/testing/simple-memory-database.service";
 
