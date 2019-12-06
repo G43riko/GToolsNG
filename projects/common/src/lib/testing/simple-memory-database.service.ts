@@ -1,11 +1,12 @@
-import { AbstractDatabaseFixture, PaginateModel } from "gtools";
-import { Observable, of } from "rxjs";
-import { AbstractDatabaseService } from "./abstract-database.service";
+import {PaginateModel} from "gtools";
+import {Observable, of} from "rxjs";
+import {AbstractDatabaseService} from "./abstract-database.service";
+import {AbstractFixture} from "gtools/out/tests/abstract.fixture";
 
-export class SimpleMemoryDatabaseService<T extends { id: any }, DTO = T> extends AbstractDatabaseService<T> {
+export class SimpleMemoryDatabaseService<T extends { id: any }> extends AbstractDatabaseService<T> {
     private readonly data: T[] = [];
 
-    public constructor(fixture?: AbstractDatabaseFixture<T, DTO>) {
+    public constructor(fixture?: AbstractFixture<T>) {
         super();
         if (fixture) {
             this.data.push(...fixture.list);
