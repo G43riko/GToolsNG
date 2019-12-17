@@ -1,8 +1,6 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
-import {G43TestingModule} from "@g43/common";
-import {G43InputModule} from "@g43/input";
-import {CoreSelectOptionDirective} from "../../../../projects/input/src/lib/components/core-select/core-select-option.directive";
-import {CoreSelectComponent} from "../../../../projects/input/src/lib/components/core-select/core-select.component";
+import {G43TestingModule} from "@common";
+import {CoreSelectComponent, CoreSelectOptionDirective, G43InputModule} from "@input";
 
 import {InputExampleComponent} from "./input-example.component";
 import {TestButtonComponent} from "./test-button/test-button.component";

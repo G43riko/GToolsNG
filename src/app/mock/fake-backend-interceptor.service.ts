@@ -1,16 +1,18 @@
 import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {G43RestApiHandler} from "@g43/common";
+import {AbstractRestApiHandler, SimpleMemoryDatabaseService} from "@common";
 import {Observable, of} from "rxjs";
 import {delay, dematerialize, materialize, mergeMap} from "rxjs/operators";
-import {employees} from "./data/employees.data";
-import {movies} from "./data/movies.data";
+import {Employee, employees} from "./data/employees.data";
+import {Movie, movies} from "./data/movies.data";
+import {MovieFixture} from "./data/movie.fixture";
+import {EmployeeFixture} from "./data/employee.fixture";
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     private static readonly REQUEST_DELAY = 500;
-    private readonly moviesRestHandler = new G43RestApiHandler(movies, "movies");
-    private readonly employeesRestHandler = new G43RestApiHandler(employees, "employees");
+    private readonly moviesRestHandler = new AbstractRestApiHandler<Movie>(new SimpleMemoryDatabaseService(new MovieFixture()), "movies");
+    private readonly employeesRestHandler = new AbstractRestApiHandler<Employee>(new SimpleMemoryDatabaseService(new EmployeeFixture()), "employees");
 
     public constructor() {
         // empty
@@ -33,7 +35,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // pass through any requests not handled above
             return next.handle(request);
 
-        })).pipe(materialize()).pipe(delay(FakeBackendInterceptor.REQUEST_DELAY)).pipe(dematerialize());
+        })).pipe(materialize()).pipe(delay(FakeBackendInterceptor.REQUEST_DELAY)).pipe(dematerialize()) as any;
     }
 }
 

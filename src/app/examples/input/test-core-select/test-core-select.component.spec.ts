@@ -1,6 +1,5 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
-import {CoreSelectOptionDirective} from "../../../../../projects/input/src/lib/components/core-select/core-select-option.directive";
-import {CoreSelectComponent} from "../../../../../projects/input/src/lib/components/core-select/core-select.component";
+import {CoreSelectComponent, CoreSelectOptionDirective} from "@input";
 import {AppTestingModule} from "../../../tests/app-testing.module";
 
 import {TestCoreSelectComponent} from "./test-core-select.component";

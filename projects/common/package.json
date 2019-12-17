@@ -1,11 +1,6 @@
 {
     "name": "@g43/common",
     "version": "0.0.9",
-    "peerDependencies": {
-        "@angular/common": "^8.2.1",
-        "@angular/core": "^8.2.1",
-        "gtools": "^0.2.8"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/G43riko/GToolsNG.git"
@@ -14,7 +9,12 @@
         "email": "gcsollei@hotmail.com",
         "name": "Gabriel Csollei"
     },
-    "keywords": ["gtools", "angular", "library"],
+    "keywords": [
+        "gtools",
+        "angular",
+        "library",
+        "common"
+    ],
     "bugs": {
         "email": "gcsollei@hotmail.com",
         "url": "https://github.com/G43riko/GToolsNG/issues"

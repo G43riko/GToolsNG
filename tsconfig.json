@@ -19,6 +19,30 @@
             "dom"
         ],
         "paths": {
+            "@table": [
+                "projects/table/src/"
+            ],
+            "@table/*": [
+                "projects/table/src/*"
+            ],
+            "@common": [
+                "projects/common/src/"
+            ],
+            "@common/*": [
+                "projects/common/src/*"
+            ],
+            "@menu": [
+                "projects/menu/src/"
+            ],
+            "@menu/*": [
+                "projects/menu/src/*"
+            ],
+            "@input": [
+                "projects/input/src/"
+            ],
+            "@input/*": [
+                "projects/input/src/*"
+            ]
         }
     },
     "angularCompilerOptions": {

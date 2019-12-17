@@ -1,16 +1,18 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { NgModule } from "@angular/core";
-import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-import { RouterTestingModule } from "@angular/router/testing";
-import { G43_NOTIFICATION_TOKEN } from "../services/g43-notification/g43-notification.interface";
+import {CommonModule} from "@angular/common";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {NgModule} from "@angular/core";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterTestingModule} from "@angular/router/testing";
+import {G43_NOTIFICATION_TOKEN} from "../services/g43-notification/g43-notification.interface";
+
+console.log("testing moduuuuuuuuuuuule");
 
 @NgModule({
     declarations: [],
-    imports     : [],
-    providers   : [
+    imports: [],
+    providers: [
         {
-            provide : G43_NOTIFICATION_TOKEN,
+            provide: G43_NOTIFICATION_TOKEN,
             useValue: {
                 openErrorNotification(error: any) {
                     // empty
