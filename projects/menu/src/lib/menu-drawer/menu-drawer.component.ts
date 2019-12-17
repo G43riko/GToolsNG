@@ -1,5 +1,5 @@
-import {Component, forwardRef, Inject, Input, OnInit} from "@angular/core";
-import {MenuContainerComponent} from "../menu-containter/menu-container.component";
+import {Component, Input, OnInit} from "@angular/core";
+import {MenuServiceService} from "@menu/lib/menu-service.service";
 
 @Component({
     selector: "g43-menu-drawer",
@@ -8,7 +8,7 @@ import {MenuContainerComponent} from "../menu-containter/menu-container.componen
     host: {
         "[style.width.px]": "width",
         "[style.background-color]": "background",
-        "[style.padding-top.px]": "container.topOffset",
+        "[style.padding-top.px]": "menuServiceService.topOffset",
         "[class]": "'menu-drawer ' + align",
         "[class.visible]": "visible",
         "[style.display]": "loaded ? 'block' : 'none'",
@@ -22,7 +22,7 @@ export class MenuDrawerComponent implements OnInit {
     private realWidth = 160;
     public loaded = false;
 
-    public constructor(@Inject(forwardRef(() => MenuContainerComponent)) public readonly container: MenuContainerComponent) {
+    public constructor(public readonly menuServiceService: MenuServiceService) {
     }
 
     public get width(): number {
@@ -42,16 +42,16 @@ export class MenuDrawerComponent implements OnInit {
 
     public close(): void {
         this.visible = false;
-        this.container.close(this);
+        this.menuServiceService.close(this);
     }
 
     public open(): void {
         this.visible = true;
-        this.container.open(this);
+        this.menuServiceService.open(this);
     }
 
     public toggle(): void {
         this.visible = !this.visible;
-        this.visible ? this.container.open(this) : this.container.close(this);
+        this.visible ? this.menuServiceService.open(this) : this.menuServiceService.close(this);
     }
 }

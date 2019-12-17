@@ -1,17 +1,25 @@
 import {Component, ContentChild, ContentChildren, HostListener, Input, OnInit, QueryList} from "@angular/core";
 import {MenuDrawerComponent} from "../menu-drawer/menu-drawer.component";
 import {MenuTopComponent} from "../menu-top/menu-top.component";
+import {MenuServiceService} from "@menu/lib/menu-service.service";
 
 @Component({
     selector: "g43-menu-container",
     templateUrl: "./menu-container.component.html",
     styleUrls: ["./menu-container.component.scss"],
+    providers: [
+        MenuServiceService
+    ]
 })
 export class MenuContainerComponent implements OnInit {
     @Input() public filter;
     @Input() public backdrop = true;
     @ContentChildren(MenuDrawerComponent) private drawers: QueryList<MenuDrawerComponent>;
     @ContentChild(MenuTopComponent, {static: false}) public topMenu: MenuTopComponent;
+
+    public constructor(private readonly menuServiceService: MenuServiceService) {
+        this.menuServiceService.setParent(this);
+    }
 
     private openDrawer: MenuDrawerComponent;
 
